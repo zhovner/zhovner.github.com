@@ -1,0 +1,49 @@
+---
+layout: post
+category: tools
+excerpt: Пацанский тюнинг Terminal.app
+---
+
+Terminal.app, при должной настройке, не хуже всяких iTerm.
+
+Мой профиль: [gist.github.com/zhovner/6100164](https://gist.github.com/zhovner/6100164) с закосом под Sublime Text.   
+
+Импортировать через `Settings --> Profiles --> Import`
+
+![terminal.app](/img/terminalapp.png)
+
+**Переназначенные хоткеи:**
+
+![terminal.app](/img/terminalhotkeys.png)
+
+**Стандартные хоткеи:**
+
+* Новая вкладка  `⌘ + T`
+* Закрыть вкладку `⌘ + W`
+* Перемещение между вкладками `⌘ + Shift + ⟵/⟶`
+* Новое окно `⌘ + N`  
+
+Если в настройках выбран пункт  
+`When the shell exits: Close if the shell exits cleanly`  
+окно закрывается по `ctrl + D` или команде `exit`.
+
+
+**Переименовывание вкладок:**
+
+Для удобства вкладки и окна можно переименовать.  
+Для этого в ~/.profile нужно добавить:
+
+{% highlight bash %}
+
+function tabname {
+  printf "\e]1;$1\a"
+}
+
+function winname {
+  printf "\e]2;$1\a"
+}
+
+{% endhighlight %}
+
+Переименовать вкладку: `tabname supertab`
+

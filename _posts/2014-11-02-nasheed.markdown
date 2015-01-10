@@ -1,0 +1,78 @@
+---
+layout: post
+category: random
+tags: 
+excerpt: 
+title: 
+---
+
+
+### Mishary Rashid Alafasy
+Неидентифицируемый трек от Мишари Рашида.
+
+{% soundcloud tracks 175029238 %}
+
+* * * 
+
+### Танцевальная композиция от Хамас
+Не нашид, конечно.  
+Все сцены на видео постановочные но все равно довольно задорно сделано.  
+
+{% youtube gC1THx9swU0 %}
+
+
+* * * 
+
+### Моднейший нашид ISIS
+
+{% youtube jRBoXN8z9Js %}
+
+
+{% highlight text %}
+saleelul sawarim nasheedul ubah
+wa darbul qitaly tariqul haya
+fa baynaq tihamin yubidu tugha
+wa kateem musawtim jamilun sadah
+
+saleelul sawarim nasheedul ubah
+wa darbul qitaly tariqul haya
+fa baynaq tihamin yubidu tugha
+wa kateem musawtim jamilun sadah
+
+behi azadini w galal bugha faya qawmi hubu lidarbil kumah
+fa ima hayatun tasurul hudah wa ima ma'matun yughighul uda
+wa ima ma'matun yughighul uda
+
+saleelul sawarim nasheedul ubah
+wa darbul qitaly tariqul haya
+fa baynaq tihamin yubidu tugha
+wa kateem musawtim jamilun sadah
+
+faqum yaw'faya lidarbin naja lilamdi saweeya nasudul ghuza
+wa narfa umajida wa nu'leh jiba abat antadila be ghairil ilah
+abat antadila le ghairil ilah
+
+saleelul sawarim nasheedul ubah
+wa darbul qitaly tariqul haya
+fa baynaq tihamin yubidu tugha
+wa kateem musawtim jamilun sadah
+
+il al haqi haya da'ana lewa
+li sahil manaya be harbi aydah
+faman ma ta'minna fi dan an himah
+bi janati khuldin sayaghdu azah
+bi janati khuldin sayaghdu azah
+
+saleelul sawarim nasheedul ubah
+wa darbul qitaly tariqul haya
+fa baynaq tihamin yubidu tugha
+wa kateem musawtim jamilun sadah
+
+saleelul sawarim nasheedul ubah
+wa darbul qitaly tariqul haya
+fa baynaq tihamin yubidu tugha
+wa kateem musawtim jamilun sadah
+{% endhighlight %}
+
+
+

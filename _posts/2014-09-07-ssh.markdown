@@ -1,0 +1,16 @@
+---
+layout: post
+category: tools
+tags: 
+excerpt: 
+title: SSH
+---
+
+# Прокинуть socks на удаленный хост
+`ssh -D 9999 user@remote.host`
+
+
+# Через socks-прокси
+
+`ssh -o ProxyCommand="nc -X 5 -x localhost:9999 %h %p" root@10.0.0.1`
+

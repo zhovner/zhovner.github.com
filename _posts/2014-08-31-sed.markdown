@@ -1,0 +1,24 @@
+---
+layout: post
+category: tools
+title: "Шпаргалка по Sed"
+---
+
+В Mac OS из коробки BSD-шный sed, поэтому некоторые примеры описанные нижем могут не работать.
+Поэтому лучше установить GNU-тый sed: `brew install gnu-sed`.  
+
+<br/>
+
+* **Произвести замену и оставить в файле только строки совпавшие с выражением**
+
+Аналогично `cat file.txt | grep <regex> | sed -e 's/<regex>/<replace>/g'`
+
+`sed -i -e 's/<regex>/<replacement>/gp;d' file.txt`  
+
+<br/>
+
+* **Удалить строки начинающиеся с решетки и пустые строки**
+
+`gsed '/^#\|^$/d' file.txt`
+
+<br/>

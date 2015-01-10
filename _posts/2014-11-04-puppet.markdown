@@ -1,0 +1,73 @@
+---
+layout: post
+category: tools
+tags: 
+excerpt: 
+title: 
+---
+
+#### Установка агента (клиента)
+В репах debian wheezy/squeeze лежит старый puppet 2.x который не умеет модуль [puppetlabs-apt](https://forge.puppetlabs.com/puppetlabs/apt),
+который нужен чтобы рулить репозиториями apt.  
+
+Поэтому ставим пакет от вендора:  
+
+`wget https://apt.puppetlabs.com/puppetlabs-release-wheezy.deb`  
+`dpkg -i puppetlabs-release-wheezy.deb`  
+`apt-get update`  
+`apt-get install puppet`  
+
+Инструкция для остальные систем [puppetlabs_package_repositories.html](https://docs.puppetlabs.com/guides/puppetlabs_package_repositories.html)
+
+#### Если используем мастер-сервер
+
+По-дефолту агент обращается к мастер-серверу по хосту `puppet`.  
+Поэтому если добавить в hosts такой узел, то агент заработает сразу после установки и не придется редактировать конфиги.
+
+Добавляем адрес мастера в `/etc/hosts`:  
+
+`# Puppet master at linode.zhovner.com`  
+`176.58.119.189 linode.zhovner.com puppet`  
+
+
+Редактируем в `/etc/default/puppet` строку `START=yes` чтобы разрешить демонизироваться,  
+и запускаем агент `sudo puppet agent`  
+
+После этого агент пойдет на мастер-сервер и попросит подписать его ключ,  
+пока мастер не подпишет его ключ, агент не сможет получать рецепты.
+
+
+Просмотреть список ожидающих подписания ключей на мастере:  
+`puppet cert list`  
+
+Подписать все ожидающие ключи:  
+`puppet cert sign --all`  
+
+Или подписать конкретный ключ по имени хоста:  
+`puppet cert sign node.hostname.com`  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### Установка мастер-сервера
+
+Дописать позже.
+
+
+

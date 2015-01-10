@@ -1,0 +1,43 @@
+---
+layout: post
+category: tools
+tags: 
+excerpt: 
+title: 
+---
+
+Если по-быстрому нужно поднять DNS и DHCP c помощью dnsmasq:
+
+`dnsmasq -k -d -l /tmp/leases -C /usr/local/etc/dnsmasq.conf`
+
+
+**-k**  --  Keep in foreground  
+**-d**  --  Debug mode: log to stderr, don't write a pid file, don't change user id.  
+**-l**  --  Path to leases file  
+**-C**  --  Path to config file  
+
+Конфиг:
+
+{% highlight bash %}
+
+# На каком интерфейсе слушать запросы DNS/DHCP
+interface=en0
+bind-interfaces
+
+# Не читать /etc/resolv.conf
+no-resolv
+# Не отслеживать его изменения
+no-poll
+
+
+# Резолвить заданные адреса на указанный IP
+# Для указания ВСЕХ доменов вместо домена указывается символ решетки
+# В данном примере все домены будут резолвиться на 10.99.99.1 и только special.net на 10.99.99.2
+address=/#/10.99.99.1
+address=/special.net/10.99.99.2
+
+# Диапазон IP которые будут назначаться DHCP клиентам 
+dhcp-range=10.99.99.10,10.99.99.254,20m
+
+
+{% endhighlight %}

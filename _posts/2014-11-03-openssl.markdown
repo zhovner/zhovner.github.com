@@ -1,0 +1,25 @@
+---
+layout: post
+category: tools
+tags: 
+excerpt: 
+title: 
+---
+
+#### Расшифровать ключ 
+`openssl rsa –in enc.key -out dec.key`  
+
+#### Сравнить фингерпринты
+`openssl rsa -noout -modulus -in /rsa.key`  
+`openssl x509 -noout -modulus -in /crt.crt`  
+
+#### Вся инфа о сертификате 
+`openssl x509 -noout -text -in /cert.pem`  
+
+#### Вывести информацию о сертификате на удаленном сервере
+`openssl s_client -connect paypal.com:443`  	
+
+#### При добавлении mod_ssl в apache
+[error] (2)No such file or directory: Cannot create SSLMutex with file /etc/apache2/${APACHE_RUN_DIR}/ssl_mutex  
+Нужно дописать в /etc/apache2/envvars:
+`export APACHE_RUN_DIR=/var/run/apache2`
