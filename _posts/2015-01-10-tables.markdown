@@ -1,0 +1,12 @@
+---
+layout: post
+category: random
+tags: design
+excerpt: 
+title: Как верстать красивые таблицы
+---
+
+![clear tables](/img/clear_tables.gif)
+
+
+
