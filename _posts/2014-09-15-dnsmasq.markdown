@@ -41,3 +41,29 @@ dhcp-range=10.99.99.10,10.99.99.254,20m
 
 
 {% endhighlight %}
+
+
+**TFTP и PXE:**
+
+{% highlight bash %}
+
+# Disable DNS
+# Если нужен только tftp 
+port=0
+
+
+# Enable the TFTP server
+enable-tftp
+tftp-root=/var/lib/tftpboot/
+
+# PXE options
+# Можно вынести tftp сервер и рутовый диск на адреса отличные от DHCP сервера
+dhcp-option=17,10.0.0.2:/opt/ltsp/i386  
+dhcp-boot=/ltsp/i386/pxelinux.0,randomname,10.0.0.3
+
+# Или разместить их на том же сервере что DHCP
+dhcp-option=17,/path/to/root  
+dhcp-boot=pxelinux.0
+
+
+{% endhighlight %}
