@@ -10,7 +10,7 @@ title:
 ### Mishary Rashid Alafasy
 Неидентифицируемый трек от Мишари Рашида.
 
-{% soundcloud tracks 175029238 %}
+soundcloud tracks 175029238
 
 * * * 
 
@@ -18,7 +18,7 @@ title:
 Не нашид, конечно.  
 Все сцены на видео постановочные но все равно довольно задорно сделано.  
 
-{% youtube gC1THx9swU0 %}
+youtube gC1THx9swU0 
 
 
 * * * 
