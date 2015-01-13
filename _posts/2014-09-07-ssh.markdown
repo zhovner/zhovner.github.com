@@ -6,11 +6,38 @@ excerpt:
 title: SSH
 ---
 
-# Прокинуть socks на удаленный хост
+### Прокинуть socks на удаленный хост
+Можно добавить опцию `-C` для сжатия трафика.  
 `ssh -D 9999 user@remote.host`
 
 
-# Через socks-прокси
+### Через socks-прокси
 
-`ssh -o ProxyCommand="nc -X 5 -x localhost:9999 %h %p" root@10.0.0.1`
+`ssh -o ProxyCommand="nc -X 5 -x localhost:9999 %h %p" root@10.0.0.1`  
 
+### Проброс авторизации
+Аналогичен связке с socks. Удобно в случае если hidden-host доступен только с gate-host  
+`ssh  -o ProxyCommand="ssh -W %h:%p user@gate-host" user@hidden-host`
+
+
+
+## Port Forwarding
+
+<pre><code>-f	go to background
+-N	Не выполнять команд (не спавнить шелл)
+-R	remote
+-L	local</code></pre>
+
+### Вытащить порт наружу  
+Прокинуть локальный порт на удаленный хост, например из-за NAT.  
+
+В данном случае ssh будет доступен на машине remote-host на 127.0.0.1:9999  
+`ssh -f -N -R 9999:127.0.0.1:22 user@remote-host` 
+
+Чтобы забиндить на удаленной машине порт на внешний адрес необходимо в `sshd_config` указать  
+`GatewayPorts yes`  
+В таком случае можно биндится на внешний адрес машины remote-host  
+`ssh -f -N -R 0.0.0.0:9999:127.0.0.1:22 user@remote-host`  
+
+Можно так же пробросить пробросить порт соседней машины, например из локальной сети  
+`ssh -f -N -R 0.0.0.0:9999:192.168.1.1:22 user@remote-host`  
