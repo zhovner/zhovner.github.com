@@ -6,6 +6,9 @@ excerpt:
 title: 
 ---
 
+#### Сформировать CSR 
+openssl req -new -key ./privatekey.pem -out my.csr
+
 #### Расшифровать ключ 
 `openssl rsa –in enc.key -out dec.key`  
 
