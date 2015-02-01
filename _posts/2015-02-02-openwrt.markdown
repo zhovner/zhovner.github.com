@@ -1,0 +1,158 @@
+---
+layout: post
+category: tools
+tags: 
+excerpt: 
+title: 
+---
+
+#### mwan3
+
+<code><pre>
+
+config interface 'wan'
+	option enabled '1'
+	list track_ip '8.8.4.4'
+	list track_ip '8.8.8.8'
+	option reliability '1'
+	option count '3'
+	option timeout '2'
+	option interval '15'
+	option down '3'
+	option up '8'
+
+config interface 'wan2'
+	option enabled '1'
+	list track_ip '8.8.4.4'
+	list track_ip '8.8.8.8'
+	option reliability '1'
+	option count '3'
+	option timeout '2'
+	option interval '15'
+	option down '3'
+	option up '8'
+
+config member 'wan_m1_w3'
+	option interface 'wan'
+	option metric '1'
+	option weight '3'
+
+config member 'wan_m2_w3'
+	option interface 'wan'
+	option metric '2'
+	option weight '3'
+
+config member 'wan2_m1_w2'
+	option interface 'wan2'
+	option metric '1'
+	option weight '2'
+
+config member 'wan2_m1_w3'
+	option interface 'wan2'
+	option metric '1'
+	option weight '3'
+
+config member 'wan2_m2_w2'
+	option interface 'wan2'
+	option metric '2'
+	option weight '2'
+
+config member 'wan2_m2_w5'
+	option interface 'wan2'
+	option metric '2'
+	option weight '5'
+
+config policy 'wan_only'
+	list use_member 'wan_m1_w3'
+
+config policy 'wan2_only'
+	list use_member 'wan2_m1_w2'
+
+config policy 'balanced'
+	list use_member 'wan_m1_w3'
+	list use_member 'wan2_m1_w2'
+
+config policy 'wan_wan2'
+	list use_member 'wan_m1_w3'
+	list use_member 'wan2_m2_w2'
+
+config policy 'wan2_wan'
+	list use_member 'wan_m2_w3'
+	list use_member 'wan2_m1_w2'
+
+config rule 'linode'
+	option dest_ip '176.58.119.189'
+	option use_policy 'wan_only'
+
+config rule 'dobrofon'
+	option dest_ip '151.236.217.13'
+	option use_policy 'wan_only'
+
+config rule 'VK1'
+	option dest_ip '95.213.0.0/18'
+	option use_policy 'wan2_wan'
+
+config rule 'VK2'
+	option dest_ip '95.213.0.0/17'
+	option use_policy 'wan2_wan'
+
+config rule 'VK3'
+	option dest_ip '95.142.206.0/24'
+	option use_policy 'wan2_wan'
+
+config rule 'VK4'
+	option dest_ip '95.142.202.0/24'
+	option use_policy 'wan2_wan'
+
+config rule 'VK5'
+	option dest_ip '95.142.201.0/24'
+	option use_policy 'wan2_wan'
+
+config rule 'VK6'
+	option dest_ip '95.142.200.0/21'
+	option use_policy 'wan2_wan'
+
+config rule 'VK7'
+	option dest_ip '95.142.192.0/21'
+	option use_policy 'wan2_wan'
+
+config rule 'VK8'
+	option dest_ip '93.186.232.0/21'
+	option use_policy 'wan2_wan'
+
+config rule 'VK9'
+	option dest_ip '93.186.224.0/21'
+	option use_policy 'wan2_wan'
+
+config rule 'VK10'
+	option dest_ip '87.240.128.0/18'
+	option use_policy 'wan2_wan'
+
+config rule 'VK11'
+	option dest_ip '185.32.251.0/24'
+	option use_policy 'wan2_wan'
+
+config rule 'VK12'
+	option dest_ip '185.32.248.0/22'
+	option use_policy 'wan2_wan'
+
+config rule 'VK13'
+	option dest_ip '185.29.130.0/24'
+	option use_policy 'wan2_wan'
+
+# Tvrain.ru
+config rule 'tvrain'
+	option dest_ip '178.248.236.23'
+	option use_policy 'wan2_wan'
+
+# Video streams
+config rule 'RTMP'
+	option proto 'tcp'
+	option dest_port '1935'
+	option use_policy 'wan2_wan'
+
+# Default 
+config rule 'default_rule'
+	option dest_ip '0.0.0.0/0'
+	option use_policy 'balanced'
+</pre><code>
