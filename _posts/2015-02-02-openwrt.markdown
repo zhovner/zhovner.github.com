@@ -8,7 +8,7 @@ title:
 
 #### mwan3
 
-<code><pre>
+<pre><code>
 
 config interface 'wan'
 	option enabled '1'
@@ -155,4 +155,4 @@ config rule 'RTMP'
 config rule 'default_rule'
 	option dest_ip '0.0.0.0/0'
 	option use_policy 'balanced'
-</pre><code>
+</code></pre>
