@@ -8,9 +8,8 @@ title:
 
 #### mwan3
 
-<code><pre>
 
-config interface 'wan'
+<pre><code>config interface 'wan'
 	option enabled '1'
 	list track_ip '8.8.4.4'
 	list track_ip '8.8.8.8'
@@ -154,5 +153,5 @@ config rule 'RTMP'
 # Default 
 config rule 'default_rule'
 	option dest_ip '0.0.0.0/0'
-	option use_policy 'balanced'
-</pre></code>
+	option use_policy 'balanced'</code></pre>
+
