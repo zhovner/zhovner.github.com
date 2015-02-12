@@ -18,7 +18,9 @@ title:
 ### Создать приватный реп bitbucket.org
 Если хочется хранить на удаленном сервере.
 
-#### добавить ssh ключ
+Сгенерировать и добавить ssh ключ машины на битбакет [https://bitbucket.org/account/user/USERNAME/ssh-keys/](https://bitbucket.org/account/user/USERNAME/ssh-keys/)  
+etckeeper выполняется от рута, поэтому ключ должен быть в /root/.ssh/id_rsa  
+
 `cd /etc`  
 `git remote add origin ssh://git@bitbucket.org/USERNAME/REPO-NAME.git`  
 
