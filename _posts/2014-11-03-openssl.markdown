@@ -58,9 +58,10 @@ startssl.crt - два сертификата в одном файле. Перв�
 -----BEGIN CERTIFICATE-----
 тут содержимое файла sub.class1.server.ca.pem
 скачанное по ссылке 
------END CERTIFICATE-----</pre></code>
-
+-----END CERTIFICATE-----</pre></code>  
   
+
+
 Конфиг nginx:  
 <pre><code>server {
         listen 443 ssl;
