@@ -58,7 +58,7 @@ startssl.crt - два сертификата в одном файле. Перв�
 -----BEGIN CERTIFICATE-----
 тут содержимое файла sub.class1.server.ca.pem
 скачанное по ссылке 
------END CERTIFICATE-----<pre><code>
+-----END CERTIFICATE-----</pre></code>
 
   
 Конфиг nginx:  
@@ -73,7 +73,7 @@ startssl.crt - два сертификата в одном файле. Перв�
         ssl_protocols  TLSv1 TLSv1.1 TLSv1.2;
         ssl_prefer_server_ciphers   on;
         ssl_stapling on;
-       }<pre><code>
+       }</pre></code>
 
 
 #### При добавлении mod_ssl в apache
