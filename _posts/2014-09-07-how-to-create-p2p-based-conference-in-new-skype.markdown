@@ -14,6 +14,7 @@ Each type has different set of commands:  [http://www.skype.com/go/help.chathelp
 Cloud-based chat not supports options `TOPIC_AND_PIC_LOCKED_FOR_USERS` and `ADDING_LOCKED_FOR_USERS`.
 This means that you can't protect topic and can't disable adding new users for everyone.  
 
+**UPD** New command `/createmoderatedchat` creates P2P-based chatroom.
 
 To identify conference type enter the command `/get creator`  
 
