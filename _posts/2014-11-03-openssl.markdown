@@ -5,12 +5,33 @@ tags:
 excerpt: 
 title: 
 ---
+**Формат PEM** -- по-умолчания в openssl, данные в base64,  
+обычный текст с маркерами `-----BEGIN BLABLA KEY/CERTIFICATE-----`.  
+
+**Формат DER** -- данные в бинарном виде.
+
+
+#### Сгенерировать приватный ключ 
+Зашифрованный 3DES: `openssl genrsa -des3 -out privatekey_enc.pem 2048`  
+Вместо -des3 может быть -aes128|-aes192|-aes256|-camellia128|-camellia192|-camellia256|-des|-des3|-idea  
+
+Открытый, без пароля: `openssl genrsa -out privatekey.pem 2048`  
+
+#### Расшифровать ключ 
+`openssl rsa –in privatekey_enc.pem -out privatekey.pem`  
+
+#### Зашифровать ключ 
+`openssl rsa -in privatekey.pem -des3 -out privatekey_enc.pem'  
+
+#### Сконвертировать PEM в DER 
+`openssl rsa -in privatekey.pem -outform DER -out privatekey.der'  
+
+#### Сконвертировать DER в PEM 
+`openssl rsa -in privatekey.der -inform DER -outform PEM -out privatekey.pem'  
 
 #### Сформировать CSR 
 `openssl req -new -key ./privatekey.pem -out my.csr`  
 
-#### Расшифровать ключ 
-`openssl rsa –in enc.key -out dec.key`  
 
 #### Сравнить фингерпринты
 `openssl rsa -noout -modulus -in /rsa.key`  
