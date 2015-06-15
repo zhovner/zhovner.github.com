@@ -21,13 +21,13 @@ title:
 `openssl rsa –in privatekey_enc.pem -out privatekey.pem`  
 
 #### Зашифровать ключ 
-`openssl rsa -in privatekey.pem -des3 -out privatekey_enc.pem'  
+`openssl rsa -in privatekey.pem -des3 -out privatekey_enc.pem`  
 
 #### Сконвертировать PEM в DER 
-`openssl rsa -in privatekey.pem -outform DER -out privatekey.der'  
+`openssl rsa -in privatekey.pem -outform DER -out privatekey.der`  
 
 #### Сконвертировать DER в PEM 
-`openssl rsa -in privatekey.der -inform DER -outform PEM -out privatekey.pem'  
+`openssl rsa -in privatekey.der -inform DER -outform PEM -out privatekey.pem`  
 
 #### Сформировать CSR 
 `openssl req -new -key ./privatekey.pem -out my.csr`  
