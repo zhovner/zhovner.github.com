@@ -1,0 +1,12 @@
+---
+layout: post
+category: geek
+tags: 
+excerpt: Сниффинг GSM с помощью osmocom-bb
+title: GSM
+---
+
+![alt](/img/pic.jpg)
+
+[text](http://url)
+
