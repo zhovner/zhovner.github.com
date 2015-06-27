@@ -4,54 +4,57 @@ layout: default
 
 <div class="home">
 
+  <div class="zrel">
 
- <h1 class="page-heading">Tools</h1>
+    <div class="zcol zmargin">
+      <h1 class="page-heading">Random</h1>
+      <ul class="post-list">
+        {% for post in site.categories.random %}
+          <li>
+            <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
-  <ul class="post-list">
-    {% for post in site.categories.tools %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+            <h2>
+              <a class="post-link zunderline" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            </h2>
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.url | remove_first:'/tools/'}}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
+            <div class="zcontent">{{ post.content | truncatewords:20 }}</div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div><!--
+    no symbols between two this tags needed
+    --><div class="zcol">
+      <h1 class="page-heading">Geek</h1>
+      <ul class="post-list">
+        {% for post in site.categories.geek %}
+          <li>
+            <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
+            <h2>
+              <a class="post-link zunderline" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            </h2>
 
+            <div class="zcontent">{{ post.content | truncatewords:20 }}</div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
 
+    <div class="ztools">
+      <h1 class="page-heading">Tools</h1>
+      <ul style="margin-left: 0">
+        {% for post in site.categories.tools %}
+          <li class="zinline">
 
-  <h1 class="page-heading">Geek</h1>
+            <h2 class="zseosucks">
+              <a href="{{ post.url | prepend: site.baseurl }}">{{ post.url | remove_first:'/tools/'}}</a>
+            </h2>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
 
-  <ul class="post-list">
-    {% for post in site.categories.geek %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-
-
-  <h1 class="page-heading">Random</h1>
-
-  <ul class="post-list">
-    {% for post in site.categories.random %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
+  </div>
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
