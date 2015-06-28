@@ -7,23 +7,6 @@ layout: default
   <div class="zrel">
 
     <div class="zcol zmargin">
-      <h1 class="page-heading">Random</h1>
-      <ul class="post-list">
-        {% for post in site.categories.random %}
-          <li>
-            <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-            <h2>
-              <a class="post-link zunderline" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-            </h2>
-
-            <div class="zcontent">{{ post.content | truncatewords:20 }}</div>
-          </li>
-        {% endfor %}
-      </ul>
-    </div><!--
-    no symbols between two this tags needed
-    --><div class="zcol">
       <h1 class="page-heading">Geek</h1>
       <ul class="post-list">
         {% for post in site.categories.geek %}
@@ -34,7 +17,24 @@ layout: default
               <a class="post-link zunderline" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
             </h2>
 
-            <div class="zcontent">{{ post.content | truncatewords:20 }}</div>
+            <div class="zcontent">{{ post.excerpt }}</div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div><!--
+    no symbols between two this tags needed
+    --><div class="zcol">
+      <h1 class="page-heading">Random</h1>
+      <ul class="post-list">
+        {% for post in site.categories.random %}
+          <li>
+            <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+            <h2>
+              <a class="post-link zunderline" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            </h2>
+
+            <div class="zcontent">{{ post.excerpt }}</div>
           </li>
         {% endfor %}
       </ul>
