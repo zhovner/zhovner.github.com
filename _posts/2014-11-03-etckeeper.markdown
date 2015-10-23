@@ -24,8 +24,8 @@ etckeeper выполняется от рута, поэтому ключ долж
 `cd /etc`  
 `git remote add origin ssh://git@bitbucket.org/USERNAME/REPO-NAME.git`  
 
-`echo “git show --stat” > /etc/.git/hooks/post-commit`  
-`echo "git push origin master" >> /etc/.git/hooks/post-commit`  
+`echo 'git show --stat' > /etc/.git/hooks/post-commit`  
+`echo 'git push origin master' >> /etc/.git/hooks/post-commit`  
 
 `chmod +x /etc/.git/hooks/post-commit`
 
