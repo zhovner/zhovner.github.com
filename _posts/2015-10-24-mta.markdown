@@ -32,7 +32,7 @@ tls on
 tls_trust_file /etc/ssl/certs/ca-certificates.crt
 
 # Syslog logging with facility LOG_MAIL instead of the default LOG_USER.
-syslog LOG_MAIL</pre></code>  
+syslog LOG_MAIL</code></pre>
 
 
 Для теста `echo "hello there username." | msmtp -a default pavel@zhovner.com`  
@@ -42,7 +42,7 @@ syslog LOG_MAIL</pre></code>
 
 Создать файл `/etc/aliases`
 <pre><code># Send everything to admin
-default: your@mail.com</pre></code>
+default: your@mail.com</code></pre>
 
 
 
