@@ -27,7 +27,9 @@ etckeeper выполняется от рута, поэтому ключ долж
 `echo 'git show --stat' > /etc/.git/hooks/post-commit`  
 `echo 'git push origin master' >> /etc/.git/hooks/post-commit`  
 
-`chmod +x /etc/.git/hooks/post-commit`
+`chmod +x /etc/.git/hooks/post-commit`  
+
+Выполнить еще раз `etckeeper commit` чтобы добавить отпечаток ключа bitbucket.org в `/root/.ssh/known_hosts`  
 
 #### крон
 `/etc/cron.daily/etckeeper`  

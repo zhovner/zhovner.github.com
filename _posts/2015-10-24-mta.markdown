@@ -1,0 +1,49 @@
+---
+layout: post
+category: tools
+title: Простой MTA только для отправки
+---
+
+Для отправки логов и алертов с серверов проще использовать легковесный MTA и внешний SMTP сервер.  
+
+Требуемые пакеты `msmtp` и `msmtp-mta`.  
+
+Глобальный конифг `/etc/msmtprc`:  
+
+<pre><code># Example for a system wide configuration file 
+ 
+# A system wide configuration file is optional. 
+# If it exists, it usually defines a default account. 
+# This allows msmtp to be used like /usr/sbin/sendmail. 
+account default 
+ 
+# Mail.ru 
+host    smtp.mail.ru 
+auth    login 
+user    user@mail.ru
+from    user@mail.ru 
+password    1234567
+
+
+aliases    /etc/aliases
+ 
+# Use TLS.
+tls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+
+# Syslog logging with facility LOG_MAIL instead of the default LOG_USER.
+syslog LOG_MAIL</pre></code>  
+
+
+Для теста `echo "hello there username." | msmtp -a default pavel@zhovner.com`  
+
+В файл `/etc/mail.rc` добавить строку
+`set sendmail=/usr/bin/msmtp`
+
+Создать файл `/etc/aliases`
+<pre><code># Send everything to admin
+default: your@mail.com</pre></code>
+
+
+
+
