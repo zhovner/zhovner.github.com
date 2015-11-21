@@ -27,7 +27,7 @@ title:
 Добавляем адрес мастера в `/etc/hosts`:  
 
 `# Puppet master at linode.zhovner.com`  
-`176.58.119.189 linode.zhovner.com puppet`  
+`123.45.67.89 linode.zhovner.com puppet`  
 
 
 Редактируем в `/etc/default/puppet` строку `START=yes` чтобы разрешить демонизироваться,  
