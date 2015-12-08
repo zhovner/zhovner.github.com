@@ -314,3 +314,117 @@ For testing porpose  *(insecure)*:
 
 `iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE`
 
+#### IPv6 issues
+It is possible to assign native IPv6 addresses as well as IPv4 to VPN clients. 
+For this you will need additional IPv6 subnet routed to you machine but not assigned on server interface.  
+Unfortunately from lots of VPS providers that I've used, only <a href="https://www.linode.com/?r=f29232fc46afc280fceac66c08d46ebfec507fb9">Linode</a> provide  additional /64 IPv6 subnet for free.  
+
+For DigitalOcean and others providers you will need setup NDP proxy (Neighbor Discovery Protocol) [https://lists.strongswan.org/pipermail/users/2015-July/008365.html](https://lists.strongswan.org/pipermail/users/2015-July/008365.html)
+
+
+----------------
+
+<!-- 
+## Client configuration 
+
+[https://developer.apple.com/library/ios/featuredarticles/iPhoneConfigurationProfileRef/Introduction/Introduction.html](https://developer.apple.com/library/ios/featuredarticles/iPhoneConfigurationProfileRef/Introduction/Introduction.html)
+
+<details> 
+  <summary class="spoiler-sum">OS X 10.11 El Capitan</summary>
+<br>
+It's impossible to set advanced options  (like ciphers, DH groups, PFS, rekey timeout) via GUI.  <br>
+More options can be specified by usign <a href="/geek/blabla">VPN Autoconfig Profile</a>.<br><br>
+
+1. Create new VPN IKEv2 connection in network preferences.
+   <img src="/img/osxipsec1.png" />
+<br>
+   <img src="/img/osxipsec2.png" />
+<br><br>
+2. <b>Server Address</b> can be FQDN or IP address.<br>
+I recommend to set IP address чтобы не зависеть от system DNS resolver.<br>
+<br>
+<b>Remote ID</b> — must be FQDN from Subject Alternative Name in Cerificate
+<br>
+<b>Local ID</b> — <i>(Optional)</i> can be used for matching specific client in <b>ipsec.conf</b> by <b>rightid</b> option.
+<br><br>
+   <img src="/img/osxipsec3.png" />
+<br><br>
+3. Username and password from <b>ipsec.secret</b>
+<br><br>
+   <img src="/img/osxipsec4.png" />
+<br><br>
+4. Note that OS X 10.11.1 глючит кнопка коннект. 
+Поэтому нажав ее может показаться что ничего не происходит. 
+Но попробуйте просто подождать какое-то время и переключиться на другой интерфейс,
+ например на файфай, чтобы GUI перерисовался.
+
+
+   <img src="/img/osxipsec5.png" />
+
+</details>
+
+<details> 
+  <summary class="spoiler-sum">iOS 9</summary>
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+  </details>
+
+<details> 
+  <summary class="spoiler-sum">Windows 7/8</summary>
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+  </details>
+
+<details> 
+  <summary class="spoiler-sum">Windows 10</summary>
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+  </details>
+
+<details> 
+  <summary class="spoiler-sum">Windows Phone</summary>
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+  </details>
+
+<details> 
+  <summary class="spoiler-sum">BlackBerry</summary>
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+  </details>
+
+<details> 
+  <summary class="spoiler-sum">Android</summary>
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+   <img src="/img/osxipsec1.png" />
+  </details>
+
+
+
+-->
+
+
