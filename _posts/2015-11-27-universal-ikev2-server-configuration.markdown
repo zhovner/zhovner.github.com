@@ -8,7 +8,7 @@ title: Universal IKEv2 Server Configuration
 
 ![IKEv2 vs Other VPN](/img/ikev2_vs_othervpn.png)
 
-IKEv2 - is a modern protocol developed by Microsoft and Cisco which used as default VPN type in OS X 10.11 (El Capitan) and  Windows since version 7.
+IKEv2 - is a modern protocol developed by Microsoft and Cisco which was choosen as default VPN type in OS X 10.11 (El Capitan) and  Windows since version 7.
 It supports strong encryption, auto reconnect when network changed ([MOBIKE](https://tools.ietf.org/html/rfc4555)), easy connection configuration and more.
 
 This manual describes minimal IKEv2 server configuration for most simple client setup based on username/password authentication.
@@ -319,7 +319,7 @@ It is possible to assign native IPv6 addresses as well as IPv4 to VPN clients.
 For this you will need additional IPv6 subnet routed to you machine but not assigned on server interface.  
 Unfortunately from lots of VPS providers that I've used, only <a href="https://www.linode.com/?r=f29232fc46afc280fceac66c08d46ebfec507fb9">Linode</a> provide  additional /64 IPv6 subnet for free.  
 
-For DigitalOcean and others providers you will need setup NDP proxy (Neighbor Discovery Protocol) [https://lists.strongswan.org/pipermail/users/2015-July/008365.html](https://lists.strongswan.org/pipermail/users/2015-July/008365.html)
+For DigitalOcean and others providers you will need setup NDP proxy. Related thread [https://lists.strongswan.org/pipermail/users/2015-July/008365.html](https://lists.strongswan.org/pipermail/users/2015-July/008365.html)
 
 
 ----------------
