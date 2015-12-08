@@ -22,3 +22,4 @@ timezone: Europe/Moscow
 # Split listing by pages
 #paginate: 5
 
+gems:	[jekyll-gist]
