@@ -2,6 +2,7 @@
 layout: post
 category: geek
 tags: 
+excerpt: 
 title: Universal IKEv2 Server Configuration
 ---
 
@@ -312,5 +313,3 @@ This subject is not covered in this manual.
 For testing porpose  *(insecure)*:
 
 `iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE`
-
-
