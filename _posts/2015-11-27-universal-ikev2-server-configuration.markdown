@@ -8,14 +8,14 @@ title: Universal IKEv2 Server Configuration
 
 ![IKEv2 vs Other VPN](/img/ikev2_vs_othervpn.png)
 
-IKEv2 - is a modern protocol developed by Microsoft and Cisco which was choosen as default VPN type in OS X 10.11 (El Capitan) and  Windows since version 7.
-It supports strong encryption, auto reconnect when network changed ([MOBIKE](https://tools.ietf.org/html/rfc4555)), easy connection configuration and more.
+IKEv2 is a modern protocol developed by Microsoft and Cisco which was chosen as a default VPN type in OS X 10.11 (El Capitan) and  Windows since 7.
+It supports strong encryption, auto reconnection on network change ([MOBIKE](https://tools.ietf.org/html/rfc4555)), easy configuration and more.
 
-This manual describes minimal IKEv2 server configuration for most simple client setup based on username/password authentication.
-No additional software needed on clients side, no certificates importing.
+This manual describes minimal IKEv2 server configuration for the most simple client setup based on username/password authentication.
+No additional software required on client side, no certificates importing.
 
 
-*IKEv2 supporting platforms*
+*IKEv2 supported platforms*
 
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;}
@@ -35,13 +35,13 @@ No additional software needed on clients side, no certificates importing.
   <tr>
     <td class="tg-yw4l">Windows</td>
     <td class="tg-yw4l">≥ 7</td>
-    <td class="tg-yw4l">3DES</td>
+    <td class="tg-yw4l">3DES, AES</td>
     <td class="tg-yw4l-dh">1024</td>
   </tr>
   <tr>
     <td class="tg-yw4l">Windows Phone&#8194;&#8194;&#8194;</td>
     <td class="tg-yw4l">≥ 8.1</td>
-    <td class="tg-yw4l">3DES</td>
+    <td class="tg-yw4l">3DES, AES</td>
     <td class="tg-yw4l-dh">1024</td>
   </tr>
   <tr>
@@ -59,13 +59,13 @@ No additional software needed on clients side, no certificates importing.
   <tr>
     <td class="tg-yw4l">Android</td>
     <td class="tg-yw4l"><a href="https://play.google.com/store/apps/details?id=org.strongswan.android">StrongSwan app</a></td>
-    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l">AES, AES-GCM</td>
     <td class="tg-yw4l-dh"></td>
   </tr>
   <tr>
     <td class="tg-yw4l">Blackberry</td>
     <td class="tg-yw4l">8.1</td>
-    <td class="tg-yw4l">DES<br>3DES<br>AES-128/256(GCM)</td>
+    <td class="tg-yw4l">DES<br>3DES<br>AES-128/256</td>
     <td class="tg-yw4l-dh"></td>
   </tr>
   <tr>
@@ -80,18 +80,18 @@ No additional software needed on clients side, no certificates importing.
 <br>
 
 ## X.509 Certificates intro
-In order to prevent man-in-the-middle attacks the IPsec/IKEv2 server always authenticates itself with an X.509 certificate using a strong RSA signature. 
-After a secure communication channel has been set up clients authenticate themselves using the EAP-MSCHAPv2 protocol based on user name and  password (or another authentication protocol).  
+In order to prevent man-in-the-middle attacks IPsec IKEv2 server always authenticates itself with an X.509 certificate using a strong RSA or ECDSA signature. 
+After a secure communication channel has been established, clients authenticate themselves using the EAP-MSCHAPv2 protocol based on user name and  password (or other authentication protocol).  
 This means that client needs to verify X.509 certificate authenticity using [CA](https://en.wikipedia.org/wiki/Certificate_authority) in system keychan.
-The same way as for HTTPS connections in web browser.
+Just as for HTTPS connections in a web browser.
 Server certificate must be valid for successful client authentication.
 
-There are two ways for getting server certificate: 
+There are two ways of getting server certificate: 
 
-**1.** Use certificate issued by CA trusted by most operating system.  
-**2.** Issue selfs-igned certificate and distribute your own CA to every client's system.  
+**1.** Use certificate issued by CA trusted by most operating systems.  
+**2.** Issue self-signed certificate and distribute your own CA to every clients' system.  
 
-First way make connection setup much easier on client side because it does not require importing any certificates in the system. This way is recommended.  
+The First way makes connection setup much easier on client side because it does not require importing any certificates in the system. This way is recommended.  
 Self-signed certificates are more complicated. Follow this way  only if you know exactly what you need them for and how to manage your own PKI. 
 
 ### Issue certificate from one of Ceritifaces Authorities  
