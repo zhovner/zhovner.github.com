@@ -15,7 +15,7 @@ permalink: /:categories/:title
 markdown: kramdown
 
 # Code highlighter
-highlighter: pygments
+highlighter: rouge
 
 timezone: Europe/Moscow
 

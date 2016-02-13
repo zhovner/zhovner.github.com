@@ -333,7 +333,7 @@ For DigitalOcean and others providers you will need setup NDP proxy. Related thr
 ### OS X 10.11 and iOS 9 autconfiguration profile
 A configuration profile is an XML file that allows you to distribute configuration information. If you need to configure a large number of devices or to provide lots of custom email settings, VPN profiles, network settings, or certificates to a large number of devices, configuration profiles are an easy way to do it. In our case we will use VPN payload for one click configuration.  
 For IKEv2 VPN connections the configuration profile is the only way to set advanced options like ciphers, DH groups, PFS, rekey timeout and so on.  
-[https://developer.apple.com/library/ios/featuredarticles/iPhoneConfigurationProfileRef/Introduction/Introduction.html](https://developer.apple.com/library/ios/featuredarticles/iPhoneConfigurationProfileRef/Introduction/Introduction.html)
+More about it [https://developer.apple.com/library/ios/featuredarticles/iPhoneConfigurationProfileRef/Introduction/Introduction.html](https://developer.apple.com/library/ios/featuredarticles/iPhoneConfigurationProfileRef/Introduction/Introduction.html)
 
 Configuration profile can be created manually or via [Apple Configurator 2](https://itunes.apple.com/gb/app/apple-configurator-2/id1037126344?mt=12) utility.  
 
@@ -341,13 +341,13 @@ Example profile for your VPN server:
 <pre><code>&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
 &lt;plist version="1.0"&gt;
 &lt;dict&gt;
-    &lt;!-- Set the name to whatever you like, it is used in the profile list on the device --&gt;
+    <font color=#D1D0CE><font color=#D1D0CE>&lt;!-- Set the name to whatever you like, it is used in the profile list on the device --&gt;</font></font>
     &lt;key&gt;PayloadDisplayName&lt;/key&gt;
     &lt;string&gt;Super IKEv2 VPN&lt;/string&gt;
     &lt;key&gt;PayloadIdentifier&lt;/key&gt;
-    &lt;!-- This is a reverse-DNS style unique identifier used to detect duplicate profiles --&gt;
+    <font color=#D1D0CE>&lt;!-- This is a reverse-DNS style unique identifier used to detect duplicate profiles --&gt;</font>
     &lt;string&gt;com.zhovner.tunnel&lt;/string&gt;
-    &lt;!-- A globally unique identifier, use uuidgen on Linux/Mac OS X to generate it --&gt;
+    <font color=#D1D0CE>&lt;!-- A globally unique identifier, use uuidgen on Linux/Mac OS X to generate it --&gt;</font>
     &lt;key&gt;PayloadUUID&lt;/key&gt;
     &lt;string&gt;A6F46838-77E8-49EC-8045-67C7D751063E&lt;/string&gt;
     &lt;key&gt;PayloadType&lt;/key&gt;
@@ -356,12 +356,12 @@ Example profile for your VPN server:
     &lt;integer&gt;1&lt;/integer&gt;
     &lt;key&gt;PayloadContent&lt;/key&gt;
     &lt;array&gt;
-        &lt;!-- It is possible to add multiple VPN payloads with different identifiers/UUIDs and names --&gt;
+        <font color=#D1D0CE>&lt;!-- It is possible to add multiple VPN payloads with different identifiers/UUIDs and names --&gt;</font>
         &lt;dict&gt;
-            &lt;!-- This is an extension of the identifier given above --&gt;
+            <font color=#D1D0CE>&lt;!-- This is an extension of the identifier given above --&gt;</font>
             &lt;key&gt;PayloadIdentifier&lt;/key&gt;
             &lt;string&gt;com.zhovner.tunnel.conf&lt;/string&gt;
-            &lt;!-- A globally unique identifier for this payload --&gt;
+            <font color=#D1D0CE>&lt;!-- A globally unique identifier for this payload --&gt;</font>
             &lt;key&gt;PayloadUUID&lt;/key&gt;
             &lt;string&gt;647D41C3-52E4-497D-BA25-59B9FB4043B6&lt;/string&gt;
             &lt;key&gt;PayloadType&lt;/key&gt;
@@ -369,17 +369,17 @@ Example profile for your VPN server:
             &lt;key&gt;PayloadVersion&lt;/key&gt;
             &lt;integer&gt;1&lt;/integer&gt;
             &lt;key&gt;UserDefinedName&lt;/key&gt;
-            &lt;!-- This is the name of the VPN connection as seen in the VPN application later --&gt;
+            <font color=#D1D0CE>&lt;!-- This is the name of the VPN connection as seen in the VPN application later --&gt;</font>
             &lt;string&gt;London VPN IKEv2&lt;/string&gt;
             &lt;key&gt;VPNType&lt;/key&gt;
             &lt;string&gt;IKEv2&lt;/string&gt;
             &lt;key&gt;IKEv2&lt;/key&gt;
             &lt;dict&gt;
-                &lt;!-- This is the hostname or IP address of VPN server.
-                 Chosing IP address can avoid issues with client DNS resolvers and speed up connection process. --&gt;
+                <font color=#D1D0CE>&lt;!-- This is the hostname or IP address of VPN server.
+                 Chosing IP address can avoid issues with client DNS resolvers and speed up connection process. --&gt;</font>
                 &lt;key&gt;RemoteAddress&lt;/key&gt;
                 <font color="red"><b>&lt;string&gt;143.12.22.134&lt;/string&gt;</b></font>
-                &lt;!-- leftid in ipsec.conf --&gt;
+                <font color=#D1D0CE>&lt;!-- leftid in ipsec.conf --&gt;</font>
                 &lt;key&gt;RemoteIdentifier&lt;/key&gt;
                 <font color="red"><b>&lt;string&gt;tunnel.zhovner.com&lt;/string&gt;</b></font>
                 &lt;key&gt;DeadPeerDetectionRate&lt;/key&gt;
@@ -392,7 +392,7 @@ Example profile for your VPN server:
                 &lt;true/&gt;
                 &lt;key&gt;ExtendedAuthEnabled&lt;/key&gt;
                 &lt;integer&gt;1&lt;/integer&gt;
-                &lt;!-- Username and password from ipsec.secrets --&gt;
+                <font color=#D1D0CE>&lt;!-- Username and password from ipsec.secrets --&gt;</font>
                 &lt;key&gt;AuthName&lt;/key&gt;
                 <font color="red"><b>&lt;string&gt;obama&lt;/string&gt;</b></font>
                 &lt;key&gt;AuthPassword&lt;/key&gt;
