@@ -417,19 +417,19 @@ It's impossible to set advanced options  (like ciphers, DH groups, PFS, rekey ti
 If you need it use configuration profile method.  
 
 1. Create new VPN connection in network preferences  
-![osx ikev2](img/osxipsec1.png)  
+![osx ikev2](/img/osxipsec1.png)  
 
 2. Choose type IKEv2 and name of connection  
-![osx ikev2](img/osxipsec2.png)  
+![osx ikev2](/img/osxipsec2.png)  
 
 3. Set server address and RemoteID (leftid in ipsec.conf)  
-![osx ikev2](img/osxipsec3.png)  
+![osx ikev2](/img/osxipsec3.png)  
 
 4. Enter username and password from ipsec.secrets file  
-![osx ikev2](img/osxipsec4.png)  
+![osx ikev2](/img/osxipsec4.png)  
 
 5. Connect to VPN  
-![osx ikev2](img/osxipsec4.png)
+![osx ikev2](/img/osxipsec4.png)
 
 
 ### Windows 7/8/10 IKEv2 manual configuration
