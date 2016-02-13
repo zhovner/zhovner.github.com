@@ -336,8 +336,11 @@ For IKEv2 VPN connections the configuration profile is the only way to set advan
 More about it [https://developer.apple.com/library/ios/featuredarticles/iPhoneConfigurationProfileRef/Introduction/Introduction.html](https://developer.apple.com/library/ios/featuredarticles/iPhoneConfigurationProfileRef/Introduction/Introduction.html)
 
 Configuration profile can be created manually or via [Apple Configurator 2](https://itunes.apple.com/gb/app/apple-configurator-2/id1037126344?mt=12) utility.  
+Syntax is same for OS X and iOS. Profile can be distributed as mail attachments or via http link.  
+Profile name must end with `.mobileconfig` and if you plan to share it over HTTP web server should response with Content-Type `application/octet-stream`.
 
-Example profile for your VPN server:  
+The easiest way to get working profile is to edit 4 variables in this template: RemoteAddress, RemoteIdentifier, AuthName, AuthPassword. Edit the rest of template following comments.
+Example profile of our VPN server `supervpn.mobileconfig`:
 <pre><code>&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
 &lt;plist version="1.0"&gt;
 &lt;dict&gt;
@@ -403,108 +406,35 @@ Example profile for your VPN server:
 &lt;/dict&gt;
 &lt;/plist&gt;</code></pre>
 
-
-<!-- 
-## Client configuration 
-
-
-
-<details> 
-  <summary class="spoiler-sum">OS X 10.11 El Capitan</summary>
-<br>
-It's impossible to set advanced options  (like ciphers, DH groups, PFS, rekey timeout) via GUI.  <br>
-More options can be specified by usign <a href="/geek/blabla">VPN Autoconfig Profile</a>.<br><br>
-
-1. Create new VPN IKEv2 connection in network preferences.
-   <img src="/img/osxipsec1.png" />
-<br>
-   <img src="/img/osxipsec2.png" />
-<br><br>
-2. <b>Server Address</b> can be FQDN or IP address.<br>
-I recommend to set IP address чтобы не зависеть от system DNS resolver.<br>
-<br>
-<b>Remote ID</b> — must be FQDN from Subject Alternative Name in Cerificate
-<br>
-<b>Local ID</b> — <i>(Optional)</i> can be used for matching specific client in <b>ipsec.conf</b> by <b>rightid</b> option.
-<br><br>
-   <img src="/img/osxipsec3.png" />
-<br><br>
-3. Username and password from <b>ipsec.secret</b>
-<br><br>
-   <img src="/img/osxipsec4.png" />
-<br><br>
-4. Note that OS X 10.11.1 глючит кнопка коннект. 
-Поэтому нажав ее может показаться что ничего не происходит. 
-Но попробуйте просто подождать какое-то время и переключиться на другой интерфейс,
- например на файфай, чтобы GUI перерисовался.
-
-
-   <img src="/img/osxipsec5.png" />
-
-</details>
-
-<details> 
-  <summary class="spoiler-sum">iOS 9</summary>
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-  </details>
-
-<details> 
-  <summary class="spoiler-sum">Windows 7/8</summary>
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-  </details>
-
-<details> 
-  <summary class="spoiler-sum">Windows 10</summary>
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-  </details>
-
-<details> 
-  <summary class="spoiler-sum">Windows Phone</summary>
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-  </details>
-
-<details> 
-  <summary class="spoiler-sum">BlackBerry</summary>
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-  </details>
-
-<details> 
-  <summary class="spoiler-sum">Android</summary>
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-   <img src="/img/osxipsec1.png" />
-  </details>
+For testing purpose you can use my dummy profile: [zhovner.com/supervpn.mobileconfig](https://zhovner.com/supervpn.mobileconfig)  
+Opening link in iOS Safari will start installation:  
+![ios mobileconfig profile installation](/img/mobileconfig_ios.png)
 
 
 
--->
+### OS X 10.11 manual configuration
+It's impossible to set advanced options  (like ciphers, DH groups, PFS, rekey timeout) via GUI.  
+If you need it use configuration profile method.  
+
+1. Create new VPN connection in network preferences  
+![osx ikev2](img/osxipsec1.png)  
+
+2. Choose type IKEv2 and name of connection  
+![osx ikev2](img/osxipsec2.png)  
+
+3. Set server address and RemoteID (leftid in ipsec.conf)  
+![osx ikev2](img/osxipsec3.png)  
+
+4. Enter username and password from ipsec.secrets file  
+![osx ikev2](img/osxipsec4.png)  
+
+5. Connect to VPN  
+![osx ikev2](img/osxipsec4.png)
+
+
+### Windows 7/8/10 IKEv2 manual configuration
+
+In windows you can't define RemoteID separately from server address, so FQDN should be used.
+![windows ikev2 vpn](/img/windows_ikev2.png)
 
 
