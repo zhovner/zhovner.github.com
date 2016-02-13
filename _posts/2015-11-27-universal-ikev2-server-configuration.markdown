@@ -341,13 +341,13 @@ Example profile for your VPN server:
 <pre><code>&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
 &lt;plist version="1.0"&gt;
 &lt;dict&gt;
-    <font color=#D1D0CE><font color=#D1D0CE>&lt;!-- Set the name to whatever you like, it is used in the profile list on the device --&gt;</font></font>
+    <font color="#D1D0CE">&lt;!-- Set the name to whatever you like, it is used in the profile list on the device --&gt;</font></font>
     &lt;key&gt;PayloadDisplayName&lt;/key&gt;
     &lt;string&gt;Super IKEv2 VPN&lt;/string&gt;
     &lt;key&gt;PayloadIdentifier&lt;/key&gt;
-    <font color=#D1D0CE>&lt;!-- This is a reverse-DNS style unique identifier used to detect duplicate profiles --&gt;</font>
+    <font color="#D1D0CE">&lt;!-- This is a reverse-DNS style unique identifier used to detect duplicate profiles --&gt;</font>
     &lt;string&gt;com.zhovner.tunnel&lt;/string&gt;
-    <font color=#D1D0CE>&lt;!-- A globally unique identifier, use uuidgen on Linux/Mac OS X to generate it --&gt;</font>
+    <font color="#D1D0CE">&lt;!-- A globally unique identifier, use uuidgen on Linux/Mac OS X to generate it --&gt;</font>
     &lt;key&gt;PayloadUUID&lt;/key&gt;
     &lt;string&gt;A6F46838-77E8-49EC-8045-67C7D751063E&lt;/string&gt;
     &lt;key&gt;PayloadType&lt;/key&gt;
@@ -356,12 +356,12 @@ Example profile for your VPN server:
     &lt;integer&gt;1&lt;/integer&gt;
     &lt;key&gt;PayloadContent&lt;/key&gt;
     &lt;array&gt;
-        <font color=#D1D0CE>&lt;!-- It is possible to add multiple VPN payloads with different identifiers/UUIDs and names --&gt;</font>
+        <font color="#D1D0CE">&lt;!-- It is possible to add multiple VPN payloads with different identifiers/UUIDs and names --&gt;</font>
         &lt;dict&gt;
-            <font color=#D1D0CE>&lt;!-- This is an extension of the identifier given above --&gt;</font>
+            <font color="#D1D0CE">&lt;!-- This is an extension of the identifier given above --&gt;</font>
             &lt;key&gt;PayloadIdentifier&lt;/key&gt;
             &lt;string&gt;com.zhovner.tunnel.conf&lt;/string&gt;
-            <font color=#D1D0CE>&lt;!-- A globally unique identifier for this payload --&gt;</font>
+            <font color="#D1D0CE">&lt;!-- A globally unique identifier for this payload --&gt;</font>
             &lt;key&gt;PayloadUUID&lt;/key&gt;
             &lt;string&gt;647D41C3-52E4-497D-BA25-59B9FB4043B6&lt;/string&gt;
             &lt;key&gt;PayloadType&lt;/key&gt;
@@ -369,19 +369,19 @@ Example profile for your VPN server:
             &lt;key&gt;PayloadVersion&lt;/key&gt;
             &lt;integer&gt;1&lt;/integer&gt;
             &lt;key&gt;UserDefinedName&lt;/key&gt;
-            <font color=#D1D0CE>&lt;!-- This is the name of the VPN connection as seen in the VPN application later --&gt;</font>
+            <font color="#D1D0CE">&lt;!-- This is the name of the VPN connection as seen in the VPN application later --&gt;</font>
             &lt;string&gt;London VPN IKEv2&lt;/string&gt;
             &lt;key&gt;VPNType&lt;/key&gt;
             &lt;string&gt;IKEv2&lt;/string&gt;
             &lt;key&gt;IKEv2&lt;/key&gt;
             &lt;dict&gt;
-                <font color=#D1D0CE>&lt;!-- This is the hostname or IP address of VPN server.
+                <font color="#D1D0CE">&lt;!-- This is the hostname or IP address of VPN server.
                  Chosing IP address can avoid issues with client DNS resolvers and speed up connection process. --&gt;</font>
                 &lt;key&gt;RemoteAddress&lt;/key&gt;
-                <font color="red"><b>&lt;string&gt;143.12.22.134&lt;/string&gt;</b></font>
-                <font color=#D1D0CE>&lt;!-- leftid in ipsec.conf --&gt;</font>
+                &lt;string&gt;<font color="red"><b>143.12.22.134</b></font>&lt;/string&gt;
+                <font color="#D1D0CE">&lt;!-- leftid in ipsec.conf --&gt;</font>
                 &lt;key&gt;RemoteIdentifier&lt;/key&gt;
-                <font color="red"><b>&lt;string&gt;tunnel.zhovner.com&lt;/string&gt;</b></font>
+                &lt;string&gt;<font color="red"><b>tunnel.zhovner.com</b></font>&lt;/string&gt;
                 &lt;key&gt;DeadPeerDetectionRate&lt;/key&gt;
                 &lt;string&gt;High&lt;/string&gt;
                 &lt;key&gt;AuthenticationMethod&lt;/key&gt;
@@ -392,11 +392,11 @@ Example profile for your VPN server:
                 &lt;true/&gt;
                 &lt;key&gt;ExtendedAuthEnabled&lt;/key&gt;
                 &lt;integer&gt;1&lt;/integer&gt;
-                <font color=#D1D0CE>&lt;!-- Username and password from ipsec.secrets --&gt;</font>
+                <font color="#D1D0CE">&lt;!-- Username and password from ipsec.secrets --&gt;</font>
                 &lt;key&gt;AuthName&lt;/key&gt;
-                <font color="red"><b>&lt;string&gt;obama&lt;/string&gt;</b></font>
+                &lt;string&gt;<font color="red"><b>obama</b></font>&lt;/string&gt;
                 &lt;key&gt;AuthPassword&lt;/key&gt;
-                <font color="red"><b>&lt;string&gt;SuperPassword123&lt;/string&gt;</b></font>
+                &lt;string&gt;<font color="red"><b>SuperPassword123</b></font>&lt;/string&gt;
             &lt;/dict&gt;
         &lt;/dict&gt;
     &lt;/array&gt;
