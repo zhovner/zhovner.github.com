@@ -323,11 +323,91 @@ For DigitalOcean and others providers you will need setup NDP proxy. Related thr
 
 
 ----------------
+ 
+## Client configuration 
+
+<!-- -->
+
+
+
+### OS X 10.11 and iOS 9 autconfiguration profile
+A configuration profile is an XML file that allows you to distribute configuration information. If you need to configure a large number of devices or to provide lots of custom email settings, VPN profiles, network settings, or certificates to a large number of devices, configuration profiles are an easy way to do it. In our case we will use VPN payload for one click configuration.  
+For IKEv2 VPN connections the configuration profile is the only way to set advanced options like ciphers, DH groups, PFS, rekey timeout and so on.  
+[https://developer.apple.com/library/ios/featuredarticles/iPhoneConfigurationProfileRef/Introduction/Introduction.html](https://developer.apple.com/library/ios/featuredarticles/iPhoneConfigurationProfileRef/Introduction/Introduction.html)
+
+Configuration profile can be created manually or via [Apple Configurator 2](https://itunes.apple.com/gb/app/apple-configurator-2/id1037126344?mt=12) utility.  
+
+Example profile for your VPN server:  
+<pre><code>&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1.0"&gt;
+&lt;dict&gt;
+    &lt;!-- Set the name to whatever you like, it is used in the profile list on the device --&gt;
+    &lt;key&gt;PayloadDisplayName&lt;/key&gt;
+    &lt;string&gt;Super IKEv2 VPN&lt;/string&gt;
+    &lt;key&gt;PayloadIdentifier&lt;/key&gt;
+    &lt;!-- This is a reverse-DNS style unique identifier used to detect duplicate profiles --&gt;
+    &lt;string&gt;com.zhovner.tunnel&lt;/string&gt;
+    &lt;!-- A globally unique identifier, use uuidgen on Linux/Mac OS X to generate it --&gt;
+    &lt;key&gt;PayloadUUID&lt;/key&gt;
+    &lt;string&gt;A6F46838-77E8-49EC-8045-67C7D751063E&lt;/string&gt;
+    &lt;key&gt;PayloadType&lt;/key&gt;
+    &lt;string&gt;Configuration&lt;/string&gt;
+    &lt;key&gt;PayloadVersion&lt;/key&gt;
+    &lt;integer&gt;1&lt;/integer&gt;
+    &lt;key&gt;PayloadContent&lt;/key&gt;
+    &lt;array&gt;
+        &lt;!-- It is possible to add multiple VPN payloads with different identifiers/UUIDs and names --&gt;
+        &lt;dict&gt;
+            &lt;!-- This is an extension of the identifier given above --&gt;
+            &lt;key&gt;PayloadIdentifier&lt;/key&gt;
+            &lt;string&gt;com.zhovner.tunnel.conf&lt;/string&gt;
+            &lt;!-- A globally unique identifier for this payload --&gt;
+            &lt;key&gt;PayloadUUID&lt;/key&gt;
+            &lt;string&gt;647D41C3-52E4-497D-BA25-59B9FB4043B6&lt;/string&gt;
+            &lt;key&gt;PayloadType&lt;/key&gt;
+            &lt;string&gt;com.apple.vpn.managed&lt;/string&gt;
+            &lt;key&gt;PayloadVersion&lt;/key&gt;
+            &lt;integer&gt;1&lt;/integer&gt;
+            &lt;key&gt;UserDefinedName&lt;/key&gt;
+            &lt;!-- This is the name of the VPN connection as seen in the VPN application later --&gt;
+            &lt;string&gt;London VPN IKEv2&lt;/string&gt;
+            &lt;key&gt;VPNType&lt;/key&gt;
+            &lt;string&gt;IKEv2&lt;/string&gt;
+            &lt;key&gt;IKEv2&lt;/key&gt;
+            &lt;dict&gt;
+                &lt;!-- This is the hostname or IP address of VPN server.
+                 Chosing IP address can avoid issues with client DNS resolvers and speed up connection process. --&gt;
+                &lt;key&gt;RemoteAddress&lt;/key&gt;
+                <font color="red"><b>&lt;string&gt;143.12.22.134&lt;/string&gt;</b></font>
+                &lt;!-- leftid in ipsec.conf --&gt;
+                &lt;key&gt;RemoteIdentifier&lt;/key&gt;
+                <font color="red"><b>&lt;string&gt;tunnel.zhovner.com&lt;/string&gt;</b></font>
+                &lt;key&gt;DeadPeerDetectionRate&lt;/key&gt;
+                &lt;string&gt;High&lt;/string&gt;
+                &lt;key&gt;AuthenticationMethod&lt;/key&gt;
+                &lt;string&gt;Certificate&lt;/string&gt;
+                &lt;key&gt;NATKeepAliveInterval&lt;/key&gt;
+                &lt;integer&gt;30&lt;/integer&gt;
+                &lt;key&gt;NATKeepAliveOffloadEnable&lt;/key&gt;
+                &lt;true/&gt;
+                &lt;key&gt;ExtendedAuthEnabled&lt;/key&gt;
+                &lt;integer&gt;1&lt;/integer&gt;
+                &lt;!-- Username and password from ipsec.secrets --&gt;
+                &lt;key&gt;AuthName&lt;/key&gt;
+                <font color="red"><b>&lt;string&gt;obama&lt;/string&gt;</b></font>
+                &lt;key&gt;AuthPassword&lt;/key&gt;
+                <font color="red"><b>&lt;string&gt;SuperPassword123&lt;/string&gt;</b></font>
+            &lt;/dict&gt;
+        &lt;/dict&gt;
+    &lt;/array&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;</code></pre>
+
 
 <!-- 
 ## Client configuration 
 
-[https://developer.apple.com/library/ios/featuredarticles/iPhoneConfigurationProfileRef/Introduction/Introduction.html](https://developer.apple.com/library/ios/featuredarticles/iPhoneConfigurationProfileRef/Introduction/Introduction.html)
+
 
 <details> 
   <summary class="spoiler-sum">OS X 10.11 El Capitan</summary>
