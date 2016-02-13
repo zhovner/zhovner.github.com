@@ -434,7 +434,8 @@ If you need it use configuration profile method.
 
 ### Windows 7/8/10 IKEv2 manual configuration
 
-In windows you can't define RemoteID separately from server address, so FQDN should be used.
+In windows you can't define RemoteID separately from server address, so FQDN should be used.  
+Also keep in mind that IPv6 will not work in windows.  
 ![windows ikev2 vpn](/img/windows_ikev2.png)
 
 
