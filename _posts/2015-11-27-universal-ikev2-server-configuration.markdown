@@ -410,7 +410,8 @@ For testing purpose you can use my dummy profile: [zhovner.com/supervpn.mobileco
 Opening link in iOS Safari will start installation:  
 ![ios mobileconfig profile installation](/img/mobileconfig_ios.png)
 
-
+### iOS manual configuration 
+![ios ikev2](/img/iosikev2.png)
 
 ### OS X 10.11 manual configuration
 It's impossible to set advanced options  (like ciphers, DH groups, PFS, rekey timeout) via GUI.  
