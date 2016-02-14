@@ -64,7 +64,7 @@ No additional software required on client side, no certificates importing.
   </tr>
   <tr>
     <td class="tg-yw4l">Blackberry</td>
-    <td class="tg-yw4l">8.1</td>
+    <td class="tg-yw4l">10</td>
     <td class="tg-yw4l">DES<br>3DES<br>AES-128/256</td>
     <td class="tg-yw4l-dh"></td>
   </tr>
