@@ -47,7 +47,7 @@ layout: default
           <li class="zinline">
 
             <h2 class="zseosucks">
-              <a href="{{ post.url | prepend: site.baseurl }}">{{ post.url | remove_first:'/tools/' | | remove_last:'/'}}</a>
+              <a href="{{ post.url | prepend: site.baseurl }}">{{ post.url | remove_first:'/tools/' | remove_last:'/'}}</a>
             </h2>
           </li>
         {% endfor %}
