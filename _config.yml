@@ -9,7 +9,7 @@ twitter_username: zhovner
 
 
 
-permalink: /:categories/:title
+permalink: /:categories/:title/
 
 # Build settings
 markdown: kramdown
