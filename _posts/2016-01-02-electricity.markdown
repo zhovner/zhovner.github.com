@@ -89,7 +89,7 @@ title:
 
 ### Резистор
 
-![закон Ома](/img/resistor.gif)
+![резистор](/img/resistor.gif)
 
 
 
