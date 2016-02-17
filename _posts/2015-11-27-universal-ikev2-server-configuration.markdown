@@ -142,26 +142,26 @@ On this step you must have all necessary certificates and key files.
 
 List of required files:  
 
-**piratekey.pem** — RSA private key which was used for CSR when issuing certificate. Key must be non-encrypted.
+**privatekey.pem** — RSA private key which was used for CSR when issuing certificate. Key must be non-encrypted.
 
-**CA.crt** — Root Certificate of you Certificate Authority. It can be downloaded from web or exported from system keychain.  
+**CA.crt** — Root Certificate of your Certificate Authority. It can be downloaded from web or exported from system keychain.  
 
-**intermediate1.crt** — intermediate certificate of you Certificate Authority. If you get certificate from WoSign look at *for Other Server.zip* archive.  
+**intermediate1.crt** — intermediate certificate of your Certificate Authority. If you get certificate from WoSign look at *for Other Server.zip* archive.  
 
-**intermediate2.crt** — *(optional)* Number of intermediate certificates may be varied, depending on you CA. 
+**intermediate2.crt** — *(optional)* Number of intermediate certificates may be varied, depending on your CA. 
 
 **my.crt** — your certificate. In the example this file will be named **tunnel.zhovner.com.crt**  
 
 *How this chain looks from Google Chrome certificate information*
 ![cert chain](/img/x509_chain.png)
 
- Place each file in proper path:
+ Place each file to the proper path:
 
 
-<pre><code>/etc/ipsec.d/private/piratekey.pem
+<pre><code>/etc/ipsec.d/private/privatekey.pem
 /etc/ipsec.d/cacerts/ca.crt
-/etc/ipsec.d/cacerts/interm1.crt
-/etc/ipsec.d/cacerts/interm2.crt
+/etc/ipsec.d/cacerts/intermediate1.crt
+/etc/ipsec.d/cacerts/intermediate2.crt
 /etc/ipsec.d/certs/tunnel.zhovner.com.crt</code></pre>
 
 
