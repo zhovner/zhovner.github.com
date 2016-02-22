@@ -651,6 +651,7 @@ category: tools
 <fieldset>
         <legend>BCC (Bit Count Check) calcluator</legend>
         <label id="resultLabel"><span style="color:red">TODO: not working yet</span> </label>
+        <br />
         <input type="radio" id="radiobuttoninputdatastring" name="inputdataradiobutton" value="InputDataString"  />
         <label for="radiobuttoninputdatastring">String</label>
 
