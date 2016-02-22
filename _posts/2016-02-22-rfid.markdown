@@ -3,49 +3,6 @@ layout: post
 category: tools
 ---
 
-<style type="text/css">
-
-* {
-  	font-family: Verdana, Arial, Helvetica, sans-serif;
-  	font-size: 12px;
-	line-height: 18px;
-}
-
-p {
-  	line-height: 20px;
-}
-
-a {
-	text-decoration : none;
-}
-
-label, input {
-    margin : 4px;
-}
-
-h1 {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 22px;
-	font-weight: bold;
-}
-
-h2 {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 20px;
-	font-weight: bold;
-}
-
-h3 {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 16px;
-	font-weight: bold;
-}
-
-footer > p {
-  	text-align: center;
-}
-
-</style>
 <script type="text/javascript">
         /*
          * Implementation to calculate the CRC value for a given string / string of bytes.
