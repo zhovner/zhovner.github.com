@@ -527,8 +527,10 @@ category: tools
             }
             else
             {
+             str = new StringUtil().getNumberAsHexStr(crcValue);
+             spl = str.match(/../g);
                 document.getElementById('resultLabel').innerHTML =
-                    '<span style="color:green">' + new StringUtil().getNumberAsHexStr(crcValue) + '</span> ';
+                    '<span style="color:green">' + spl[0] + spl[2] + spl[1] + '</span> ';
             }
         }
 
@@ -637,7 +639,7 @@ category: tools
         <input type="radio" id="radiobuttoninputdatabytes" name="inputdataradiobutton" value="InputDataBytes" checked="checked"/>
         <label for="radiobuttoninputdatabytes">Bytes</label>
         <br />
-        <textarea id="inputDataTextArea" cols="60" rows="3" style="margin: 4px;" >0x31 0x32 0x33 0x34 0x35 0x36 0x37 0x38 0x39</textarea>
+        <textarea id="inputDataTextArea" cols="60" rows="3" style="margin: 4px;" >0x93 0x70 0x88 0x04 0x39 0x74 0xc1</textarea>
         <br />
         <button id="calcButton" onclick="calcButton_clicked();">Calculate CRC!</button>
         <br />
