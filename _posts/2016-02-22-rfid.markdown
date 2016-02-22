@@ -23,12 +23,6 @@ category: tools
             this.resultReflected = true;
         }
 
-        /* Known CRC algorihtms */
-        var CrcDatabase = [
-            new CrcModel(16, "CRC16_A", 0x1021, 0xC6C6, 0x0000, true, true),
-            new CrcModel(16, "CRC16_XMODEM", 0x1021, 0x0000, 0x0000, false, false),
-        ];
-             
                
         /* two constructors supported:
             - new Crc(width, polynomial, initialVal, finalXorVal, inputReflected, resultReflected)
@@ -424,13 +418,8 @@ category: tools
                 return;
             }
 
-            /* get selected CRC width */
-            var selCrcWidth = getSelectedCrcWidth();
 
-            /* request the CRC depending on the chosen settings */
-            if (document.getElementById('radiobuttoninputpredefined').checked)
-            {
-                /* Predefined CRC selected */
+               /* Predefined CRC selected */
                 /* get selected CRC model parameters */
                 var crcParams = getDataBaseEntryFromEntry(selCrcWidth, document.getElementById('selectpredefined').selectedIndex);
 
