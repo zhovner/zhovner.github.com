@@ -41,22 +41,6 @@ h3 {
 	font-weight: bold;
 }
 
-.articleHeadLine {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 16px;
-	font-weight: bold;
-	line-height: 26px;
-	color: #FFFFFF;
-	
-	margin-left:auto;
-	margin-right:auto;
-	text-align: center;
-	background-color: #FFCC66;
-	box-shadow: rgb(50,50,50) 1px 1px 2px,
-			  rgb(150,150,150) 4px 4px 4px;
-	border-radius: 5px;
-}
-
 footer > p {
   	text-align: center;
 }
@@ -801,12 +785,7 @@ footer > p {
 
 
 
-    <div class="articleHeadLine">
-        CRC Calculator (Javascript)
-    </div>
-    <br>
-
-    <fieldset>
+<fieldset>
         <legend>CRC width</legend>
         <label>RadioButton:</label>
         <input type="radio" id="radiobuttoncrc8" name="crcwidthradiobutton" value="CRC8" onchange="crcWidthInputType_changed();" checked="checked" />
