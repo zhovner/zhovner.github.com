@@ -61,8 +61,8 @@ footer > p {
   	text-align: center;
 }
 
-    </style>
-    <script type="text/javascript">
+</style>
+<script type="text/javascript">
         /*
          * Implementation to calculate the CRC value for a given string / string of bytes.
          * Sunshine, May 2k15
@@ -798,10 +798,8 @@ footer > p {
         }
 
     </script>
-</head>
 
 
-<body onload="pageOnLoad();">
 
     <div class="articleHeadLine">
         CRC Calculator (Javascript)
