@@ -367,34 +367,6 @@ category: tools
             throw "Invalid selected index into CRC database";
         }
 
-        /*********************************************
-         * GUI interaction
-         *********************************************/
-        /*
-         * Retrieve selected CRC width
-         */
-        function getSelectedCrcWidth()
-        {
-            var selCrcWidth;
-            if (document.getElementById('radiobuttoncrc8').checked)
-            {
-                selCrcWidth = 8;
-            }
-            else if (document.getElementById('radiobuttoncrc16').checked)
-            {
-                selCrcWidth = 16;
-            }
-            else if (document.getElementById('radiobuttoncrc32').checked)
-            {
-                selCrcWidth = 32;
-            }
-            else
-            {
-                throw "Invalid selected CRC width state";
-            }
-            return selCrcWidth;
-        }
-
         /*
          * Convert the input data to byte array
          */
