@@ -652,12 +652,6 @@ category: tools
         <legend>BCC (Bit Count Check) calcluator</legend>
         <label id="resultLabel"><span style="color:red">TODO: not working yet</span> </label>
         <br />
-        <input type="radio" id="radiobuttoninputdatastring" name="inputdataradiobutton" value="InputDataString"  />
-        <label for="radiobuttoninputdatastring">String</label>
-
-        <input type="radio" id="radiobuttoninputdatabytes" name="inputdataradiobutton" value="InputDataBytes" checked="checked"/>
-        <label for="radiobuttoninputdatabytes">Bytes</label>
-        <br />
         <textarea id="inputDataTextArea" cols="60" rows="3" style="margin: 4px;" >0x93 0x70 0x88 0x04 0x39 0x74 0xc1</textarea>
         <br />
         <button id="calcButton" onclick="calcButton_clicked();">Calculate BCC</button>
