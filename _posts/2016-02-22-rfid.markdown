@@ -1,8 +1,3 @@
----
-layout: post
-category: tools
----
-
 <script type="text/javascript">
         /*
          * Implementation to calculate the CRC value for a given string / string of bytes.
@@ -14,15 +9,67 @@ category: tools
         /*
          * Struct to contain one instance of a CRC algorithm model */
         function CrcModel(width, name, polynomial, initial, finalXor, inputReflected, resultReflected) {
-            this.width = 16;
-            this.name = "CRC16_A";
-            this.polynomial = 0x1021;
-            this.initial = 0xC6C6;
-            this.finalXor = 0x0000;
-            this.inputReflected = true;
-            this.resultReflected = true;
+            this.width = width;
+            this.name = name;
+            this.polynomial = polynomial;
+            this.initial = initial;
+            this.finalXor = finalXor;
+            this.inputReflected = inputReflected;
+            this.resultReflected = resultReflected;
         }
 
+        /* Known CRC algorihtms */
+        var CrcDatabase = [
+            new CrcModel(8, "CRC8", 0x07, 0x00, 0x00, false, false),
+            new CrcModel(8, "CRC8_SAE_J1850", 0x1D, 0xFF, 0xFF, false, false),
+            new CrcModel(8, "CRC8_SAE_J1850_ZERO", 0x1D, 0x00, 0x00, false, false),
+            new CrcModel(8, "CRC8_8H2F", 0x2F, 0xFF, 0xFF, false, false),
+            new CrcModel(8, "CRC8_CDMA2000", 0x9B, 0xFF, 0x00, false, false),
+            new CrcModel(8, "CRC8_DARC", 0x39, 0x00, 0x00, true, true),
+            new CrcModel(8, "CRC8_DVB_S2", 0xD5, 0x00, 0x00, false, false),
+            new CrcModel(8, "CRC8_EBU", 0x1D, 0xFF, 0x00, true, true),
+            new CrcModel(8, "CRC8_ICODE", 0x1D, 0xFD, 0x00, false, false),
+            new CrcModel(8, "CRC8_ITU", 0x07, 0x00, 0x55, false, false),
+            new CrcModel(8, "CRC8_MAXIM", 0x31, 0x00, 0x00, true, true),
+            new CrcModel(8, "CRC8_ROHC", 0x07, 0xFF, 0x00, true, true),
+            new CrcModel(8, "CRC8_WCDMA", 0x9B, 0x00, 0x00, true, true),
+            
+            new CrcModel(16, "CRC16_A", 0x1021, 0xC6C6, 0x0000, true, true),
+            new CrcModel(16, "CRC16_CCIT_ZERO", 0x1021, 0x0000, 0x0000, false, false),
+            new CrcModel(16, "CRC16_ARC", 0x8005, 0x0000, 0x0000, true, true),
+            new CrcModel(16, "CRC16_AUG_CCITT", 0x1021, 0x1D0F, 0x0000, false, false),
+            new CrcModel(16, "CRC16_BUYPASS", 0x8005, 0x0000, 0x0000, false, false),
+            new CrcModel(16, "CRC16_CCITT_FALSE", 0x1021, 0xFFFF, 0x0000, false, false),
+            new CrcModel(16, "CRC16_CDMA2000", 0xC867, 0xFFFF, 0x0000, false, false),
+            new CrcModel(16, "CRC16_DDS_110", 0x8005, 0x800D, 0x0000, false, false),
+            new CrcModel(16, "CRC16_DECT_R", 0x0589, 0x0000, 0x0001, false, false),
+            new CrcModel(16, "CRC16_DECT_X", 0x0589, 0x0000, 0x0000, false, false),
+            new CrcModel(16, "CRC16_DNP", 0x3D65, 0x0000, 0xFFFF, true, true),
+            new CrcModel(16, "CRC16_EN_13757", 0x3D65, 0x0000, 0xFFFF, false, false),
+            new CrcModel(16, "CRC16_GENIBUS", 0x1021, 0xFFFF, 0xFFFF, false, false),
+            new CrcModel(16, "CRC16_MAXIM", 0x8005, 0x0000, 0xFFFF, true, true),
+            new CrcModel(16, "CRC16_MCRF4XX", 0x1021, 0xFFFF, 0x0000, true, true),
+            new CrcModel(16, "CRC16_RIELLO", 0x1021, 0xB2AA, 0x0000, true, true),
+            new CrcModel(16, "CRC16_T10_DIF", 0x8BB7, 0x0000, 0x0000, false, false),
+            new CrcModel(16, "CRC16_TELEDISK", 0xA097, 0x0000, 0x0000, false, false),
+            new CrcModel(16, "CRC16_TMS37157", 0x1021, 0x89EC, 0x0000, true, true),
+            new CrcModel(16, "CRC16_USB", 0x8005, 0xFFFF, 0xFFFF, true, true),
+            new CrcModel(16, "CRC16_KERMIT", 0x1021, 0x0000, 0x0000, true, true),
+            new CrcModel(16, "CRC16_MODBUS", 0x8005, 0xFFFF, 0x0000, true, true),
+            new CrcModel(16, "CRC16_X_25", 0x1021, 0xFFFF, 0xFFFF, true, true),
+            new CrcModel(16, "CRC16_XMODEM", 0x1021, 0x0000, 0x0000, false, false),
+
+            new CrcModel(32, "CRC32", 0x04C11DB7, 0xFFFFFFFF, 0xFFFFFFFF, true, true),
+            new CrcModel(32, "CRC32_BZIP2", 0x04C11DB7, 0xFFFFFFFF, 0xFFFFFFFF, false, false),
+            new CrcModel(32, "CRC32_C", 0x1EDC6F41, 0xFFFFFFFF, 0xFFFFFFFF, true, true),
+            new CrcModel(32, "CRC32_D", 0xA833982B, 0xFFFFFFFF, 0xFFFFFFFF, true, true),
+            new CrcModel(32, "CRC32_MPEG2", 0x04C11DB7, 0xFFFFFFFF, 0x00000000, false, false),
+            new CrcModel(32, "CRC32_POSIX", 0x04C11DB7, 0x00000000, 0xFFFFFFFF, false, false),
+            new CrcModel(32, "CRC32_Q", 0x814141AB, 0x00000000, 0x00000000, false, false),
+            new CrcModel(32, "CRC32_JAMCRC", 0x04C11DB7, 0xFFFFFFFF, 0x00000000, true, true),
+            new CrcModel(32, "CRC32_XFER", 0x000000AF, 0x00000000, 0x00000000, false, false)
+        ];
+             
                
         /* two constructors supported:
             - new Crc(width, polynomial, initialVal, finalXorVal, inputReflected, resultReflected)
@@ -361,6 +408,34 @@ category: tools
             throw "Invalid selected index into CRC database";
         }
 
+        /*********************************************
+         * GUI interaction
+         *********************************************/
+        /*
+         * Retrieve selected CRC width
+         */
+        function getSelectedCrcWidth()
+        {
+            var selCrcWidth;
+            if (document.getElementById('radiobuttoncrc8').checked)
+            {
+                selCrcWidth = 8;
+            }
+            else if (document.getElementById('radiobuttoncrc16').checked)
+            {
+                selCrcWidth = 16;
+            }
+            else if (document.getElementById('radiobuttoncrc32').checked)
+            {
+                selCrcWidth = 32;
+            }
+            else
+            {
+                throw "Invalid selected CRC width state";
+            }
+            return selCrcWidth;
+        }
+
         /*
          * Convert the input data to byte array
          */
@@ -418,8 +493,13 @@ category: tools
                 return;
             }
 
+            /* get selected CRC width */
+            var selCrcWidth = getSelectedCrcWidth();
 
-               /* Predefined CRC selected */
+            /* request the CRC depending on the chosen settings */
+            if (document.getElementById('radiobuttoninputpredefined').checked)
+            {
+                /* Predefined CRC selected */
                 /* get selected CRC model parameters */
                 var crcParams = getDataBaseEntryFromEntry(selCrcWidth, document.getElementById('selectpredefined').selectedIndex);
 
@@ -488,6 +568,40 @@ category: tools
             }
         }
 
+        /* Print lookup table */
+        function printLookupTable(selCrcWidth, crc)
+        {
+            var lookupTable = crc.getLookupTable();
+            var tableStr = "";
+            var stringUtil = new StringUtil();
+            if (selCrcWidth == 32)
+            {
+                for (var i = 0; i < 256; i++)
+                {
+                    tableStr += stringUtil.getNumberAsHexStr32FixedWidth(lookupTable[i]);
+                    tableStr += ' ';
+                    if (i % 8 == 7)
+                    {
+                        tableStr += '<br/>';
+                    }
+                }
+                
+            }
+            else
+            {
+                for (var i = 0; i < 16; i++)
+                {
+                    for (var j = 0; j < 16; j++)
+                    {
+                        tableStr += stringUtil.getNumberAsHexStr(lookupTable[i * 16 + j], selCrcWidth);
+                        tableStr += ' ';
+                    }
+                    tableStr += '<br/>';
+                }
+            }
+            document.getElementById('lookuptableLabel').innerHTML = tableStr;
+        }
+
         /*
          * Print an error text.
          */
@@ -497,13 +611,182 @@ category: tools
                     '<span style="color:red">' + errText + '</span> ';
         }
 
+        /*
+         * Fill combobox with predefined CRC model entries of given width
+         */
+        function fillCombobox(width)
+        {
+            var combo = document.getElementById("selectpredefined");
 
+            for (var i = 0; i < CrcDatabase.length; i++)
+            {
+                if (width != CrcDatabase[i].width) continue;
+
+                var option = document.createElement("option");
+                option.text = CrcDatabase[i].name;
+                option.value = CrcDatabase[i].name;
+                try {
+                    combo.add(option, null); //Standard
+                } catch (error) {
+                    combo.add(option); // IE only
+                }
+            }
+        }
+
+        /*
+         * Remove all predefined CRC model entries in combobox
+         */
+        function clearPredefinedSelectCombobox()
+        {
+            var combo = document.getElementById("selectpredefined");
+            while (combo.hasChildNodes())
+            {
+                combo.removeChild(combo.lastChild);
+            }
+        }
+
+        /*
+         * Called when the selected predefined CRC parametrization value in combobox changed
+         */
+        function predefinedSelectChangeEvent()
+        {            
+            var selCrcWidth;
+            if (document.getElementById('radiobuttoncrc8').checked)
+            {
+                selCrcWidth = 8;
+            }
+            else if (document.getElementById('radiobuttoncrc16').checked)
+            {
+                selCrcWidth = 16;
+            }
+            else if (document.getElementById('radiobuttoncrc32').checked)
+            {
+                selCrcWidth = 32;
+            }
+            else
+            {
+                throw "Invalid selected CRC width state";
+            }
+
+            /* get selected CRC model parameters */
+            var crcParams = getDataBaseEntryFromEntry(selCrcWidth, document.getElementById('selectpredefined').selectedIndex);
+            var stringUtil = new StringUtil();
+            document.getElementById('checkboxInputReflected').checked = crcParams.inputReflected;
+            document.getElementById('checkboxResultReflected').checked = crcParams.resultReflected;
+            document.getElementById('textBoxPolynomial').value = stringUtil.getNumberAsHexStr(crcParams.polynomial);
+            document.getElementById('textBoxInitialValue').value = stringUtil.getNumberAsHexStr(crcParams.initial);
+            document.getElementById('textBoxFinalXorValue').value = stringUtil.getNumberAsHexStr(crcParams.finalXor);
+        }
+
+        /*
+         * Called if selected CRC width or type has changed
+         */
+        function crcWidthInputType_changed()
+        {
+            var selCrcWidth;
+            if (document.getElementById('radiobuttoncrc8').checked)
+            {
+                selCrcWidth = 8;
+            }
+            else if (document.getElementById('radiobuttoncrc16').checked)
+            {
+                selCrcWidth = 16;
+            }
+            else if (document.getElementById('radiobuttoncrc32').checked)
+            {
+                selCrcWidth = 32;
+            }
+            else {
+                throw "Invalid selected CRC width state";
+            }
+
+            /* fill in predefined CRC instances and call combobox handler to update GUI */
+            clearPredefinedSelectCombobox();
+            fillCombobox(selCrcWidth);
+            if (!document.getElementById('radiobuttoninputcustom').checked)
+            {
+                document.getElementById('selectpredefined').selectedIndex = 0;
+                predefinedSelectChangeEvent();
+            }
+
+            setCrcGuiParamsVisibility(document.getElementById('radiobuttoninputcustom').checked);
+        }
+
+        /*
+         * Toggles the visibility state of GUI elements:
+         * customCrcSelected: pass true if custom CRC is selected, false if predefinded algorithm is selected.
+         */
+        function setCrcGuiParamsVisibility(customCrcSelected) {
+            document.getElementById('selectpredefined').disabled = customCrcSelected;
+            document.getElementById('checkboxInputReflected').disabled = !customCrcSelected;
+            document.getElementById('checkboxResultReflected').disabled = !customCrcSelected;
+            document.getElementById('textBoxPolynomial').disabled = !customCrcSelected;
+            document.getElementById('textBoxInitialValue').disabled = !customCrcSelected;
+            document.getElementById('textBoxFinalXorValue').disabled = !customCrcSelected;
+        }
+
+        /* Called when page is initially loaded. Setup default values */
+        function pageOnLoad() {
+            fillCombobox(8);
+            document.getElementById('selectpredefined').selectedIndex = 0;
+            predefinedSelectChangeEvent();
+            setCrcGuiParamsVisibility(false);
+        }
 
 </script>
 
 
 
-<fieldset>
+<div onload="pageOnLoad();">
+
+    <div class="articleHeadLine">
+        CRC Calculator (Javascript)
+    </div>
+    <br>
+
+    <fieldset>
+        <legend>CRC width</legend>
+        <label>RadioButton:</label>
+        <input type="radio" id="radiobuttoncrc8" name="crcwidthradiobutton" value="CRC8" onchange="crcWidthInputType_changed();" checked="checked" />
+        <label for="radiobuttoncrc8">CRC-8</label>
+        <input type="radio" id="radiobuttoncrc16" name="crcwidthradiobutton" value="CRC16" onchange="crcWidthInputType_changed();" />
+        <label for="radiobuttoncrc16">CRC-16</label>
+        <input type="radio" id="radiobuttoncrc32" name="crcwidthradiobutton" value="CRC32" onchange="crcWidthInputType_changed();" />
+        <label for="radiobuttoncrc32">CRC-32</label>
+    </fieldset>
+
+    <fieldset>
+        <legend>CRC parametrization</legend>
+        <input type="radio" id="radiobuttoninputpredefined" name="inputcrcradiobutton" value="CRCPredefined" onchange="crcWidthInputType_changed();" checked="checked" />
+        <label for="radiobuttoninputpredefined">Predefined</label>
+        
+        <select 
+            id="selectpredefined" name="selectpredefined" onchange="predefinedSelectChangeEvent();">
+        </select>
+
+        <input type="radio" id="radiobuttoninputcustom" name="inputcrcradiobutton" value="CRCCustom" onchange="crcWidthInputType_changed();" />
+        <label for="radiobuttoninputcustom">Custom</label>
+    </fieldset>
+
+    <fieldset>
+        <legend>CRC detailed parameters</legend>
+
+        <label>Input reflected: </label>
+        <input type="checkbox" id="checkboxInputReflected" name="checkboxInputReflected"/>
+        <label>Result reflected: </label>
+        <input type="checkbox" id="checkboxResultReflected" name="checkboxResultReflected"/>
+        <br />
+        <label style="display:inline-block; width:100px">Polynomial: </label>
+        <input type="text" id="textBoxPolynomial" /><br />
+        <label style="display:inline-block; width:100px">Initial Value: </label>
+        <input type="text" id="textBoxInitialValue" /><br />
+        <label style="display:inline-block; width:100px">Final Xor Value: </label>
+        <input type="text" id="textBoxFinalXorValue" />
+    </fieldset>
+
+    
+
+    <fieldset>
         <legend>CRC Input Data</legend>
 
         <input type="radio" id="radiobuttoninputdatastring" name="inputdataradiobutton" value="InputDataString"  />
@@ -514,15 +797,20 @@ category: tools
         <br />
         <textarea id="inputDataTextArea" cols="60" rows="3" style="margin: 4px;" >0x31 0x32 0x33 0x34 0x35 0x36 0x37 0x38 0x39</textarea>
 
-</fieldset>
+    </fieldset>
        
-<br />
-<button id="calcButton" onclick="calcButton_clicked();">Calculate CRC!</button>
-<br />
-<br />
+    <br />
+    <button id="calcButton" onclick="calcButton_clicked();">Calculate CRC!</button>
 
-<label style="font-weight:bold">Result CRC value: </label>
-<label id="resultLabel" style="font-weight:bold"><span style="color:red">-</span> </label>
+    <br />
+    <br />
+
+    <label style="font-weight:bold">Result CRC value: </label>
+    <label id="resultLabel" style="font-weight:bold"><span style="color:red">-</span> </label>
+    <br /><br />
+    <label style="font-weight:bold">Lookup Table: </label><br />
+    <label id="lookuptableLabel" style="font-family:'Courier New';margin-left:0">-</label>
 
 
+</div>
 
