@@ -647,6 +647,11 @@ category: tools
         <label id="resultLabel" style="font-weight:bold"><span style="color:red">-</span> </label>
 </fieldset>
 
+<br />
+<br />
+<br />
+<br />
+
 
 <fieldset>
         <legend>BCC (Bit Count Check) calcluator</legend>
