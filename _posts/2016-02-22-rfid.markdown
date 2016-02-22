@@ -1,8 +1,3 @@
----
-layout: post
-category: tools
----
-
 <script type="text/javascript">
         /*
          * Implementation to calculate the CRC value for a given string / string of bytes.
@@ -10,6 +5,8 @@ category: tools
          * www.sunshine2k.de || www.bastian-molkenthin.de
          */
         "use strict";
+
+        var CRC16_A = new CrcModel(16, "CRC16_A", 0x1021, 0xC6C6, 0x0000, true, true);
 
         /*
          * Struct to contain one instance of a CRC algorithm model */
@@ -38,8 +35,7 @@ category: tools
             new CrcModel(8, "CRC8_MAXIM", 0x31, 0x00, 0x00, true, true),
             new CrcModel(8, "CRC8_ROHC", 0x07, 0xFF, 0x00, true, true),
             new CrcModel(8, "CRC8_WCDMA", 0x9B, 0x00, 0x00, true, true),
-            
-            new CrcModel(16, "CRC16_A", 0x1021, 0xC6C6, 0x0000, true, true),
+
             new CrcModel(16, "CRC16_CCIT_ZERO", 0x1021, 0x0000, 0x0000, false, false),
             new CrcModel(16, "CRC16_ARC", 0x8005, 0x0000, 0x0000, true, true),
             new CrcModel(16, "CRC16_AUG_CCITT", 0x1021, 0x1D0F, 0x0000, false, false),
@@ -59,6 +55,7 @@ category: tools
             new CrcModel(16, "CRC16_TELEDISK", 0xA097, 0x0000, 0x0000, false, false),
             new CrcModel(16, "CRC16_TMS37157", 0x1021, 0x89EC, 0x0000, true, true),
             new CrcModel(16, "CRC16_USB", 0x8005, 0xFFFF, 0xFFFF, true, true),
+            new CrcModel(16, "CRC16_A", 0x1021, 0xC6C6, 0x0000, true, true),
             new CrcModel(16, "CRC16_KERMIT", 0x1021, 0x0000, 0x0000, true, true),
             new CrcModel(16, "CRC16_MODBUS", 0x8005, 0xFFFF, 0x0000, true, true),
             new CrcModel(16, "CRC16_X_25", 0x1021, 0xFFFF, 0xFFFF, true, true),
@@ -74,13 +71,13 @@ category: tools
             new CrcModel(32, "CRC32_JAMCRC", 0x04C11DB7, 0xFFFFFFFF, 0x00000000, true, true),
             new CrcModel(32, "CRC32_XFER", 0x000000AF, 0x00000000, 0x00000000, false, false)
         ];
-             
-               
+
+
         /* two constructors supported:
             - new Crc(width, polynomial, initialVal, finalXorVal, inputReflected, resultReflected)
             - new Crc(width, crcModel)
         */
-        var Crc = function (width, polynomial, initialVal, finalXorVal, inputReflected, resultReflected) {            
+        var Crc = function (width, polynomial, initialVal, finalXorVal, inputReflected, resultReflected) {
             /* private variables */
             // crc model variables
             var width;
@@ -266,7 +263,7 @@ category: tools
 
                 return ("0x" + valueHigh + valueLow);
             }
-            
+
             var lastErrToken;
             /*
              * Get value of token where a call to getCharacterByteArrayFromByteString might have failed. */
@@ -498,52 +495,10 @@ category: tools
                 return;
             }
 
-            /* get selected CRC width */
-            var selCrcWidth = getSelectedCrcWidth();
-
-            /* request the CRC depending on the chosen settings */
-            if (document.getElementById('radiobuttoninputpredefined').checked)
-            {
-                /* Predefined CRC selected */
-                /* get selected CRC model parameters */
-                var crcParams = getDataBaseEntryFromEntry(selCrcWidth, document.getElementById('selectpredefined').selectedIndex);
-
-                calcAndDisplayCrc(selCrcWidth, crcParams, bytes);
-            }
-            else if (document.getElementById('radiobuttoninputcustom').checked)
-            {
-                /* custom CRC, get values from GUI elements */
-                var crcModel = new CrcModel();
-                crcModel.inputReflected = document.getElementById('checkboxInputReflected').checked;
-                crcModel.resultReflected = document.getElementById('checkboxResultReflected').checked;
-
-                var maxVal = 0xFFFFFFFF >>> (32 - selCrcWidth);
-
-                crcModel.polynomial = parseInt(document.getElementById('textBoxPolynomial').value);
-                if (crcModel.polynomial > maxVal)
-                {
-                    document.getElementById('textBoxPolynomial').value = stringUtil.getNumberAsHexStr(crcModel.polynomial & maxVal);
-                }
-                crcModel.initial = parseInt(document.getElementById('textBoxInitialValue').value);
-                if (crcModel.initial > maxVal)
-                {
-                    document.getElementById('textBoxInitialValue').value = stringUtil.getNumberAsHexStr(crcModel.initial & maxVal);
-                }
-                crcModel.finalXor = parseInt(document.getElementById('textBoxFinalXorValue').value);
-                if (crcModel.finalXor > maxVal)
-                {
-                    document.getElementById('textBoxFinalXorValue').value = stringUtil.getNumberAsHexStr(crcModel.finalXor & maxVal);
-                }
-
-                calcAndDisplayCrc(selCrcWidth, crcModel, bytes);
-            }
-            else
-            {
-                /* invalid state, do nothing */
-            }
+            calcAndDisplayCrc(CRC16_A.width, CRC16_A, bytes);
         }
-        
-        /* 
+
+        /*
          * Calculate and display CRC value.
          */
         function calcAndDisplayCrc(selCrcWidth, crcParams, bytes)
@@ -551,12 +506,12 @@ category: tools
             var crc = new Crc(selCrcWidth, crcParams);
             var crcValue = crc.compute(bytes);
             printResultCrc(selCrcWidth, crcValue);
-            printLookupTable(selCrcWidth, crc);            
+            // printLookupTable(selCrcWidth, crc);
         }
 
         /* Print crc value:
-           - selCrcWidth: width of crc value in bits 
-           - crcValue: actual CRC value 
+           - selCrcWidth: width of crc value in bits
+           - crcValue: actual CRC value
         */
         function printResultCrc(selCrcWidth, crcValue)
         {
@@ -590,7 +545,7 @@ category: tools
                         tableStr += '<br/>';
                     }
                 }
-                
+
             }
             else
             {
@@ -616,27 +571,6 @@ category: tools
                     '<span style="color:red">' + errText + '</span> ';
         }
 
-        /*
-         * Fill combobox with predefined CRC model entries of given width
-         */
-        function fillCombobox(width)
-        {
-            var combo = document.getElementById("selectpredefined");
-
-            for (var i = 0; i < CrcDatabase.length; i++)
-            {
-                if (width != CrcDatabase[i].width) continue;
-
-                var option = document.createElement("option");
-                option.text = CrcDatabase[i].name;
-                option.value = CrcDatabase[i].name;
-                try {
-                    combo.add(option, null); //Standard
-                } catch (error) {
-                    combo.add(option); // IE only
-                }
-            }
-        }
 
         /*
          * Remove all predefined CRC model entries in combobox
@@ -650,38 +584,6 @@ category: tools
             }
         }
 
-        /*
-         * Called when the selected predefined CRC parametrization value in combobox changed
-         */
-        function predefinedSelectChangeEvent()
-        {            
-            var selCrcWidth;
-            if (document.getElementById('radiobuttoncrc8').checked)
-            {
-                selCrcWidth = 8;
-            }
-            else if (document.getElementById('radiobuttoncrc16').checked)
-            {
-                selCrcWidth = 16;
-            }
-            else if (document.getElementById('radiobuttoncrc32').checked)
-            {
-                selCrcWidth = 32;
-            }
-            else
-            {
-                throw "Invalid selected CRC width state";
-            }
-
-            /* get selected CRC model parameters */
-            var crcParams = getDataBaseEntryFromEntry(selCrcWidth, document.getElementById('selectpredefined').selectedIndex);
-            var stringUtil = new StringUtil();
-            document.getElementById('checkboxInputReflected').checked = crcParams.inputReflected;
-            document.getElementById('checkboxResultReflected').checked = crcParams.resultReflected;
-            document.getElementById('textBoxPolynomial').value = stringUtil.getNumberAsHexStr(crcParams.polynomial);
-            document.getElementById('textBoxInitialValue').value = stringUtil.getNumberAsHexStr(crcParams.initial);
-            document.getElementById('textBoxFinalXorValue').value = stringUtil.getNumberAsHexStr(crcParams.finalXor);
-        }
 
         /*
          * Called if selected CRC width or type has changed
@@ -717,81 +619,17 @@ category: tools
             setCrcGuiParamsVisibility(document.getElementById('radiobuttoninputcustom').checked);
         }
 
-        /*
-         * Toggles the visibility state of GUI elements:
-         * customCrcSelected: pass true if custom CRC is selected, false if predefinded algorithm is selected.
-         */
-        function setCrcGuiParamsVisibility(customCrcSelected) {
-            document.getElementById('selectpredefined').disabled = customCrcSelected;
-            document.getElementById('checkboxInputReflected').disabled = !customCrcSelected;
-            document.getElementById('checkboxResultReflected').disabled = !customCrcSelected;
-            document.getElementById('textBoxPolynomial').disabled = !customCrcSelected;
-            document.getElementById('textBoxInitialValue').disabled = !customCrcSelected;
-            document.getElementById('textBoxFinalXorValue').disabled = !customCrcSelected;
-        }
 
-        /* Called when page is initially loaded. Setup default values */
-        function pageOnLoad() {
-            fillCombobox(8);
-            document.getElementById('selectpredefined').selectedIndex = 0;
-            predefinedSelectChangeEvent();
-            setCrcGuiParamsVisibility(false);
-        }
 
 </script>
 
 
 
-<div onload="pageOnLoad();">
-
-    <div class="articleHeadLine">
+<div class="articleHeadLine">
         CRC Calculator (Javascript)
-    </div>
-    <br>
+</div>
 
-    <fieldset>
-        <legend>CRC width</legend>
-        <label>RadioButton:</label>
-        <input type="radio" id="radiobuttoncrc8" name="crcwidthradiobutton" value="CRC8" onchange="crcWidthInputType_changed();" checked="checked" />
-        <label for="radiobuttoncrc8">CRC-8</label>
-        <input type="radio" id="radiobuttoncrc16" name="crcwidthradiobutton" value="CRC16" onchange="crcWidthInputType_changed();" />
-        <label for="radiobuttoncrc16">CRC-16</label>
-        <input type="radio" id="radiobuttoncrc32" name="crcwidthradiobutton" value="CRC32" onchange="crcWidthInputType_changed();" />
-        <label for="radiobuttoncrc32">CRC-32</label>
-    </fieldset>
-
-    <fieldset>
-        <legend>CRC parametrization</legend>
-        <input type="radio" id="radiobuttoninputpredefined" name="inputcrcradiobutton" value="CRCPredefined" onchange="crcWidthInputType_changed();" checked="checked" />
-        <label for="radiobuttoninputpredefined">Predefined</label>
-        
-        <select 
-            id="selectpredefined" name="selectpredefined" onchange="predefinedSelectChangeEvent();">
-        </select>
-
-        <input type="radio" id="radiobuttoninputcustom" name="inputcrcradiobutton" value="CRCCustom" onchange="crcWidthInputType_changed();" />
-        <label for="radiobuttoninputcustom">Custom</label>
-    </fieldset>
-
-    <fieldset>
-        <legend>CRC detailed parameters</legend>
-
-        <label>Input reflected: </label>
-        <input type="checkbox" id="checkboxInputReflected" name="checkboxInputReflected"/>
-        <label>Result reflected: </label>
-        <input type="checkbox" id="checkboxResultReflected" name="checkboxResultReflected"/>
-        <br />
-        <label style="display:inline-block; width:100px">Polynomial: </label>
-        <input type="text" id="textBoxPolynomial" /><br />
-        <label style="display:inline-block; width:100px">Initial Value: </label>
-        <input type="text" id="textBoxInitialValue" /><br />
-        <label style="display:inline-block; width:100px">Final Xor Value: </label>
-        <input type="text" id="textBoxFinalXorValue" />
-    </fieldset>
-
-    
-
-    <fieldset>
+<fieldset>
         <legend>CRC Input Data</legend>
 
         <input type="radio" id="radiobuttoninputdatastring" name="inputdataradiobutton" value="InputDataString"  />
@@ -802,20 +640,14 @@ category: tools
         <br />
         <textarea id="inputDataTextArea" cols="60" rows="3" style="margin: 4px;" >0x31 0x32 0x33 0x34 0x35 0x36 0x37 0x38 0x39</textarea>
 
-    </fieldset>
-       
+</fieldset>
+
     <br />
     <button id="calcButton" onclick="calcButton_clicked();">Calculate CRC!</button>
 
-    <br />
-    <br />
 
-    <label style="font-weight:bold">Result CRC value: </label>
-    <label id="resultLabel" style="font-weight:bold"><span style="color:red">-</span> </label>
-    <br /><br />
-    <label style="font-weight:bold">Lookup Table: </label><br />
-    <label id="lookuptableLabel" style="font-family:'Courier New';margin-left:0">-</label>
+<label style="font-weight:bold">Result CRC value: </label>
+<label id="resultLabel" style="font-weight:bold"><span style="color:red">-</span> </label>
 
 
-</div>
 
