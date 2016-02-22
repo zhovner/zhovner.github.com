@@ -629,7 +629,7 @@ category: tools
 
 
 <fieldset>
-        <legend>CRC16 Calculator</legend>
+        <legend>CRC16_A Calculator</legend>
 
         <input type="radio" id="radiobuttoninputdatastring" name="inputdataradiobutton" value="InputDataString"  />
         <label for="radiobuttoninputdatastring">String</label>
@@ -638,10 +638,10 @@ category: tools
         <label for="radiobuttoninputdatabytes">Bytes</label>
         <br />
         <textarea id="inputDataTextArea" cols="60" rows="3" style="margin: 4px;" >0x31 0x32 0x33 0x34 0x35 0x36 0x37 0x38 0x39</textarea>
+        <br />
         <button id="calcButton" onclick="calcButton_clicked();">Calculate CRC!</button>
         <br />
         <label style="font-weight:bold">Result CRC value: </label>
-        <br />
         <label id="resultLabel" style="font-weight:bold"><span style="color:red">-</span> </label>
 </fieldset>
 
