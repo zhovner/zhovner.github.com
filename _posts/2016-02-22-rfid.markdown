@@ -794,9 +794,9 @@ footer > p {
         <label for="radiobuttoncrc16">CRC-16</label>
         <input type="radio" id="radiobuttoncrc32" name="crcwidthradiobutton" value="CRC32" onchange="crcWidthInputType_changed();" />
         <label for="radiobuttoncrc32">CRC-32</label>
-    </fieldset>
+</fieldset>
 
-    <fieldset>
+<fieldset>
         <legend>CRC parametrization</legend>
         <input type="radio" id="radiobuttoninputpredefined" name="inputcrcradiobutton" value="CRCPredefined" onchange="crcWidthInputType_changed();" checked="checked" />
         <label for="radiobuttoninputpredefined">Predefined</label>
@@ -807,9 +807,9 @@ footer > p {
 
         <input type="radio" id="radiobuttoninputcustom" name="inputcrcradiobutton" value="CRCCustom" onchange="crcWidthInputType_changed();" />
         <label for="radiobuttoninputcustom">Custom</label>
-    </fieldset>
+</fieldset>
 
-    <fieldset>
+<fieldset>
         <legend>CRC detailed parameters</legend>
 
         <label>Input reflected: </label>
@@ -823,11 +823,11 @@ footer > p {
         <input type="text" id="textBoxInitialValue" /><br />
         <label style="display:inline-block; width:100px">Final Xor Value: </label>
         <input type="text" id="textBoxFinalXorValue" />
-    </fieldset>
+</fieldset>
 
     
 
-    <fieldset>
+<fieldset>
         <legend>CRC Input Data</legend>
 
         <input type="radio" id="radiobuttoninputdatastring" name="inputdataradiobutton" value="InputDataString"  />
@@ -838,16 +838,15 @@ footer > p {
         <br />
         <textarea id="inputDataTextArea" cols="60" rows="3" style="margin: 4px;" >0x31 0x32 0x33 0x34 0x35 0x36 0x37 0x38 0x39</textarea>
 
-    </fieldset>
+</fieldset>
        
-    <br />
-    <button id="calcButton" onclick="calcButton_clicked();">Calculate CRC!</button>
+<br />
+<button id="calcButton" onclick="calcButton_clicked();">Calculate CRC!</button>
+<br />
+<br />
 
-    <br />
-    <br />
-
-    <label style="font-weight:bold">Result CRC value: </label>
-    <label id="resultLabel" style="font-weight:bold"><span style="color:red">-</span> </label>
+<label style="font-weight:bold">Result CRC value: </label>
+<label id="resultLabel" style="font-weight:bold"><span style="color:red">-</span> </label>
 
 
 
