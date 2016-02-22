@@ -527,8 +527,8 @@ category: tools
             }
             else
             {
-             str = new StringUtil().getNumberAsHexStr(crcValue);
-             spl = str.match(/../g);
+             var str = new StringUtil().getNumberAsHexStr(crcValue);
+             var spl = str.match(/../g);
                 document.getElementById('resultLabel').innerHTML =
                     '<span style="color:green">' + spl[0] + spl[2] + spl[1] + '</span> ';
             }
