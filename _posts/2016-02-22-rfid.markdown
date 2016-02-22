@@ -628,11 +628,6 @@ category: tools
 </script>
 
 
-
-<div class="articleHeadLine">
-        CRC Calculator (Javascript)
-</div>
-
 <fieldset>
         <legend>CRC Input Data</legend>
 
