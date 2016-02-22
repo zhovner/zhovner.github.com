@@ -1,3 +1,7 @@
+---
+layout: post
+category: tools
+---
 <script type="text/javascript">
         /*
          * Implementation to calculate the CRC value for a given string / string of bytes.
