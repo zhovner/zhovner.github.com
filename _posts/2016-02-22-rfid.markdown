@@ -589,48 +589,6 @@ category: tools
 
 
 <fieldset>
-        <legend>CRC width</legend>
-        <label>RadioButton:</label>
-        <input type="radio" id="radiobuttoncrc8" name="crcwidthradiobutton" value="CRC8" onchange="crcWidthInputType_changed();" checked="checked" />
-        <label for="radiobuttoncrc8">CRC-8</label>
-        <input type="radio" id="radiobuttoncrc16" name="crcwidthradiobutton" value="CRC16" onchange="crcWidthInputType_changed();" />
-        <label for="radiobuttoncrc16">CRC-16</label>
-        <input type="radio" id="radiobuttoncrc32" name="crcwidthradiobutton" value="CRC32" onchange="crcWidthInputType_changed();" />
-        <label for="radiobuttoncrc32">CRC-32</label>
-</fieldset>
-
-<fieldset>
-        <legend>CRC parametrization</legend>
-        <input type="radio" id="radiobuttoninputpredefined" name="inputcrcradiobutton" value="CRCPredefined" onchange="crcWidthInputType_changed();" checked="checked" />
-        <label for="radiobuttoninputpredefined">Predefined</label>
-        
-        <select 
-            id="selectpredefined" name="selectpredefined" onchange="predefinedSelectChangeEvent();">
-        </select>
-
-        <input type="radio" id="radiobuttoninputcustom" name="inputcrcradiobutton" value="CRCCustom" onchange="crcWidthInputType_changed();" />
-        <label for="radiobuttoninputcustom">Custom</label>
-</fieldset>
-
-<fieldset>
-        <legend>CRC detailed parameters</legend>
-
-        <label>Input reflected: </label>
-        <input type="checkbox" id="checkboxInputReflected" name="checkboxInputReflected"/>
-        <label>Result reflected: </label>
-        <input type="checkbox" id="checkboxResultReflected" name="checkboxResultReflected"/>
-        <br />
-        <label style="display:inline-block; width:100px">Polynomial: </label>
-        <input type="text" id="textBoxPolynomial" /><br />
-        <label style="display:inline-block; width:100px">Initial Value: </label>
-        <input type="text" id="textBoxInitialValue" /><br />
-        <label style="display:inline-block; width:100px">Final Xor Value: </label>
-        <input type="text" id="textBoxFinalXorValue" />
-</fieldset>
-
-    
-
-<fieldset>
         <legend>CRC Input Data</legend>
 
         <input type="radio" id="radiobuttoninputdatastring" name="inputdataradiobutton" value="InputDataString"  />
