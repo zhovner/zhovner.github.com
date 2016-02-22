@@ -646,8 +646,8 @@ category: tools
 
 </fieldset>
 
-    <br />
-    <button id="calcButton" onclick="calcButton_clicked();">Calculate CRC!</button>
+<br />
+<button id="calcButton" onclick="calcButton_clicked();">Calculate CRC!</button>
 
 
 <label style="font-weight:bold">Result CRC value: </label>
