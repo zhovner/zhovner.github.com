@@ -653,16 +653,40 @@ category: tools
 <br />
 
 
+<script type="text/javascript">
+    /*
+     * Called when the calculate button is clicked
+     */
+     function BCCcalcButton_clicked()
+    {
+     var inputDataElem = document.getElementById("BCCinputDataTextArea");
+     var bccresult = inputDataElem.value
+     .split(' ')
+    .map(function (str) {
+        return parseInt(str, 16);
+    })
+    .reduce(function (prev, curr) {
+        return prev ^ curr;
+    }, 0)
+    .toString(16);
+
+            document.getElementById('BCCresult').innerHTML =
+                    '<span style="color:green">' + '0x' + bccresult + '</span> ';
+    }
+
+
+</script>
+
 <fieldset>
         <legend>BCC (Bit Count Check) calcluator</legend>
-        <label id="resultLabel"><span style="color:red">TODO: not working yet</span> </label>
+        <label><span style="color:red">TODO: not working yet</span> </label>
         <br />
-        <textarea id="inputDataTextArea" cols="60" rows="3" style="margin: 4px;" >0x93 0x70 0x88 0x04 0x39 0x74 0xc1</textarea>
+        <textarea id="BCCinputDataTextArea" cols="60" rows="3" style="margin: 4px;" >0x93 0x70 0x88 0x04 0x39 0x74 0xc1</textarea>
         <br />
-        <button id="calcButton" onclick="calcButton_clicked();">Calculate BCC</button>
+        <button id="BCCcalcButton" onclick="BCCcalcButton_clicked();">Calculate BCC</button>
         <br />
         <label style="font-weight:bold">Result BCC value: </label>
-        <label id="resultLabel" style="font-weight:bold"><span style="color:red">-</span> </label>
+        <label id="BCCresult" style="font-weight:bold"><span style="color:red">-</span> </label>
 </fieldset>
 
 
