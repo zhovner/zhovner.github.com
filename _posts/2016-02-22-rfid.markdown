@@ -679,9 +679,7 @@ category: tools
 
 <fieldset>
         <legend>BCC (Bit Count Check) calcluator</legend>
-        <label><span style="color:red">TODO: not working yet</span> </label>
-        <br />
-        <textarea id="BCCinputDataTextArea" cols="60" rows="3" style="margin: 4px;" >0x93 0x70 0x88 0x04 0x39 0x74 0xc1</textarea>
+        <textarea id="BCCinputDataTextArea" cols="60" rows="3" style="margin: 4px;" >0x88 0x04 0x39 0x74</textarea>
         <br />
         <button id="BCCcalcButton" onclick="BCCcalcButton_clicked();">Calculate BCC</button>
         <br />
