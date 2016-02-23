@@ -629,6 +629,15 @@ category: tools
 
 </script>
 
+###  CRC16 caclulator
+
+ISO 14443 refers to CRC_A and CRC_B described in in ISO 13239.  
+The initial register value shall be `0x6363` or `0xC6C6` in reversed bit order.  
+Polynomial is `0x1021` and no final XOR is done.  
+CRC result value should be reflected to least significant bit (LSB) and little-endian byte order.  
+
+For other CRC calculation look at [sunshine2k.de/coding/javascript/crc/crc_js.html](http://www.sunshine2k.de/coding/javascript/crc/crc_js.html)
+
 
 <fieldset>
         <legend>CRC16_A Calculator</legend>
