@@ -80,7 +80,7 @@ config policy 'wan2_wan'
 	list use_member 'wan2_m1_w2'
 
 config rule 'linode'
-	option dest_ip '176.58.119.189'
+	option dest_ip '93.158.134.3'
 	option use_policy 'wan_only'
 
 config rule 'dobrofon'
