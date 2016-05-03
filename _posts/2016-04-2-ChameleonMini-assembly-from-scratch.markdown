@@ -41,12 +41,12 @@ You probably can find most components in local electronic store, but some of the
 |Qty.|    Original Label           | Value      | Placing  |Description           |     Store    |
 |----|-----------------------------|------------|:----------:|:--------------------:| :-----------:|
 |1   |PINHD-2X3-2.54-EDGE          |            |   X2     | breakaway pin headers | [Digikey](http://www.digikey.com/product-search/en?mpart=M22-2010505&vendor=952), [Aliexpress](http://aliexpress.com/item/Free-Shipping-10pcs-40-Pin-1x40-Single-Row-Male-2-54-Breakable-Pin-Header-Connector-Strip/32416951874.html?spm=2114.30010708.3.10.EVbemk&ws_ab_test=searchweb201556_7,searchweb201602_4_10017_10034_10021_507_10022_10032_10020_10009_10008_10018_10019,searchweb201603_1&btsid=8d05ce86-d5b1-42f8-8dc9-c88b6eee3775)        |
-|1   |R-EU_R1206                   |1 Mega ohm  |   R14    | Resistor SMD 1M OHM 1206    | [Digikey](http://www.digikey.com/product-detail/en/bourns-inc/CR1206-FX-1004ELF/CR1206-FX-1004ELFCT-ND/3767630)        |
-|2   |R-EU_R0603                   |1 Kilo ohm  |  R2, R9  | Resistor SMD 1K OHM 0603    | [Digikey](http://www.digikey.com/product-detail/en/bourns-inc/CR0603-FX-1001HLF/CR0603-FX-1001HLFCT-ND/3925296)        |
-|1   |R-EU_R1206                   |1 Kilo ohm  |   R7     | Resistor SMD 1K OHM 1206    |   [Digikey](http://www.digikey.com/product-detail/en/bourns-inc/CR1206-FX-1001ELF/CR1206-FX-1001ELFCT-ND/3437914)        |
-|1   |R-EU_R0603                   |4,7 Kilo ohm|   R8     | Resistor SMD 4.7K OHM 0603  |   [Digikey](http://www.digikey.com/product-detail/en/bourns-inc/CR0603-FX-4701ELF/CR0603-FX-4701ELFCT-ND/3740884)        |
+|1   |R-EU_R1206                   |1 Megaohm  |   R14    | Resistor SMD 1M OHM 1206    | [Digikey](http://www.digikey.com/product-detail/en/bourns-inc/CR1206-FX-1004ELF/CR1206-FX-1004ELFCT-ND/3767630)        |
+|2   |R-EU_R0603                   |1 Kiloohm  |  R2, R9  | Resistor SMD 1K OHM 0603    | [Digikey](http://www.digikey.com/product-detail/en/bourns-inc/CR0603-FX-1001HLF/CR0603-FX-1001HLFCT-ND/3925296)        |
+|1   |R-EU_R1206                   |1 Kiloohm  |   R7     | Resistor SMD 1K OHM 1206    |   [Digikey](http://www.digikey.com/product-detail/en/bourns-inc/CR1206-FX-1001ELF/CR1206-FX-1001ELFCT-ND/3437914)        |
+|1   |R-EU_R0603                   |4,7 Kiloohm|   R8     | Resistor SMD 4.7K OHM 0603  |   [Digikey](http://www.digikey.com/product-detail/en/bourns-inc/CR0603-FX-4701ELF/CR0603-FX-4701ELFCT-ND/3740884)        |
 |1   |R-EU_R0603                   |10 ohm      |   R3     | Resistor  SMD 10 OHM 0603   |   [Digikey](http://www.digikey.com/product-detail/en/bourns-inc/CR0603-FX-10R0GLF/CR0603-FX-10R0GLFCT-ND/3925298)        |
-|4   |R-EU_R0603                   |10 Kilo ohm  |   R1, R6, R12, R27    |Resistor SMD 10K OHM 0603|   [Digikey](http://www.digikey.com/product-detail/en/bourns-inc/CR0603-FX-1002ELF/CR0603-FX-1002ELFCT-ND/3592936)        |
+|4   |R-EU_R0603                   |10 Kiloohm  |   R1, R6, R12, R27    |Resistor SMD 10K OHM 0603|   [Digikey](http://www.digikey.com/product-detail/en/bourns-inc/CR0603-FX-1002ELF/CR0603-FX-1002ELFCT-ND/3592936)        |
 |    |                             |            |   XXX    |                       |   [Digikey]()        |
 |    |                             |            |   XXX    |                       |   [Digikey]()        |
 |    |                             |            |   XXX    |                       |   [Digikey]()        |
