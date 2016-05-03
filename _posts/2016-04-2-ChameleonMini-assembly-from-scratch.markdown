@@ -46,7 +46,7 @@ You probably can find most components in local electronic store, but some of the
 |1   |R-EU_R1206                   |1 Kilo ohm  |   R7     | Resistor SMD 1K OHM 1206    |   [Digikey](http://www.digikey.com/product-detail/en/bourns-inc/CR1206-FX-1001ELF/CR1206-FX-1001ELFCT-ND/3437914)        |
 |1   |R-EU_R0603                   |4,7 Kilo ohm|   R8     | Resistor SMD 4.7K OHM 0603  |   [Digikey](http://www.digikey.com/product-detail/en/bourns-inc/CR0603-FX-4701ELF/CR0603-FX-4701ELFCT-ND/3740884)        |
 |1   |R-EU_R0603                   |10 ohm      |   R3     | Resistor  SMD 10 OHM 0603   |   [Digikey](http://www.digikey.com/product-detail/en/bourns-inc/CR0603-FX-10R0GLF/CR0603-FX-10R0GLFCT-ND/3925298)        |
-|4   |R-EU_R0603                   |            |   R1, R6, R12, R27    |                       |   [Digikey]()        |
+|4   |R-EU_R0603                   |10 Kilo ohm  |   R1, R6, R12, R27    |Resistor SMD 10K OHM 0603|   [Digikey](http://www.digikey.com/product-detail/en/bourns-inc/CR0603-FX-1002ELF/CR0603-FX-1002ELFCT-ND/3592936)        |
 |    |                             |            |   XXX    |                       |   [Digikey]()        |
 |    |                             |            |   XXX    |                       |   [Digikey]()        |
 |    |                             |            |   XXX    |                       |   [Digikey]()        |
