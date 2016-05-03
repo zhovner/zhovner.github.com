@@ -21,7 +21,7 @@ As ChameleonMini is opensource hardware the board schematic is published [github
 RevE little shorter then RevE-2, so I choose second version. PCB has two layers.
 Files .brd and .sch can be opened by free version of [EAGLE](http://www.cadsoft.de/download-eagle/eagle-freeware/) software. There is two version of board: RevE and RevE-2.  
 
-![ChameleonMini Schematic EAGLE](/img/ChameleonMini_schematic_eagle.png)
+<center><img alt="ChameleonMini Schematic EAGLE" src="/img/ChameleonMini_schematic_eagle.png" /></center>
 
 Using this files you can print the circuit board. There is many companies offers printing circuit boards, like
 [Dirty PCBs](http://dirtypcbs.com/), [Seeed Studio](https://www.seeedstudio.com/service/index.php?r=pcb) and many other. You can find local company in your country but in most cases Chinese friends can make it cheaper.
