@@ -40,7 +40,7 @@ You probably can find most components in local electronic store, but some of the
 
 | Qty.|    Origianl Label   | Description           |     Store    |
 | ----|---------------------| :--------------------:| :-----------:|
-| 1   |   PINHD-2X3-2.54-EDGE   | Breakaway pin headers | [Digikey](http://www.digikey.com/product-search/en?mpart=M22-2010505&vendor=952) [Aliexpress](http://aliexpress.com/item/Free-Shipping-10pcs-40-Pin-1x40-Single-Row-Male-2-54-Breakable-Pin-Header-Connector-Strip/32416951874.html?spm=2114.30010708.3.10.EVbemk&ws_ab_test=searchweb201556_7,searchweb201602_4_10017_10034_10021_507_10022_10032_10020_10009_10008_10018_10019,searchweb201603_1&btsid=8d05ce86-d5b1-42f8-8dc9-c88b6eee3775)        |
+| 1   |     PINHD-2X3-2.54-EDGE     | Breakaway pin headers | [Digikey](http://www.digikey.com/product-search/en?mpart=M22-2010505&vendor=952), [Aliexpress](http://aliexpress.com/item/Free-Shipping-10pcs-40-Pin-1x40-Single-Row-Male-2-54-Breakable-Pin-Header-Connector-Strip/32416951874.html?spm=2114.30010708.3.10.EVbemk&ws_ab_test=searchweb201556_7,searchweb201602_4_10017_10034_10021_507_10022_10032_10020_10009_10008_10018_10019,searchweb201603_1&btsid=8d05ce86-d5b1-42f8-8dc9-c88b6eee3775)        |
 | 2   | centered            |   $12                 |   $12        |
 | 1   | are neat            |    $1                 |    $1        |
 {:.mbtablestyle}
