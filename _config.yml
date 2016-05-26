@@ -23,3 +23,37 @@ timezone: Europe/Moscow
 #paginate: 5
 
 gems:	[jekyll-gist]
+
+
+
+
+
+
+
+
+
+# Site settings
+title: hub.zhovner.com
+email: pavel@zhovner.com
+description: > # this means to ignore newlines until "baseurl:"
+   Just another blog
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "https://hub.zhovner.com" # the base hostname & protocol for your site
+twitter_username: zhovner
+
+
+
+permalink: /:categories/:title/
+
+# Build settings
+markdown: kramdown
+
+# Code highlighter
+highlighter: rouge
+
+timezone: Europe/Moscow
+
+# Split listing by pages
+#paginate: 5
+
+gems: [jekyll-gist]
