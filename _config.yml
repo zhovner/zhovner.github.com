@@ -34,8 +34,6 @@ gems:	[jekyll-gist]
 
 
 
-highlighter: rouge
-
 timezone: Europe/Moscow
 
 # Split listing by pages
