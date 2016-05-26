@@ -34,8 +34,6 @@ gems:	[jekyll-gist]
 
 
 
-
-# Build settings
 markdown: kramdown
 
 # Code highlighter
