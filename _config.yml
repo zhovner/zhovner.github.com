@@ -34,8 +34,6 @@ gems:	[jekyll-gist]
 
 
 
-
-# Code highlighter
 highlighter: rouge
 
 timezone: Europe/Moscow
