@@ -34,7 +34,6 @@ gems:	[jekyll-gist]
 
 
 
-# Split listing by pages
 #paginate: 5
 
 gems: [jekyll-gist]
