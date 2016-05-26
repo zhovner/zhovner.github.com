@@ -34,8 +34,6 @@ gems:	[jekyll-gist]
 
 
 
-timezone: Europe/Moscow
-
 # Split listing by pages
 #paginate: 5
 
