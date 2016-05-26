@@ -34,7 +34,6 @@ gems:	[jekyll-gist]
 
 
 
-markdown: kramdown
 
 # Code highlighter
 highlighter: rouge
