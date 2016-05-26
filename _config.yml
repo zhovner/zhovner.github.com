@@ -31,7 +31,7 @@ gems:	[jekyll-gist]
 
 
 
-# Site settings
+
 title: hub.zhovner.com
 email: pavel@zhovner.com
 description: > # this means to ignore newlines until "baseurl:"
