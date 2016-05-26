@@ -33,11 +33,7 @@ gems:	[jekyll-gist]
 
 
 
-twitter_username: zhovner
 
-
-
-permalink: /:categories/:title/
 
 # Build settings
 markdown: kramdown
