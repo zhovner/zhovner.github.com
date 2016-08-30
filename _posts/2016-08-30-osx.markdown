@@ -13,13 +13,15 @@ category: tools
 `defaults write -g NSWindowResizeTime -float 0.003`  
 
 ### Keyboard Layouts
-Put this files in `/Library/Keyboard Layouts/` and reboot. Then add new layouts from keyboard preferences.  
 This layouts put tilda in the right place  
 ![os x tilda layout](/img/tilda-layout.png)
+
+Put this files in `/Library/Keyboard Layouts/` and reboot. Then add new layouts from keyboard preferences.  
 
 #### EU keyboard
 [english-tilda_EU.bundle.zip](/files/english-tilda_EU.bundle.zip)  
 [russian-tilda_EU.bundle.zip](/files/russian-tilda_EU.bundle.zip)  
+
 #### US keyboard
 [russian-tilda_US.bundle.zip](/files/russian-tilda_US.bundle.zip)  
 
