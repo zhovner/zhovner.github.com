@@ -4,10 +4,10 @@ category: tools
 ---
 
 ### Dock hide animation speed up
-`defaults write com.apple.dock autohide-time-modifier -float 0.4;killall Dock`
-`defaults write com.apple.Dock autohide-delay -int 0; killall Dock`
+`defaults write com.apple.dock autohide-time-modifier -float 0.4;killall Dock`  
+`defaults write com.apple.Dock autohide-delay -int 0; killall Dock`  
 
 ### Minimize Effect speed up
 
-`defaults write com.apple.dock mineffect -string scale`
-`defaults write -g NSWindowResizeTime -float 0.003`
+`defaults write com.apple.dock mineffect -string scale`  
+`defaults write -g NSWindowResizeTime -float 0.003`  
