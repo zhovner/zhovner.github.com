@@ -23,7 +23,8 @@ category: tools
 <pre><code>mkdir ~/pf
 touch ~/pf/mypf.conf
 touch ~/pf/mypf.rules
-touch ~/pf/start.sh</code></pre>  
+touch ~/pf/start.sh
+chmod +x ~/pf/start.sh</code></pre>  
 
 
 #### mypf.conf
@@ -88,6 +89,11 @@ sleep 5
 # Exit with a clean status
 exit 0</code></pre>
 
+
+### Run start.sh at boot
+It can be done manually via launchd or using [LaunchControl](http://www.soma-zone.com/LaunchControl/) utility.  
+If files in Watch Paths will modified - firewall rules will be restarted automaticly.  
+![LaunchControl](https://v1.std3.ru/66/c8/1447776313-66c89247a7fb539a3e0d688b5b9a2e0d.png)
 
 
 
