@@ -65,6 +65,28 @@ block in on { $wifi $eth }
 block out on { $wifi $eth }</code></pre>
 
 
+#### start.sh
+<code><pre>#!/bin/sh
+#
+# this script must be executed at boot time by launchd
+# it enables the pf firewall "on demand" using OS X PF Tokens (–E)
+
+#
+# We need to trap on TERM signals, according to Apple's launchd docs:
+#
+trap 'exit 1' 15
+
+#
+# Use the "ipconfig waitall" command to wait for all the interfaces to come up:
+#
+ipconfig waitall
+sleep 5
+
+/sbin/pfctl –e
+/sbin/pfctl –Ef /Users/loxpidor/pf/mypf.conf
+
+# Exit with a clean status
+exit 0</code></pre>
 
 
 
