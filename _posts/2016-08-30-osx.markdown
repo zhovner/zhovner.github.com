@@ -18,10 +18,10 @@ This layouts put tilda in the right place
 ![os x tilda layout](/img/tilda-layout.png)
 
 #### EU keyboard
-[english-tilda_EU.bundle](/files/english-tilda_EU.bundle)  
-[russian-tilda_EU.bundle](/files/russian-tilda_EU.bundle)  
+[english-tilda_EU.bundle.zip](/files/english-tilda_EU.bundle.zip)  
+[russian-tilda_EU.bundle.zip](/files/russian-tilda_EU.bundle.zip)  
 #### US keyboard
-[russian-tilda_US.bundle](/files/russian-tilda_US.bundle)  
+[russian-tilda_US.bundle.zip](/files/russian-tilda_US.bundle.zip)  
 
 ## VPN Only mode
 
