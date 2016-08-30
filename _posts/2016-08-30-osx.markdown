@@ -11,3 +11,61 @@ category: tools
 
 `defaults write com.apple.dock mineffect -string scale`  
 `defaults write -g NSWindowResizeTime -float 0.003`  
+
+
+### VPN Only mode
+
+1. Disable firewall in System Preferences  
+![Disable os x firewall](https://v1.std3.ru/b7/81/1447775229-b781566be7062484f5c5cef4f3e7ebbb.png)  
+
+2. Create pf files
+
+<pre><code>mkdir ~/pf
+touch ~/pf/mypf.conf
+touch ~/pf/mypf.rules
+touch ~/pf/start.sh</code></pre>  
+
+
+#### mypf.conf
+<pre><code>anchor "com.ipsec.only"
+load anchor "com.ipsec.only" from "/Users/loxpidor/pf/mypf.rules"</code></pre>
+
+
+#### mypf.rules
+<pre><code># Options
+wifi = "en1"
+eth = "en0"
+set skip on lo0
+
+# Reject instead of drop
+set block–policy return
+
+# Allow DHCP requests/reply
+# DNS server assigned over DHCP will be not reacheble!
+pass quick on { $wifi $eth } proto udp from any port 67:68 to any port 67:68 keep state
+
+# Home network full access
+pass out quick on { $wifi $eth } to 192.168.3.0/24
+
+# Allow some websites without  VPN
+pass out quick on { $wifi $eth } proto tcp to 123.45.67.89 port = 443
+pass out quick on { $wifi $eth } proto tcp to 123.45.67.89 port = 80  
+
+# VPN servers
+pass out quick on { $wifi $eth } proto { udp icmp } to 64.31.235.14 # ipsec VPN
+pass in quick on { $wifi $eth } proto udp from to 64.31.235.14 # ipsec VPN
+
+# Allow all from specific user id
+# Use this for captive portal authentication by run browser from this user
+pass quick on { $wifi $eth } from any to any user 502
+
+
+# Deny all the rest
+block in on { $wifi $eth }
+block out on { $wifi $eth }</code></pre>
+
+
+
+
+
+
