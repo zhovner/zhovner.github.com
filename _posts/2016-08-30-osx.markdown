@@ -13,7 +13,7 @@ category: tools
 `defaults write -g NSWindowResizeTime -float 0.003`  
 
 
-### VPN Only mode
+## VPN Only mode
 
 1. Disable firewall in System Preferences  
 ![Disable os x firewall](https://v1.std3.ru/b7/81/1447775229-b781566be7062484f5c5cef4f3e7ebbb.png)  
@@ -67,7 +67,7 @@ block out on { $wifi $eth }</code></pre>
 
 
 #### start.sh
-<code><pre>#!/bin/sh
+<pre><code>#!/bin/sh
 #
 # this script must be executed at boot time by launchd
 # it enables the pf firewall "on demand" using OS X PF Tokens (–E)
