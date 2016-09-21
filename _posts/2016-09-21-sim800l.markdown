@@ -35,3 +35,15 @@ Operator:"MegaFon",MCC:250,MNC:02,Rxlev:24,Cellid:043D,Arfcn:102,Lac:1E77,Bsic:1
 Operator:"MegaFon",MCC:250,MNC:02,Rxlev:25,Cellid:2F4A,Arfcn:751,Lac:1E3F,Bsic:33
 Operator:"MegaFon",MCC:250,MNC:02,Rxlev:16,Cellid:2F46,Arfcn:1020,Lac:1E3F,Bsic:33
 ```
+
+To find coordinates of cell convert hex to decimal and use [opencellid.org](http://opencellid.org/)
+
+* Operator name  
+* Mcc - Moblie country code  
+* Mnc - Moblie network code  
+* Rxlev- Signal strength  
+* Cellid - Cell id  
+* Arcfn - Absolute radio-frequency channel number
+
+
+
