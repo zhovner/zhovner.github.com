@@ -1,0 +1,37 @@
+---
+layout: post
+category: tools
+title: "GSM модуль SIM800L"
+---
+
+Power — `3.7V – 4.2V`  
+
+Serial port — `2.8V`  
+
+Host must send "AT" first to sync baud rate. (115200 8N1, no flow control)  
+
+
+
+### Scan cells around
+Works without sim card installed
+
+`AT+CNETSCAN=1`  
+`AT+CNETSCAN`
+
+
+```
+AT+CNETSCAN
+Operator:"Bee Line GSM",MCC:250,MNC:99,Rxlev:26,Cellid:A5D3,Arfcn:535,Lac:FDEC,Bsic:27
+Operator:"Bee Line GSM",MCC:250,MNC:99,Rxlev:22,Cellid:9D55,Arfcn:49,Lac:FDEC,Bsic:10
+Operator:"Bee Line GSM",MCC:250,MNC:99,Rxlev:20,Cellid:81CA,Arfcn:53,Lac:FDEC,Bsic:30
+Operator:"MTS",MCC:250,MNC:01,Rxlev:36,Cellid:39DB,Arfcn:19,Lac:17D9,Bsic:30
+Operator:"MTS",MCC:250,MNC:01,Rxlev:24,Cellid:39DE,Arfcn:872,Lac:17D9,Bsic:3C
+Operator:"MTS",MCC:250,MNC:01,Rxlev:23,Cellid:0000,Arfcn:92,Lac:17D9,Bsic:1F
+Operator:"MTS",MCC:250,MNC:01,Rxlev:16,Cellid:39DC,Arfcn:99,Lac:17D9,Bsic:38
+Operator:"MTS",MCC:250,MNC:01,Rxlev:14,Cellid:0000,Arfcn:873,Lac:17D9,Bsic:2C
+Operator:"MTS",MCC:250,MNC:01,Rxlev:20,Cellid:3977,Arfcn:23,Lac:17D8,Bsic:2A
+Operator:"MegaFon",MCC:250,MNC:02,Rxlev:37,Cellid:2F49,Arfcn:114,Lac:1E3F,Bsic:33
+Operator:"MegaFon",MCC:250,MNC:02,Rxlev:24,Cellid:043D,Arfcn:102,Lac:1E77,Bsic:12
+Operator:"MegaFon",MCC:250,MNC:02,Rxlev:25,Cellid:2F4A,Arfcn:751,Lac:1E3F,Bsic:33
+Operator:"MegaFon",MCC:250,MNC:02,Rxlev:16,Cellid:2F46,Arfcn:1020,Lac:1E3F,Bsic:33
+```
