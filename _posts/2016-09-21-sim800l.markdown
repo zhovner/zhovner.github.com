@@ -15,7 +15,10 @@ Host must send "AT" first to sync baud rate. (115200 8N1, no flow control)
 ### Scan cells around
 Works without sim card installed
 
+Switch to more verbose output that include LAC  
 `AT+CNETSCAN=1`  
+
+Perfrom scan  
 `AT+CNETSCAN`
 
 
