@@ -56,8 +56,8 @@ Minimize power consumption by set minimal phone functionality.
 `AT+CFUN=0`  
 
 * 0 — minimal functionality  
-* 1 - full functionality (Default)  
-* 4 - Disable transmit and receive RF  
+* 1 — full functionality (Default)  
+* 4 — Disable transmit and receive RF  
 
 
 ### Engineering mode  
@@ -79,17 +79,17 @@ Output every 5 seconds. Only one string have both cellID and LAC.
 ```
 
 Format
-<pre><code>+CENG: <nubmer>,"arcfn,
-						rx_level,
-						rx_quality,
-						MCC,
-						MNC,
-						base_station_identity_code(dec),
-						CELL_ID(hex),
-						receive_level_access_minimum,
-						transmit_power_max,
-						LAC(hex),
-						timing_advance</code></pre>  
+<pre><code>+CENG: nubmer,"arcfn,
+	rx_level,
+	rx_quality,
+	MCC,
+	MNC,
+	base_station_identity_code(dec),
+	CELL_ID(hex),
+	receive_level_access_minimum,
+	transmit_power_max,
+	LAC(hex),
+	timing_advance</code></pre>  
 
 
 ### Sleep mode
