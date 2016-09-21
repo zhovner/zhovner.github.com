@@ -49,4 +49,55 @@ To find coordinates of cell convert hex to decimal and use [opencellid.org](http
 * Arcfn - Absolute radio-frequency channel number
 
 
+### Set phone functionality
+Minimize power consumption by set minimal phone functionality.  
+`CNETSCAN` will not work in minimal mode.  
+
+`AT+CFUN=0`  
+
+* 0 — minimal functionality  
+* 1 - full functionality (Default)  
+* 4 - Disable transmit and receive RF  
+
+
+### Engineering mode  
+Can show one neighbor cell. Works without SIM-card.  
+This mode is much less power consumption than `AT+CNETSCAN`  
+
+`AT+CENG=2`  
+
+Output every 5 seconds. Only one string have both cellID and LAC.
+
+```
++CENG: 0,"0751,32,00,250,02,51,2f4a,05,00,1e3f,255"
++CENG: 1,"0114,33,51,250,02,1e3f"
++CENG: 2,"0757,05,05,250,02,1e3f"
++CENG: 3,"0752,09,00,,,0000"
++CENG: 4,"0000,00,00,,,0000"
++CENG: 5,"0000,00,00,,,0000"
++CENG: 6,"0000,00,00,,,0000"
+```
+
+Format
+<pre><code>+CENG: <nubmer>,"arcfn,
+						rx_level,
+						rx_quality,
+						MCC,
+						MNC,
+						base_station_identity_code(dec),
+						CELL_ID(hex),
+						receive_level_access_minimum,
+						transmit_power_max,
+						LAC(hex),
+						timing_advance</code></pre>  
+
+
+### Sleep mode
+
+Enable slow clock for sleep mode  
+`AT+CSCLK=1`  
+
+When DTR pin is high, module can etner sleep mode.  
+When DTR pin is low level, module can quit sleep mode.  
+
 
