@@ -11,9 +11,13 @@ title: Universal IKEv2 Server Configuration
 IKEv2 is a modern protocol developed by Microsoft and Cisco which was chosen as a default VPN type in OS X 10.11 (El Capitan) and  Windows since 7.
 It supports strong encryption, auto reconnection on network change ([MOBIKE](https://tools.ietf.org/html/rfc4555)), easy configuration and more.
 
-This manual describes minimal IKEv2 server configuration for the most simple client setup based on username/password authentication.
-No additional software required on client side, no certificates importing.
+This manual describes minimal IKEv2 server configuration for the most simple client setup based on username/password authentication.  
 
+**No 3rd party software required on client side**  
+Only native OS tools used on client devices with Windows, MacOS, iOS.  
+
+**No certificates importing on client**  
+Simple configuration. Just type login/passowrd and server address like any other VPN connection.   
 
 *IKEv2 supported platforms*
 

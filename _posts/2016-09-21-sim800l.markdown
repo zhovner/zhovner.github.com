@@ -89,7 +89,7 @@ Format
 	receive_level_access_minimum,
 	transmit_power_max,
 	LAC(hex),
-	timing_advance</code></pre>  
+	timing_advance"</code></pre>  
 
 
 ### Sleep mode
