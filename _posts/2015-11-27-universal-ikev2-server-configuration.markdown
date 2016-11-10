@@ -361,7 +361,7 @@ Example profile of our VPN server `supervpn.mobileconfig`:
 <pre><code>&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
 &lt;plist version="1.0"&gt;
 &lt;dict&gt;
-    <font color="#D1D0CE">&lt;!-- Set the name to whatever you like, it is used in the profile list on the device --&gt;</font></font>
+    <font color="#D1D0CE">&lt;!-- Set the name to whatever you like, it is used in the profile list on the device --&gt;</font>
     &lt;key&gt;PayloadDisplayName&lt;/key&gt;
     &lt;string&gt;Super IKEv2 VPN&lt;/string&gt;
     &lt;key&gt;PayloadIdentifier&lt;/key&gt;
