@@ -343,6 +343,19 @@ Configuration profile can be created manually or via [Apple Configurator 2](http
 Syntax is same for OS X and iOS. Profile can be distributed as mail attachments or via http link.  
 Profile name must end with `.mobileconfig` and if you plan to share it over HTTP web server should response with Content-Type `application/octet-stream`.
 
+### Always On Mode
+In Apple terms "Always On" mode prevents user from disconnect VPN manually. This mode can be configured only on device that in supervision mode.  
+But you can do the same without supervision mode in more flexible way by usign rule that connects VPN automatically every when you have internet connection.
+And reconnect it when connection lost. "On demand" mode can be configured only via `.mobileconfig` profile.  
+
+This mode can cause a problems when you can't connect to the VPN server, becuase it will block internet access without VPN connection.  
+To disable `Always On` mode unchek `On Demand` options in VPN connection preferences.  
+
+![ikev2 Always on On demand mode without supervision](/img/always_on_ondemand_ikev2.png)  
+
+
+
+
 The easiest way to get working profile is to edit 4 variables in this template: RemoteAddress, RemoteIdentifier, AuthName, AuthPassword. Edit the rest of template following comments.
 Example profile of our VPN server `supervpn.mobileconfig`:
 <pre><code>&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
@@ -381,6 +394,27 @@ Example profile of our VPN server `supervpn.mobileconfig`:
             &lt;key&gt;VPNType&lt;/key&gt;
             &lt;string&gt;IKEv2&lt;/string&gt;
             &lt;key&gt;IKEv2&lt;/key&gt;
+
+            <font color="#D1D0CE">&lt;!--
+                    OnDemand references:
+                    http://www.v2ex.com/t/137653
+                    https://developer.apple.com/library/mac/featuredarticles/iPhoneConfigurationProfileRef/Introduction/Introduction.html
+                    Continue reading:
+                    https://github.com/iphoting/ovpnmcgen.rb
+            --&gt;</font>
+
+            <font color="#D1D0CE">&lt;!-- AlwaysOn OnDemand Rule --&gt;</font>
+
+            &lt;key&gt;OnDemandEnabled&lt;/key&gt;
+                    &lt;integer&gt;1&lt;/integer&gt;
+                    &lt;key&gt;OnDemandRules&lt;/key&gt;
+                    &lt;array&gt;
+                        &lt;dict&gt;
+                            &lt;key&gt;Action&lt;/key&gt;
+                            &lt;string&gt;Connect&lt;/string&gt;
+                        &lt;/dict&gt;
+                    &lt;/array&gt;
+
             &lt;dict&gt;
                 <font color="#D1D0CE">&lt;!-- This is the hostname or IP address of VPN server.
                  Chosing IP address can avoid issues with client DNS resolvers and speed up connection process. --&gt;</font>
