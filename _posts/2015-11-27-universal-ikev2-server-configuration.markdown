@@ -345,7 +345,7 @@ Profile name must end with `.mobileconfig` and if you plan to share it over HTTP
 
 ### Always On Mode
 In Apple terms "Always On" mode prevents user from disconnect VPN manually. This mode can be configured only on device that in supervision mode.  
-But you can do the same without supervision mode in more flexible way by usign rule that connects VPN automatically every when you have internet connection.
+But you can do the same without supervision mode in more flexible way by usign rule that connects VPN automatically every time when you have internet connection.
 And reconnect it when connection lost. "On demand" mode can be configured only via `.mobileconfig` profile.  
 
 This mode can cause a problems when you can't connect to the VPN server, becuase it will block internet access without VPN connection.  
