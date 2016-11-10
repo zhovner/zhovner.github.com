@@ -394,27 +394,6 @@ Example profile of our VPN server `supervpn.mobileconfig`:
             &lt;key&gt;VPNType&lt;/key&gt;
             &lt;string&gt;IKEv2&lt;/string&gt;
             &lt;key&gt;IKEv2&lt;/key&gt;
-
-            <font color="#D1D0CE">&lt;!--
-                    OnDemand references:
-                    http://www.v2ex.com/t/137653
-                    https://developer.apple.com/library/mac/featuredarticles/iPhoneConfigurationProfileRef/Introduction/Introduction.html
-                    Continue reading:
-                    https://github.com/iphoting/ovpnmcgen.rb
-            --&gt;</font>
-
-            <font color="#D1D0CE">&lt;!-- AlwaysOn OnDemand Rule --&gt;</font>
-
-            &lt;key&gt;OnDemandEnabled&lt;/key&gt;
-                    &lt;integer&gt;1&lt;/integer&gt;
-                    &lt;key&gt;OnDemandRules&lt;/key&gt;
-                    &lt;array&gt;
-                        &lt;dict&gt;
-                            &lt;key&gt;Action&lt;/key&gt;
-                            &lt;string&gt;Connect&lt;/string&gt;
-                        &lt;/dict&gt;
-                    &lt;/array&gt;
-
             &lt;dict&gt;
                 <font color="#D1D0CE">&lt;!-- This is the hostname or IP address of VPN server.
                  Chosing IP address can avoid issues with client DNS resolvers and speed up connection process. --&gt;</font>
@@ -423,6 +402,25 @@ Example profile of our VPN server `supervpn.mobileconfig`:
                 <font color="#D1D0CE">&lt;!-- leftid in ipsec.conf --&gt;</font>
                 &lt;key&gt;RemoteIdentifier&lt;/key&gt;
                 &lt;string&gt;<font color="red"><b>tunnel.zhovner.com</b></font>&lt;/string&gt;
+                <font color="#D1D0CE">&lt;!--
+                    OnDemand references:
+                    http://www.v2ex.com/t/137653
+                    https://developer.apple.com/library/mac/featuredarticles/iPhoneConfigurationProfileRef/Introduction/Introduction.html
+                    Continue reading:
+                    https://github.com/iphoting/ovpnmcgen.rb
+                --&gt;</font>
+
+                <font color="#D1D0CE">&lt;!-- AlwaysOn OnDemand Rule --&gt;</font>
+
+                &lt;key&gt;OnDemandEnabled&lt;/key&gt;
+                    &lt;integer&gt;1&lt;/integer&gt;
+                    &lt;key&gt;OnDemandRules&lt;/key&gt;
+                    &lt;array&gt;
+                        &lt;dict&gt;
+                            &lt;key&gt;Action&lt;/key&gt;
+                            &lt;string&gt;Connect&lt;/string&gt;
+                        &lt;/dict&gt;
+                    &lt;/array&gt;
                 &lt;key&gt;DeadPeerDetectionRate&lt;/key&gt;
                 &lt;string&gt;High&lt;/string&gt;
                 &lt;key&gt;AuthenticationMethod&lt;/key&gt;
