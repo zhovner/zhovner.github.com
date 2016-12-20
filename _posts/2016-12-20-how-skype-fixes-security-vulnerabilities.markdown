@@ -12,7 +12,7 @@ This post describes my fruitless effort to convince Microsoft employees that the
 
 #### TL;DR
 
-* **Anyone can block your account permanently** and you can't do anything about it. The only thing that a hacker needs to know is your Skype login. In most cases Skype support will refuse to unblock your account. Microsoft have known about the problem for years.
+* **Anyone can block your account permanently** and you can't do anything about it. The only thing that a hacker needs to know is your Skype login. In most cases Skype support will refuse to unblock your account. Microsoft has known about the problem for years.
 
 * 8-digit authentication code (Microsoft Security Code) generation algorithm is vulnerable. These codes are used for password restore, and the hacker can just guess the code without an access to your email account.
 
@@ -26,7 +26,7 @@ This post describes my fruitless effort to convince Microsoft employees that the
 
 ### About me
 
-I've been using Skype for 10 years. I used to be a Skype fan-boy. When jira.skype.com (Skype's public bug tracker) was still available, I've been trying to improve Skype and reporting bugs.
+I've been using Skype for 10 years. I used to be a Skype fanboy. When jira.skype.com (Skype's public bug tracker) was still available, I've been trying to improve Skype and reporting bugs.
 
 For instance, there was SCW-2778 Remote DoS exploit. This vulnerability allowed an adversary to crash a desktop version of Skype, and break the local history, so that the user had to clear it for Skype to work. Another example is SCW-3328 which allowed to remotely turn on your muted microphone during a call.
 
@@ -40,14 +40,14 @@ But today I sincerely hate Skype. It's a horrible service drowning in bureaucrac
 
 Vulnerabilities that allow an adversary block an arbitrary Skype account are present for a few years. There is more than one, and some of them are actively exploited in the wild. Moreover, account blocking is provided as a service.
 
-I used to post a lot about Skype vulnerabilities, and some victims of the exploits contacted me, after finding me in google.
+I used to post a lot about Skype vulnerabilities, and some victims of the exploits contacted me, after finding me on Google.
 
 I have seen various Skype account blocking techniques. I have tried to help people restore access to their accounts and plead Skype to do something about it.
 Mostly the accounts were blocked via mass abuse reports. It is a well-known technique that exists for many years. It is so old that it became a tool of children' subculture for fighting against each other in Skype. But something outrageous has happened in the last year, which I absolutely have to speak about.
 
 ### Technique 1 - mass abuse reports (classics)
 
-A Skype account is blocked if sufficiently many abuse reports about this account are sent by other Skype members. Presumably, sufficiently many means more than 20.
+A Skype account is blocked if sufficiently many abuse reports about this account are sent by other Skype members. Presumably, sufficiently many mean more than 20.
 In order to send a report you don't even need to add the target into contacts: it is possible to send a report from search results by clicking "**Block —> report an abuse**" 
 Thus the victim may stay completely unaware of all the reports being sent about him/her.
 
@@ -87,7 +87,7 @@ Do you think this vulnerability is fixed by now? Of course it is not.
 
 ### Blocking through tech support
 
-In fall, 2015, I started receiving messages from people that suffered from new type of attack.
+In fall, 2015, I started receiving messages from people that suffered from a new type of attack.
 
 This time, before account is blocked, victim received e-mails from Microsoft, containing 8-number code. The letters were sent from **verifyme@microsoft.com** and had valid DKIM-signature, which meant there were sent by Microsoft itself.
 
@@ -121,31 +121,32 @@ I received total of 24 letters in 10 hours. Leaping ahead, let me tell you that 
 
 Here are all secret codes that I received in time of attack, with timestamp of receiving the e-mails.
 We can see here, that sending was performed with short bursts in few minutes.
+
 ```
-Microsoft Support Code: 41917837 Fri, 26 Feb 2016 04:25:54 -0800 (PST)
-Microsoft Support Code: 14793784 Fri, 26 Feb 2016 04:27:32 -0800 (PST)
-Microsoft Support Code: 58837293 Sat, 27 Feb 2016 03:29:18 -0800 (PST)
-Microsoft Support Code: 68871688 Sat, 27 Feb 2016 03:29:33 -0800 (PST)
-Microsoft Support Code: 38424446 Sat, 27 Feb 2016 03:30:33 -0800 (PST)
-Microsoft Support Code: 25068066 Sat, 27 Feb 2016 03:35:39 -0800 (PST)
-Microsoft Support Code: 27311897 Sat, 27 Feb 2016 03:58:58 -0800 (PST)
-Microsoft Support Code: 93194445 Sat, 27 Feb 2016 04:02:43 -0800 (PST)
-Microsoft Support Code: 32506812 Sat, 27 Feb 2016 04:03:36 -0800 (PST)
-Microsoft Support Code: 33627494 Sat, 27 Feb 2016 04:05:40 -0800 (PST)
-Microsoft Support Code: 98350414 Sat, 27 Feb 2016 09:00:03 -0800 (PST)
-Microsoft Support Code: 12437217 Sat, 27 Feb 2016 11:41:04 -0800 (PST)
-Microsoft Support Code: 42078695 Sat, 27 Feb 2016 11:42:45 -0800 (PST)
-Microsoft Support Code: 41321028 Sat, 27 Feb 2016 11:43:09 -0800 (PST)
-Microsoft Support Code: 44964659 Sat, 27 Feb 2016 11:43:19 -0800 (PST)
-Microsoft Support Code: 90692933 Sat, 27 Feb 2016 12:50:21 -0800 (PST)
-Microsoft Support Code: 23696204 Sat, 27 Feb 2016 12:55:18 -0800 (PST)
-Microsoft Support Code: 60212551 Sat, 27 Feb 2016 12:55:25 -0800 (PST)
-Microsoft Support Code: 81725942 Sat, 27 Feb 2016 12:58:04 -0800 (PST)
-Microsoft Support Code: 29172590 Sat, 27 Feb 2016 14:26:54 -0800 (PST)
-Microsoft Support Code: 28091548 Sat, 27 Feb 2016 14:30:38 -0800 (PST)
-Microsoft Support Code: 55969586 Sat, 27 Feb 2016 14:54:21 -0800 (PST)
-Microsoft Support Code: 12424717 Sat, 27 Feb 2016 14:57:59 -0800 (PST)
-Microsoft Support Code: 36300450 Sat, 27 Feb 2016 14:58:16 -0800 (PST)
+Microsoft Support Code: 41917837 Fri, 26 Feb 2016 04:25:54 -0800 (PST)  
+Microsoft Support Code: 14793784 Fri, 26 Feb 2016 04:27:32 -0800 (PST)  
+Microsoft Support Code: 58837293 Sat, 27 Feb 2016 03:29:18 -0800 (PST)  
+Microsoft Support Code: 68871688 Sat, 27 Feb 2016 03:29:33 -0800 (PST)  
+Microsoft Support Code: 38424446 Sat, 27 Feb 2016 03:30:33 -0800 (PST)  
+Microsoft Support Code: 25068066 Sat, 27 Feb 2016 03:35:39 -0800 (PST)  
+Microsoft Support Code: 27311897 Sat, 27 Feb 2016 03:58:58 -0800 (PST)  
+Microsoft Support Code: 93194445 Sat, 27 Feb 2016 04:02:43 -0800 (PST)  
+Microsoft Support Code: 32506812 Sat, 27 Feb 2016 04:03:36 -0800 (PST)  
+Microsoft Support Code: 33627494 Sat, 27 Feb 2016 04:05:40 -0800 (PST)  
+Microsoft Support Code: 98350414 Sat, 27 Feb 2016 09:00:03 -0800 (PST)  
+Microsoft Support Code: 12437217 Sat, 27 Feb 2016 11:41:04 -0800 (PST)  
+Microsoft Support Code: 42078695 Sat, 27 Feb 2016 11:42:45 -0800 (PST)  
+Microsoft Support Code: 41321028 Sat, 27 Feb 2016 11:43:09 -0800 (PST)  
+Microsoft Support Code: 44964659 Sat, 27 Feb 2016 11:43:19 -0800 (PST)  
+Microsoft Support Code: 90692933 Sat, 27 Feb 2016 12:50:21 -0800 (PST)  
+Microsoft Support Code: 23696204 Sat, 27 Feb 2016 12:55:18 -0800 (PST)  
+Microsoft Support Code: 60212551 Sat, 27 Feb 2016 12:55:25 -0800 (PST)  
+Microsoft Support Code: 81725942 Sat, 27 Feb 2016 12:58:04 -0800 (PST)  
+Microsoft Support Code: 29172590 Sat, 27 Feb 2016 14:26:54 -0800 (PST)  
+Microsoft Support Code: 28091548 Sat, 27 Feb 2016 14:30:38 -0800 (PST)  
+Microsoft Support Code: 55969586 Sat, 27 Feb 2016 14:54:21 -0800 (PST)  
+Microsoft Support Code: 12424717 Sat, 27 Feb 2016 14:57:59 -0800 (PST)  
+Microsoft Support Code: 36300450 Sat, 27 Feb 2016 14:58:16 -0800 (PST)  
 ```
 
 After e-mails stopped, the private information (such as name, surname, sex) was deleted from account profile. The login was only one that remained. My main e-mail account on skype.com website was changed to deleted@skype.com. I was disconnected from desktop client.
@@ -160,10 +161,10 @@ We couldn't understand the process of deleting the account. We couldn't find the
 
 ![skype chat support](https://habrastorage.org/getpro/habr/post_images/fec/2ff/787/fec2ff787f245cd7203c7d585371b7a8.png)
 
-That was Live Chat Support form that can be accessed through the account with subscription. You can find it on skype.com website, going through troubleshoot master few times. If you always choose "problem is not solved" option, the last step would give you a confirmation window with live chat prompt.
+That was Live Chat Support form that can be accessed through the account with subscription. You can find it on skype.com website, going through troubleshooting master few times. If you always choose "problem is not solved" option, the last step would give you a confirmation window with live chat prompt.
 
 The chat is opened from **https://sales.liveperson.net** side domain. The information on the website states that this is side company, which offers tech support for your product.
-
+ing
 In conclusion, the attack process through live chat support seemed to be like:
 
 1. Attacker asks tech support to "delete my account &lt;accountname&gt;, because I made a new one."
@@ -181,11 +182,11 @@ It is obvious that the vulnerability exists. Let's report the problem to Skype.
 Such an important vulnerability should be fixed ASAP, shouldn't it?  
   
 Due to the fact that Skype doesn't have any public contacts for vulnerability reports, I have tried to write on the forum:  [community.skype.com/t5/Security-Privacy-Trust-and/Vulnerability-allows-to-permanently-delete-any-skype-account-by/td-p/4222445](https://community.skype.com/t5/Security-Privacy-Trust-and/Vulnerability-allows-to-permanently-delete-any-skype-account-by/td-p/4222445)  
-There were no reaction, but there emerged other victims of this attack.
+There was no reaction, but there emerged other victims of this attack.
 
-With the help of my friends I was able contact directly with Microsoft employees. I reported them all details about the vulnerability, attached screenshots and code listings. I was then assured that an internal investigation was started. That is Microsoft - a serious company.
+With the help of my friends I was able to contact directly with Microsoft employees. I reported them all details about the vulnerability, attached screenshots and code listings. I was then assured that an internal investigation was started. That is Microsoft - a serious company.
 
-However next moth another victims of the same vulnerability contacted me again. Microsoft employees reported that investigation hasn't been finished yet.
+However next moth other victims of the same vulnerability contacted me again. Microsoft employees reported that investigation hasn't been finished yet.
 
 I have tried to report to **secure@microsoft.com**. It is special email for prompt reaction on critical vulnerabilities. It guarantees 24 hours reply. In the report I explain all the details of account deletion with attached screenshots.
 
@@ -194,7 +195,7 @@ The answer of Microsoft Security Response Center:
 
 I kept asking about Microsoft internal investigation from their employees. The answer didn't change. It was constantly no. The story was the same for **SIX MONTH<font color="red">!!!</font>**
 
-It was known for sure that hacker provides operator with the code. Sometimes with the second or the third attempt. It is a shame but I still don't know all the details of this process. Firstly I have thought that the code is time dependent and thus hacker tries to request as much codes per minute as possible (it could be seen from email timestamps). However I couldn't find a relationship between code and time. It is possible that liveperson.net service was vulnerable.
+It was known for sure that hacker provides operator with the code. Sometimes with the second or the third attempt. It is a shame but I still don't know all the details of this process. Firstly I have thought that the code is time dependent and thus hacker tries to request as many codes per minute as possible (it could be seen from email timestamps). However I couldn't find a relationship between code and time. It is possible that liveperson.net service was vulnerable.
 
 Recently Skype refused liveperson.net service and chatting with support agent now is on microsoft.com domain.
 The procedure of Skype-account deletion cannot be handled by operator anymore. It should be done manually using web-form.
@@ -205,7 +206,7 @@ One can think that the vulnerability was closed. It isn't so.
 
 Aforementioned Skype account deleter's victims contacted me one year after. Emails with Security Code were not sent this time, a new way was apparently found.
 
-Frankly speaking, I'd been fed up with all of this. I'd been tired to implore, eat the dust and beg for fixing the holes during so many months.
+Frankly speaking, I'd been fed up with all of this. I'd been tired to implore, eat the dust and beg for fixing the holes for so many months.
 
 As I wrote before, I'd been using Skype for about ten years. My primary account **zhovner** is quite the same old. I felt that it's unfair to witness to other people's suffering not having walked in the same shoes. Then I decided to conduct an experiment and order the deletion of my own account.
 
@@ -229,13 +230,13 @@ Short recap:
 
 ><font color="red">&lt;Me&gt;</font>Why my account is blocked? I think it is the result of massive fake report spam.
 
-><font color="blue">&lt;Skype&gt;</font> Our automated system have blocked your account due to violation of Term of Use of Skype.
+><font color="blue">&lt;Skype&gt;</font> Our automated system has blocked your account due to a violation of Term of Use of Skype.
 
 ><font color="red">&lt;Me&gt;</font> You have holes in the system, anyone's account could be blocked with spam of report messages, even if there are no violation of rules. My personal account was banned exactly using this scenario. Could you please double check it?
 
-><font color="blue">&lt;Skype&gt;</font> We already did the check, our system is perfect and never makes mistakes, we are sure that you had violated the rules. Our system is very precise and all the actions are being tracked, that means that it is definitely your fault, therefore your account will be never unbanned. If you want to continue to use your service, just create new account.
+><font color="blue">&lt;Skype&gt;</font> We already did the check, our system is perfect and never makes mistakes, we are sure that you had violated the rules. Our system is very precise and all the actions are being tracked, that means that it is definitely your fault, therefore your account will be never unbanned. If you want to continue to use your service, just create a new account.
 
-><font color="red">&lt;Me&gt;</font> I have evidences that your system is vulnerable for spam report attacks.
+><font color="red">&lt;Me&gt;</font> I have evidence that your system is vulnerable to spam report attacks.
 
 ><font color="blue">&lt;Skype&gt;</font> No, our system always right, 100% sure.
 
@@ -258,14 +259,14 @@ Short recap:
 
 ### Resume
 
-It is already 15 days since my Skype account was banned. Out from the chat with support it is clear that nobody is trying to return my account back. I am really looking forward to receive my account back and get regrets from Skype for all the humiliations I need to get through, trying to make their services more secure.
+It is already 15 days since my Skype account was banned. Out from the chat with support it is clear that nobody is trying to return my account back. I am really looking forward to receiving my account back and get regrets from Skype for all the humiliations I need to get through, trying to make their services more secure.
 
-Unfortunately Skype is big bureaucratic machine, which is not able to detect and react on the problems in their service due to poor organization, big and complex management structure. I have no doubt that anything will change here in the nearest future.
+Unfortunately Skype is a big bureaucratic machine, which is not able to detect and react to the problems in their service due to poor organization, big and complex management structure. I have no doubt that anything will change here in the nearest future.
 
 In this article I have described only problems which I know. I can assume that there exist much more exploits, which are in use, but I have no clue about them.
 
 It is essential to understand that it is not ONLY Skype problem. This issues could be applied to ANY messenger with centralized control, where all security is based only on trust and authority of administration e.g.
 If you think that your lovely messenger is much more secure than Skype, just because the employees are "good guys", you are just fooling yourself.
-People who have infinite access to the user information, could be vulnerable for different kind of pressure, blackmailing or deception. No one is ready to go to the jail or even to give their lives for the safety of users' messages. As far as unlimited access exists, there will always be temptation to use this access wrongfully.
+People who have infinite access to the user information, could be vulnerable to different kind of pressure, blackmailing or deception. No one is ready to go to the jail or even to give their lives for the safety of users' messages. As far as unlimited access exists, there will always be a temptation to use this access wrongfully.
 
 Truly safe messenger must be built on the impossibility of unauthorized access on a level of a specification, but not on a trust to any group of people.
