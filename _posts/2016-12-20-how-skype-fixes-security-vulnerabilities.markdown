@@ -165,8 +165,8 @@ We couldn't understand the process of deleting the account. We couldn't find the
 
 That was Live Chat Support form that can be accessed through the account with subscription. You can find it on skype.com website, going through troubleshooting master few times. If you always choose "problem is not solved" option, the last step would give you a confirmation window with live chat prompt.
 
-The chat is opened from **https://sales.liveperson.net** side domain. The information on the website states that this is side company, which offers tech support for your product.
-ing
+The chat is opened from **https://sales.liveperson.net** side domain. The information on the website states that this is side company, which offers tech support for your product.  
+
 In conclusion, the attack process through live chat support seemed to be like:
 
 1. Attacker asks tech support to "delete my account &lt;accountname&gt; because I made a new one."
