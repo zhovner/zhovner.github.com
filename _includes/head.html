@@ -12,14 +12,20 @@
     <meta content="{{ site.title }}" property="og:site_name">
     {% if page.title %}
     <meta content="{{ page.title }}" property="og:title">
+    <meta name="twitter:title" content="{{ page.title }}">
+    <meta itemprop="name" content="{{ page.title }}">
     {% else %}
     <meta content="{{ site.title }}" property="og:title">
     {% endif %}
+
+
 
      <meta content="article" property="og:type">
 
     {% if page.excerpt %}
     <meta content="{{ page.excerpt }}" property="og:description">
+    <meta name="twitter:description" content="{{ page.excerpt }}">
+    <meta itemprop="description" content="{{ page.excerpt }}">
     {% else %}
     <meta content="{{ site.description }}" property="og:description">
     {% endif %}
@@ -30,6 +36,8 @@
 
     {% if page.image %}
       <meta content="https://hub.zhovner.com/img/{{ page.image }}" property="og:image">
+      <meta itemprop="image" content="https://hub.zhovner.com/img/{{ page.image }}">
+      <meta name="twitter:image:src" content="https://hub.zhovner.com/img/{{ page.image }}">
     {% else %}
       <meta content="/img/mantis.png" property="og:image">
     {% endif %}
