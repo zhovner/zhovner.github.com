@@ -34,11 +34,10 @@
 
     {% if page.date %}
       <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
-      <meta content="{{ site.url }}/about/" property="article:author">
     {% endif %}
 
     {% if page.image %}
-      <meta content="/img/{{ page.image }}" property="og:image">
+      <meta content="https://hub.zhovner.com/img/{{ page.image }}" property="og:image">
     {% else %}
       <meta content="/img/mantis.png" property="og:image">
     {% endif %}
