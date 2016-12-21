@@ -1,8 +1,7 @@
 ---
 layout: post
 category: random
-tags: 
-excerpt: 
+excerpt: OLIGARKH, Талиб
 title: Нашиды и модные религиозные песни 
 ---
 
