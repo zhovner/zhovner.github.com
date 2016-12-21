@@ -67,7 +67,7 @@ Similar groups exist within Skype itself. There is a specific subculture of abus
 
 The majority of attacks are conducted via verbal duels in group calls. The aim is to humiliate a person the more painfully the better and to record it on video.
 
-#### Duel recordings (Warning: shouting and swearing)  
+#### Duel recordings (Warning: shouting and swearing in russian)  
 [youtube.com/watch?v=F3mDFk5m_Hs](https://www.youtube.com/watch?v=F3mDFk5m_Hs)  
 [youtube.com/watch?v=cwNixaAML4I](https://www.youtube.com/watch?v=cwNixaAML4I)  
 [youtube.com/watch?v=zWhCcqTnjxw](https://www.youtube.com/watch?v=zWhCcqTnjxw)  
