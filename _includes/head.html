@@ -16,11 +16,7 @@
     <meta content="{{ site.title }}" property="og:title">
     {% endif %}
 
-    {% if page.title %}
      <meta content="article" property="og:type">
-    {% else %}
-     <meta content="website" property="og:type">
-    {% endif %}
 
     {% if page.excerpt %}
     <meta content="{{ page.excerpt }}" property="og:description">
@@ -30,10 +26,6 @@
 
     {% if page.url %}
       <meta content="{{ site.url }}{{ page.url }}" property="og:url">
-    {% endif %}
-
-    {% if page.date %}
-      <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
     {% endif %}
 
     {% if page.image %}
