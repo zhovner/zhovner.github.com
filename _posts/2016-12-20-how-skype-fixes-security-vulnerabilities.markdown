@@ -248,7 +248,7 @@ Short recap:
 
 ><font color="red">&lt;Me&gt;</font> Are you crazy? So now you are admitting that anyone could delete any account just by submitting enough reports? Even if you do not know what are the reasons for the report? You know that these abuses could be used even without adding the person to the contact list. So you can send a report from the account which had never had a conversation with the person, who is he reporting. You are admitting that this kind of whole. Is it legal? I am planning to sue you.
 
-><font color="blue">&lt;Skype&gt;</font> We think that we gave enough information. You are peace of shit, live with it.
+><font color="blue">&lt;Skype&gt;</font> We think that we gave enough information. You are piece of shit, live with it.
 
 ><font color="red">&lt;Me&gt;</font> This vulnerability is really serious. I believe that you should thoroughly investigate it. I have enough data to reproduce the vulnerability. We can repeat it in your account, which you provide, which precisely does not violate the rules, and you have complete control. I'll pay for the removal of this account, the attacker, and you will be able to investigate the problem.
 
