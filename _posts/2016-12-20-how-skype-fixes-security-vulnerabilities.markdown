@@ -6,7 +6,7 @@ image: how-skype-fixes-security-vulnerabilities.png
 description: "In a nutshell — they don't. This post describes my fruitless effort to convince Microsoft employees that their service is vulnerable, and the humiliation one has to go through should one's account be blocked by a hacker. This is a story of ignorance, pain, and despair."
 ---
 
-![How Skype fixes security vulnerabilities article image](https://habrastorage.org/files/09a/f14/e02/09af14e02e2b40178b7f543e83707803.png)
+![How Skype fixes security vulnerabilities article image](https://habrastorage.org/files/09a/f14/e02/09af14e02e2b40178b7f543e83707803.png)  
 ### In a nutshell: they don't
 
 This post describes my fruitless effort to convince Microsoft employees that their service is vulnerable, and the humiliation one has to go through should one's account be blocked by a hacker. This is a story of ignorance, pain and despair.
