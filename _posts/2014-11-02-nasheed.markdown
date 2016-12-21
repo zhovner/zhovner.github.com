@@ -1,7 +1,7 @@
 ---
 layout: post
 category: random
-excerpt: OLIGARKH, Талиб
+excerpt: "OLIGARKH, Талиб"
 title: Нашиды и модные религиозные песни 
 ---
 
