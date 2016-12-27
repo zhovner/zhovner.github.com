@@ -194,9 +194,10 @@ Edit `/etc/ipsec.conf`:
 {% highlight bash %}
 config setup
 
-    #  Uncomment to allow few simultaneous connections with one user account.
+    #  Allows few simultaneous connections with one user account.
     #  By default only one active connection per user allowed.
-    # uniqueids=no
+    #  This option also usefull if you have limited rightsourceip pool and want to kick your ghost connection while reconnecting.
+    uniqueids=no
 
     # Increase debug level
     # charondebug = ike 3, cfg 3
