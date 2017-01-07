@@ -1,0 +1,20 @@
+---
+layout: post
+category: tools
+---
+
+Родной dd в MacOS лучше заменить на GNU-тый `brew install coreutils`.  
+Все утилиты из пакета `coreutils` будут иметь приставку g в начале, то есть `gdd`.
+
+### Нарезать файл на куски по заданным смещениям
+
+`skip` — отступить число байт от начала файла
+`count` — выбрать столько байт
+
+Смещения в десятичном виде  
+`dd if=soruce_file of=otput_file ibs=1 skip=8960000 count=183750250`  
+
+Смещения в hex (работает только в bash)  
+`dd if=soruce_file of=otput_file ibs=1 skip=$((0x123142)) count=$((0x1231))`  
+
+
