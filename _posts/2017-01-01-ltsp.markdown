@@ -1,0 +1,147 @@
+---
+layout: post
+category: tools
+tags: 
+excerpt: 
+title: LTSP thin client + RDP
+---
+
+### Boot sequnce
+
+1 PXE client sends DHCP request  
+
+2 DHCP server answer with 2 options. Dnsmasq example:  
+
+<pre><code>dhcp-boot=/ltsp/i386/pxelinux.0 # Path to linux kernel+initrd binary that donwloads via TFTP
+dhcp-option=17,/opt/ltsp/i386 # path to disk image on Netwrok Block Device (NBD)</code></pre>  
+
+3 Client get ip address and download files:  
+
+<pre><code>dnsmasq-dhcp: DHCPDISCOVER(ens37) 74:d0:2b:90:00:4f 
+dnsmasq-dhcp: DHCPOFFER(ens37) 172.16.50.147 74:d0:2b:90:00:4f 
+dnsmasq-dhcp: DHCPREQUEST(ens37) 172.16.50.147 74:d0:2b:90:00:4f 
+dnsmasq-dhcp: DHCPACK(ens37) 172.16.50.147 74:d0:2b:90:00:4f 
+dnsmasq-tftp: sent /var/lib/tftpboot/ltsp/i386/pxelinux.0 to 172.16.50.147
+dnsmasq-tftp: sent /var/lib/tftpboot/ltsp/i386/ldlinux.c32 to 172.16.50.147
+dnsmasq-tftp: file /var/lib/tftpboot/ltsp/i386/pxelinux.cfg/60be442e-dad7-dd11-a4f7-74d02b90004f not found
+dnsmasq-tftp: file /var/lib/tftpboot/ltsp/i386/pxelinux.cfg/01-74-d0-2b-90-00-4f not found
+dnsmasq-tftp: file /var/lib/tftpboot/ltsp/i386/pxelinux.cfg/AC103293 not found
+dnsmasq-tftp: file /var/lib/tftpboot/ltsp/i386/pxelinux.cfg/AC10329 not found
+dnsmasq-tftp: file /var/lib/tftpboot/ltsp/i386/pxelinux.cfg/AC1032 not found
+dnsmasq-tftp: file /var/lib/tftpboot/ltsp/i386/pxelinux.cfg/AC103 not found
+dnsmasq-tftp: file /var/lib/tftpboot/ltsp/i386/pxelinux.cfg/AC10 not found
+dnsmasq-tftp: file /var/lib/tftpboot/ltsp/i386/pxelinux.cfg/AC1 not found
+dnsmasq-tftp: file /var/lib/tftpboot/ltsp/i386/pxelinux.cfg/AC not found
+dnsmasq-tftp: file /var/lib/tftpboot/ltsp/i386/pxelinux.cfg/A not found
+dnsmasq-tftp: sent /var/lib/tftpboot/ltsp/i386/pxelinux.cfg/default to 172.16.50.147
+dnsmasq-tftp: sent /var/lib/tftpboot/ltsp/i386/vmlinuz-4.4.0-66-generic to 172.16.50.147
+dnsmasq-tftp: sent /var/lib/tftpboot/ltsp/i386/initrd.img-4.4.0-66-generic to 172.16.50.147</code></pre>  
+
+4 Client boots linux kernel and files from disk image from NDB server via TCP:10809  
+
+5 Client request DHCP again and download lts.conf vi TFTP that contains startup script  
+
+<pre><code>dnsmasq-dhcp: DHCPDISCOVER(ens37) 74:d0:2b:90:00:4f 
+dnsmasq-dhcp: DHCPOFFER(ens37) 172.16.50.147 74:d0:2b:90:00:4f 
+dnsmasq-dhcp: DHCPREQUEST(ens37) 172.16.50.147 74:d0:2b:90:00:4f 
+dnsmasq-dhcp: DHCPACK(ens37) 172.16.50.147 74:d0:2b:90:00:4f 
+dnsmasq-tftp: sent /var/lib/tftpboot/ltsp/i386/lts.conf to 172.16.50.147</code></pre>  
+
+
+
+### DNSMASQ config (DHCP, DNS, TFTP server)
+
+TFTP и NDB сервер могут быть [IP отличном от DHCP](https://hub.zhovner.com/tools/dnsmasq/)
+
+{% highlight bash %}
+
+# На каком интерфейсе слушать запросы DNS/DHCP
+interface=eth0
+bind-interfaces
+
+# Задать DNS сервера клиентам
+dhcp-option=6,8.8.8.8,8.8.4.4
+
+# Диапазон IP которые будут назначаться DHCP клиентам 
+dhcp-range=172.16.50.100,172.16.50.200,20m
+
+# Enable the TFTP server
+# Путь /var/lib/tftpboot/ будет добавлен к пути указанному в dhcp-boot
+enable-tftp
+tftp-root=/var/lib/tftpboot/ 
+
+# PXE options
+dhcp-boot=/ltsp/i386/pxelinux.0
+dhcp-option=17,/opt/ltsp/i386
+
+
+{% endhighlight %}
+
+### NBD config
+
+Network Block Device server  
+
+Openwrt package https://github.com/openwrt/packages/tree/master/net/nbd  
+
+Путь в квадратных скобках это alias, должен соответствовать пути в dnsmasq `dhcp-option=17,/opt/ltsp/i386`  
+Реальный путь к файлу `exportname = /opt/ltsp/images/i386.img` может быть любым  
+
+{% highlight bash %}
+
+[/opt/ltsp/i386]
+exportname = /opt/ltsp/images/i386.img
+readonly = true
+
+{% endhighlight %}
+
+
+### lts.conf
+
+{% highlight bash %}
+
+[DEFAULT]
+SCREEN_07="xfreerdp -sec-nla /f +compression /cert-ignore /network:lan +fonts +window-drag /rfx  /v:123.123.123.123"
+
+
+# Disable video acceleration
+# X_OPTION_01 = "\"NoAccel\""
+
+
+{% endhighlight %}
+
+
+
+### Setup LTSP build server
+
+Install LTSP environment https://help.ubuntu.com/community/UbuntuLTSP/LTSPQuickInstall  
+
+`sudo apt-get install ltsp-server-standalone`  
+
+`sudo ltsp-build-client --arch i386`   
+
+`i386` is recommended arch because works on old machines too.  
+
+This creates linux chroot environment on `/opt/ltsp/i386/`  
+
+To edit image: `chroot /opt/ltsp/i386`  
+
+
+### Build image 
+
+Any changes in `/opt/ltsp/i386` requers rebuilding image  
+
+`ltsp-update-image`
+
+This command updates files:
+
+`/opt/ltsp/images/i386.img`
+
+and  
+
+`/var/lib/tftpboot/ltsp/i386/*`
+
+
+
+
+
+
