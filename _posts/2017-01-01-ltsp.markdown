@@ -43,7 +43,7 @@ dnsmasq-tftp: sent /var/lib/tftpboot/ltsp/i386/initrd.img-4.4.0-66-generic to 17
 
 4 Client boots linux kernel and files from disk image from NDB server via TCP:10809  
 
-5 Client request DHCP again and download lts.conf vi TFTP that contains startup script  
+5 Client requests DHCP again and download `lts.conf` vi TFTP that contains startup script  
 
 <pre><code>dnsmasq-dhcp: DHCPDISCOVER(ens37) 74:d0:2b:90:00:4f 
 dnsmasq-dhcp: DHCPOFFER(ens37) 172.16.50.147 74:d0:2b:90:00:4f 
@@ -55,7 +55,7 @@ dnsmasq-tftp: sent /var/lib/tftpboot/ltsp/i386/lts.conf to 172.16.50.147</code><
 
 ### DNSMASQ config (DHCP, DNS, TFTP server)
 
-TFTP и NDB сервер могут быть [IP отличном от DHCP](https://hub.zhovner.com/tools/dnsmasq/)
+TFTP и NDB сервер могут находится на https://hub.zhovner.com/tools/dnsmasq/
 
 {% highlight bash %}
 
@@ -87,8 +87,8 @@ Network Block Device server
 
 Openwrt package https://github.com/openwrt/packages/tree/master/net/nbd  
 
-Путь в квадратных скобках это alias, должен соответствовать пути в dnsmasq `dhcp-option=17,/opt/ltsp/i386`  
-Реальный путь к файлу `exportname = /opt/ltsp/images/i386.img` может быть любым  
+Путь в квадратных скобках это alias, должен соответствовать пути в dnsmasq `dhcp-option=17`  
+Реальный путь к файлу `exportname=/opt/ltsp/images/i386.img` может быть любым  
 
 {% highlight bash %}
 
@@ -105,7 +105,6 @@ readonly = true
 
 [DEFAULT]
 SCREEN_07="xfreerdp -sec-nla /f +compression /cert-ignore /network:lan +fonts +window-drag /rfx  /v:123.123.123.123"
-
 
 # Disable video acceleration
 # X_OPTION_01 = "\"NoAccel\""
