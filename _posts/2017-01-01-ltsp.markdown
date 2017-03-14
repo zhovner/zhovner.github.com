@@ -104,7 +104,7 @@ readonly = true
 {% highlight bash %}
 
 [DEFAULT]
-SCREEN_07="xfreerdp -sec-nla /f +compression /cert-ignore /network:lan /rfx -wallpaper -menu-anims -themes +fonts /bpp:16  /v:123.123.123.123"
+SCREEN_07="xfreerdp -sec-nla /f +compression /cert-ignore /network:lan /rfx -wallpaper -aero -menu-anims -themes +fonts /bpp:16  /v:123.123.123.123"
 
 # Disable video acceleration
 # X_OPTION_01 = "\"NoAccel\""
