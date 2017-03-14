@@ -12,8 +12,12 @@ title: LTSP thin client + RDP
 
 2 DHCP server answer with 2 options. Dnsmasq example:  
 
-<pre><code>dhcp-boot=/ltsp/i386/pxelinux.0 # Path to linux kernel+initrd binary that donwloads via TFTP
-dhcp-option=17,/opt/ltsp/i386 # path to disk image on Netwrok Block Device (NBD)</code></pre>  
+{% highlight bash %}
+
+dhcp-boot=/ltsp/i386/pxelinux.0 # Path to linux kernel+initrd binary that donwloads via TFTP
+dhcp-option=17,/opt/ltsp/i386 # path to disk image on Netwrok Block Device (NBD)
+
+{% endhighlight %}
 
 3 Client get ip address and download files:  
 
@@ -105,7 +109,6 @@ SCREEN_07="xfreerdp -sec-nla /f +compression /cert-ignore /network:lan +fonts +w
 
 # Disable video acceleration
 # X_OPTION_01 = "\"NoAccel\""
-
 
 {% endhighlight %}
 
