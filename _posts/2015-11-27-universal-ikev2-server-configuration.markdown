@@ -316,7 +316,8 @@ This subject is not covered in this manual.
 
 For testing porpose  *(insecure)*:
 
-`iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE`
+```echo 1 > /proc/sys/net/ipv4/ip_forward
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE```
 
 #### IPv6 issues
 It is possible to assign native IPv6 addresses as well as IPv4 to VPN clients. 
