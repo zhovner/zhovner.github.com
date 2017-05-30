@@ -476,4 +476,54 @@ In windows you can't define RemoteID separately from server address, so FQDN sho
 Also keep in mind that IPv6 will not work in windows.  
 ![windows ikev2 vpn](/img/windows_ikev2.png)
 
+### Linux roadwarrior client 
+
+This also works on MacOS/FreeBSD
+
+1. Install strongswan  
+  
+2. Configure CA's  
+
+Openssl and ca-certs must be installed.  
+
+```
+rmdir /etc/ipsec.d/cacerts
+ln -s /etc/ssl/certs /etc/ipsec.d/cacerts
+```
+
+3. Setup config /etc/ipsec.conf  
+
+```
+conn my-super-vpn
+
+    keyexchange=ikev2
+    #forceencaps=yes
+    dpdaction = restart
+    dpddelay = 30s 
+    keyingtries=%forever
+
+    # start at boot
+    auto=start 
+    
+    rekey=no
+    reauth=no
+    fragmentation=yes
+    #compress=yes
+    
+    # left - local  side
+    left=%any
+    eap_identity=x220
+    leftsourceip=%any,%any6
+    leftauth=eap-mschapv2
+    
+    # right - remote side
+    right=q.zhovner.com 
+    rightsubnet=0.0.0.0/0,::/0
+````
+
+4. Connect to server  
+
+```
+ipsec restart
+```
 
