@@ -480,9 +480,9 @@ Also keep in mind that IPv6 will not work in windows.
 
 This also works on MacOS/FreeBSD
 
-1. Install strongswan  
+**Install strongswan**  
   
-2. Configure CA's  
+**Configure CA's**  
 
 Openssl and ca-certs must be installed.  
 
@@ -491,7 +491,7 @@ rmdir /etc/ipsec.d/cacerts
 ln -s /etc/ssl/certs /etc/ipsec.d/cacerts
 ```
 
-3.  Setup config /etc/ipsec.conf  
+**Setup config /etc/ipsec.conf**  
 
 ```
 conn my-super-vpn
@@ -521,7 +521,7 @@ conn my-super-vpn
     rightsubnet=0.0.0.0/0,::/0
 ````
 
-4. Connect to server  
+**Connect to server**
 
 ```
 ipsec restart
