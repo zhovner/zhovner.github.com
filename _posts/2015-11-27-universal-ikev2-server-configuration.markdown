@@ -491,7 +491,7 @@ rmdir /etc/ipsec.d/cacerts
 ln -s /etc/ssl/certs /etc/ipsec.d/cacerts
 ```
 
-3. Setup config /etc/ipsec.conf  
+3.  Setup config /etc/ipsec.conf  
 
 ```
 conn my-super-vpn
