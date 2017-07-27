@@ -98,6 +98,28 @@ Enable slow clock for sleep mode
 `AT+CSCLK=1`  
 
 When DTR pin is high, module can etner sleep mode.  
-When DTR pin is low level, module can quit sleep mode.  
+When DTR pin is low level, module can quit sleep mode. 
+
+### Firmware version
+
+```AT+CGMR
+Revision:1418B02SIM800C32_BT```  
+
+### Get IMEI 
+
+`AT+CGSN`  
+
+### Power Voltage
+
+```AT+CBC
++CBC: 0,35,3681```  
+
+Syntax: charging(0=no,1=yes),battery percents(calulated from voltage),voltage (3,68V in example)  
+
+
+
+
+
+
 
 
