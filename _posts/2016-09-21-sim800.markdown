@@ -102,8 +102,10 @@ When DTR pin is low level, module can quit sleep mode.
 
 ### Firmware version
 
-```AT+CGMR
-Revision:1418B02SIM800C32_BT```  
+```
+AT+CGMR
+Revision:1418B02SIM800C32_BT
+```  
 
 ### Get IMEI 
 
@@ -111,8 +113,10 @@ Revision:1418B02SIM800C32_BT```
 
 ### Power Voltage
 
-```AT+CBC
-+CBC: 0,35,3681```  
+```
+AT+CBC
++CBC: 0,35,3681
+```  
 
 Syntax: charging(0=no,1=yes),battery percents(calulated from voltage),voltage (3,68V in example)  
 
