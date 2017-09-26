@@ -1,7 +1,7 @@
 ---
 layout: post
 category: tools
-title: "GSM модуль SIM800L"
+title: "GSM модуль SIM800L/C/H"
 ---
 
 Power — `3.7V – 4.2V`  
