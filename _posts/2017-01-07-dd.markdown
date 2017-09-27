@@ -1,6 +1,7 @@
 ---
 layout: post
 category: tools
+title: dd
 ---
 
 Родной dd в MacOS лучше заменить на GNU-тый `brew install coreutils`.  
