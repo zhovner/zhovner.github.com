@@ -695,6 +695,11 @@ For other CRC calculation look at [sunshine2k.de/coding/javascript/crc/crc_js.ht
         <label id="BCCresult" style="font-weight:bold"><span style="color:red">-</span> </label>
 </fieldset>
 
+## Software 
+
+* [**Smart Card Scripter**](http://www.infintuary.org/scs_dl.php) —  tool that makes it easy to send raw APDUs to smart cards and to process the responses. Smart Card Scripter uses a Pascal-like script syntax. Works with any PC/SC reader. Windows only. [Tutorial](http://www.infintuary.org/scs_tut.php) [Backup download link](/uploads/scscripter.zip)
+* [**mfterm**](https://github.com/4ZM/mfterm) — interactive terminal for Mifare Classic tags. Can make dictionary attacks.
+* [**mfdread**](https://github.com/zhovner/mfdread) — simple Mifare 1k/4k dumps parser in human readable format.
 
 
 
