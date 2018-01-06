@@ -1,7 +1,15 @@
 ---
 layout: post
-category:
+category: tools
 tags:
 excerpt:
 title: linux
 ---
+
+## Temporary disable lid sleep
+
+Laptop will not sleep while this running:
+`systemd-inhibit --what=handle-lid-switch sleep 1d`  
+
+Handy to create alias:  
+`alias insomnia='systemd-inhibit --what=handle-lid-switch sleep 1d'`  
