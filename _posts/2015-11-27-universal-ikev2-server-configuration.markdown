@@ -366,7 +366,7 @@ Back to default:
 Also read this: [https://forums.developer.apple.com/thread/31375](https://forums.developer.apple.com/thread/31375)
 
 
-
+### Autoconfig profile template
 The easiest way to get working profile is to edit 4 variables in this template: RemoteAddress, RemoteIdentifier, AuthName, AuthPassword. Edit the rest of template following comments.
 Example profile of our VPN server `supervpn.mobileconfig`:
 <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
