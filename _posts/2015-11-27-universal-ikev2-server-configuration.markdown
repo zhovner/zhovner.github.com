@@ -383,8 +383,8 @@ Example profile of our VPN server `supervpn.mobileconfig`:
                 &lt;string&gt;<font color="red"><b>obama</b></font>&lt;/string&gt;
                 &lt;key&gt;AuthPassword&lt;/key&gt;
                 &lt;string&gt;<font color="red"><b>SuperPassword123</b></font>&lt;/string&gt;
-                <font color="#D1D0CE">&lt;!-- This is the hostname or IP address of VPN server.
-                 Chosing IP address can avoid issues with client DNS resolvers and speed up connection process. --&gt;</font>
+                <font color="#D1D0CE">&lt;!-- Hostname or IP address of VPN server.
+                 Chosing IP address instead of DNS name can avoid issues with client DNS resolvers and speed up connection process. --&gt;</font>
                 &lt;key&gt;RemoteAddress&lt;/key&gt;
                 &lt;string&gt;<font color="red"><b>43.12.22.134</b></font>&lt;/string&gt;
                 <font color="#D1D0CE">&lt;!-- leftid in ipsec.conf --&gt;</font>
