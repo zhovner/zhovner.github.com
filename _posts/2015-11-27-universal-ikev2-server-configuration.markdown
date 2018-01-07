@@ -335,7 +335,7 @@ For DigitalOcean and others providers you will need setup NDP proxy. Related thr
 
 
 
-### OS X 10.11 and iOS 9 autconfiguration profile
+### macOS >10.11 and iOS 9 autconfiguration profile
 A configuration profile is an XML file that allows you to distribute configuration information. If you need to configure a large number of devices or to provide lots of custom email settings, VPN profiles, network settings, or certificates to a large number of devices, configuration profiles are an easy way to do it. In our case we will use VPN payload for one click configuration.  
 For IKEv2 VPN connections the configuration profile is the only way to set advanced options like ciphers, DH groups, PFS, rekey timeout and so on.  
 More about it [https://developer.apple.com/library/ios/featuredarticles/iPhoneConfigurationProfileRef/Introduction/Introduction.html](https://developer.apple.com/library/ios/featuredarticles/iPhoneConfigurationProfileRef/Introduction/Introduction.html)
@@ -354,65 +354,85 @@ To disable `Always On` mode unchek `On Demand` options in VPN connection prefere
 
 ![ikev2 Always on On demand mode without supervision](/img/always_on_ondemand_ikev2.png)  
 
+### Debug log in macOS
+If your connection doesn't work in macOS, it silently disconnect without any error code.  
+Debug log can be viewed in system utility `Console.app`. Type `networkextension` in search and try to connect.  
+  
+To <b>increase</b> verbosity:  
+`sudo defaults write /Library/Preferences/com.apple.networkextension.control.plist LogLevel 6`  
+Back to default:  
+`sudo defaults write /Library/Preferences/com.apple.networkextension.control.plist LogLevel 5`  
+  
+Also read this: [https://forums.developer.apple.com/thread/31375](https://forums.developer.apple.com/thread/31375)
 
 
 
 The easiest way to get working profile is to edit 4 variables in this template: RemoteAddress, RemoteIdentifier, AuthName, AuthPassword. Edit the rest of template following comments.
 Example profile of our VPN server `supervpn.mobileconfig`:
-<pre><code>&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
 &lt;plist version="1.0"&gt;
 &lt;dict&gt;
-    <font color="#D1D0CE">&lt;!-- Set the name to whatever you like, it is used in the profile list on the device --&gt;</font>
-    &lt;key&gt;PayloadDisplayName&lt;/key&gt;
-    &lt;string&gt;Super IKEv2 VPN&lt;/string&gt;
-    &lt;key&gt;PayloadIdentifier&lt;/key&gt;
-    <font color="#D1D0CE">&lt;!-- This is a reverse-DNS style unique identifier used to detect duplicate profiles --&gt;</font>
-    &lt;string&gt;com.zhovner.tunnel&lt;/string&gt;
-    <font color="#D1D0CE">&lt;!-- A globally unique identifier, use uuidgen on Linux/Mac OS X to generate it --&gt;</font>
-    &lt;key&gt;PayloadUUID&lt;/key&gt;
-    &lt;string&gt;A6F46838-77E8-49EC-8045-67C7D751063E&lt;/string&gt;
-    &lt;key&gt;PayloadType&lt;/key&gt;
-    &lt;string&gt;Configuration&lt;/string&gt;
-    &lt;key&gt;PayloadVersion&lt;/key&gt;
-    &lt;integer&gt;1&lt;/integer&gt;
     &lt;key&gt;PayloadContent&lt;/key&gt;
     &lt;array&gt;
-        <font color="#D1D0CE">&lt;!-- It is possible to add multiple VPN payloads with different identifiers/UUIDs and names --&gt;</font>
         &lt;dict&gt;
-            <font color="#D1D0CE">&lt;!-- This is an extension of the identifier given above --&gt;</font>
-            &lt;key&gt;PayloadIdentifier&lt;/key&gt;
-            &lt;string&gt;com.zhovner.tunnel.conf&lt;/string&gt;
-            <font color="#D1D0CE">&lt;!-- A globally unique identifier for this payload --&gt;</font>
-            &lt;key&gt;PayloadUUID&lt;/key&gt;
-            &lt;string&gt;647D41C3-52E4-497D-BA25-59B9FB4043B6&lt;/string&gt;
-            &lt;key&gt;PayloadType&lt;/key&gt;
-            &lt;string&gt;com.apple.vpn.managed&lt;/string&gt;
-            &lt;key&gt;PayloadVersion&lt;/key&gt;
-            &lt;integer&gt;1&lt;/integer&gt;
-            &lt;key&gt;UserDefinedName&lt;/key&gt;
-            <font color="#D1D0CE">&lt;!-- This is the name of the VPN connection as seen in the VPN application later --&gt;</font>
-            &lt;string&gt;London VPN IKEv2&lt;/string&gt;
-            &lt;key&gt;VPNType&lt;/key&gt;
-            &lt;string&gt;IKEv2&lt;/string&gt;
             &lt;key&gt;IKEv2&lt;/key&gt;
             &lt;dict&gt;
+                <font color="#D1D0CE">&lt;!-- Username and password from ipsec.secrets --&gt;</font>
+                &lt;key&gt;AuthName&lt;/key&gt;
+                &lt;string&gt;<font color="red"><b>obama</b></font>&lt;/string&gt;
+                &lt;key&gt;AuthPassword&lt;/key&gt;
+                &lt;string&gt;<font color="red"><b>SuperPassword123</b></font>&lt;/string&gt;
+
+                &lt;key&gt;AuthenticationMethod&lt;/key&gt;
+                &lt;string&gt;Certificate&lt;/string&gt;
+                &lt;key&gt;ChildSecurityAssociationParameters&lt;/key&gt;
+                &lt;dict&gt;
+                    <font color="#D1D0CE">&lt;!-- in ipsec.conf this proposal is: ike=aes256-sha256-modp2048 --&gt;</font>
+                    &lt;key&gt;DiffieHellmanGroup&lt;/key&gt;
+                    &lt;integer&gt;14&lt;/integer&gt;
+                    &lt;key&gt;EncryptionAlgorithm&lt;/key&gt;
+                    &lt;string&gt;AES-256&lt;/string&gt;
+                    &lt;key&gt;IntegrityAlgorithm&lt;/key&gt;
+                    &lt;string&gt;SHA2-256&lt;/string&gt;
+                    &lt;key&gt;LifeTimeInMinutes&lt;/key&gt;
+                    &lt;integer&gt;1440&lt;/integer&gt;
+                &lt;/dict&gt;
+                &lt;key&gt;DeadPeerDetectionRate&lt;/key&gt;
+                <font color="#D1D0CE">&lt;!--
+                    None (Disable)
+                    Low (keepalive sent every 30 minutes)
+                    Medium (keepalive sent every 10 minutes)
+                    High (keepalive sent every 1 minute)
+                --&gt;</font>
+                &lt;string&gt;High&lt;/string&gt;
+                &lt;key&gt;ExtendedAuthEnabled&lt;/key&gt;
+                &lt;true/&gt;
+                &lt;key&gt;IKESecurityAssociationParameters&lt;/key&gt;
+                &lt;dict&gt;
+                    &lt;key&gt;DiffieHellmanGroup&lt;/key&gt;
+                    &lt;integer&gt;14&lt;/integer&gt;
+                    &lt;key&gt;EncryptionAlgorithm&lt;/key&gt;
+                    &lt;string&gt;AES-256&lt;/string&gt;
+                    &lt;key&gt;IntegrityAlgorithm&lt;/key&gt;
+                    &lt;string&gt;SHA2-256&lt;/string&gt;
+                    &lt;key&gt;LifeTimeInMinutes&lt;/key&gt;
+                    &lt;integer&gt;1440&lt;/integer&gt;
+                &lt;/dict&gt;
                 <font color="#D1D0CE">&lt;!-- This is the hostname or IP address of VPN server.
                  Chosing IP address can avoid issues with client DNS resolvers and speed up connection process. --&gt;</font>
                 &lt;key&gt;RemoteAddress&lt;/key&gt;
-                &lt;string&gt;<font color="red"><b>143.12.22.134</b></font>&lt;/string&gt;
+                &lt;string&gt;143.12.22.134&lt;/string&gt;
                 <font color="#D1D0CE">&lt;!-- leftid in ipsec.conf --&gt;</font>
                 &lt;key&gt;RemoteIdentifier&lt;/key&gt;
                 &lt;string&gt;<font color="red"><b>tunnel.zhovner.com</b></font>&lt;/string&gt;
                 <font color="#D1D0CE">&lt;!--
-                    OnDemand references:
-                    http://www.v2ex.com/t/137653
-                    https://developer.apple.com/library/mac/featuredarticles/iPhoneConfigurationProfileRef/Introduction/Introduction.html
-                    Continue reading:
-                    https://github.com/iphoting/ovpnmcgen.rb
+                Always On OnDemand Rule
+                Cen be disabled in connection preferences by "On Demand" checkbox
+                http://www.v2ex.com/t/137653
+                https://developer.apple.com/library/mac/featuredarticles/iPhoneConfigurationProfileRef/Introduction/Introduction.html
+                https://github.com/iphoting/ovpnmcgen.rb
                 --&gt;</font>
-
-                <font color="#D1D0CE">&lt;!-- AlwaysOn OnDemand Rule --&gt;</font>
-
                 &lt;key&gt;OnDemandEnabled&lt;/key&gt;
                     &lt;integer&gt;1&lt;/integer&gt;
                     &lt;key&gt;OnDemandRules&lt;/key&gt;
@@ -422,30 +442,49 @@ Example profile of our VPN server `supervpn.mobileconfig`:
                             &lt;string&gt;Connect&lt;/string&gt;
                         &lt;/dict&gt;
                     &lt;/array&gt;
-                &lt;key&gt;DeadPeerDetectionRate&lt;/key&gt;
-                &lt;string&gt;High&lt;/string&gt;
-                &lt;key&gt;AuthenticationMethod&lt;/key&gt;
-                &lt;string&gt;Certificate&lt;/string&gt;
-                &lt;key&gt;NATKeepAliveInterval&lt;/key&gt;
-                &lt;integer&gt;30&lt;/integer&gt;
-                &lt;key&gt;NATKeepAliveOffloadEnable&lt;/key&gt;
-                &lt;true/&gt;
-                &lt;key&gt;ExtendedAuthEnabled&lt;/key&gt;
-                &lt;integer&gt;1&lt;/integer&gt;
-                <font color="#D1D0CE">&lt;!-- Username and password from ipsec.secrets --&gt;</font>
-                &lt;key&gt;AuthName&lt;/key&gt;
-                &lt;string&gt;<font color="red"><b>obama</b></font>&lt;/string&gt;
-                &lt;key&gt;AuthPassword&lt;/key&gt;
-                &lt;string&gt;<font color="red"><b>SuperPassword123</b></font>&lt;/string&gt;
             &lt;/dict&gt;
+            &lt;key&gt;IPv4&lt;/key&gt;
+            &lt;dict&gt;
+                &lt;key&gt;OverridePrimary&lt;/key&gt;
+                &lt;integer&gt;1&lt;/integer&gt;
+            &lt;/dict&gt;
+            &lt;key&gt;PayloadDescription&lt;/key&gt;
+            &lt;string&gt;Configures VPN settings&lt;/string&gt;
+            &lt;key&gt;PayloadDisplayName&lt;/key&gt;
+            &lt;string&gt;VPN&lt;/string&gt;
+            &lt;key&gt;PayloadIdentifier&lt;/key&gt;
+            &lt;string&gt;com.apple.vpn.managed.96C1C38F-D4D6-472E-BA90-9117ED8896B5&lt;/string&gt;
+            &lt;key&gt;PayloadType&lt;/key&gt;
+            &lt;string&gt;com.apple.vpn.managed&lt;/string&gt;
+            &lt;key&gt;PayloadUUID&lt;/key&gt;
+            &lt;string&gt;96C1C38F-D4D6-472E-BA90-9117ED8896B5&lt;/string&gt;
+            &lt;key&gt;PayloadVersion&lt;/key&gt;
+            &lt;integer&gt;1&lt;/integer&gt;
+            <font color="#D1D0CE">&lt;!-- VPN connection name in Network Preferences --&gt;</font>
+            &lt;key&gt;UserDefinedName&lt;/key&gt;
+            &lt;string&gt;London VPN&lt;/string&gt;
+            &lt;key&gt;VPNType&lt;/key&gt;
+            &lt;string&gt;IKEv2&lt;/string&gt;
         &lt;/dict&gt;
     &lt;/array&gt;
+    <font color="#D1D0CE">&lt;!-- Set the name to whatever you like, it is used in the profile list on the device --&gt;</font>
+    &lt;key&gt;PayloadDisplayName&lt;/key&gt;
+    &lt;string&gt;My Super IKEv2 VPN&lt;/string&gt;
+
+    <font color="#D1D0CE">&lt;!-- A reverse-DNS style identifier (com.example.myprofile, for example) that identifies the profile. This string is used to determine whether a new profile should replace an existing one or should be added. --&gt;</font>
+    &lt;key&gt;PayloadIdentifier&lt;/key&gt;
+    &lt;string&gt;com.zhovner.tunnel&lt;/string&gt;
+    <font color="#D1D0CE">&lt;!-- A globally unique identifier, use uuidgen on Linux/Mac OS X to generate it --&gt;</font>
+    &lt;key&gt;PayloadUUID&lt;/key&gt;
+    &lt;string&gt;F3FAD91C-019C-4A79-87A1-CF334C583339&lt;/string&gt;
+    &lt;key&gt;PayloadType&lt;/key&gt;
+    &lt;string&gt;Configuration&lt;/string&gt;
+    &lt;key&gt;PayloadVersion&lt;/key&gt;
+    &lt;integer&gt;1&lt;/integer&gt;
 &lt;/dict&gt;
 &lt;/plist&gt;</code></pre>
 
-For testing purpose you can use my dummy profile: [zhovner.com/supervpn.mobileconfig](https://zhovner.com/supervpn.mobileconfig)  
-Opening link in iOS Safari will start installation:  
-![ios mobileconfig profile installation](/img/mobileconfig_ios.png)
+
 
 ### iOS manual configuration 
 ![ios ikev2](/img/iosikev2.png)
