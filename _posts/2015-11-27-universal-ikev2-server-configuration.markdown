@@ -383,6 +383,13 @@ Example profile of our VPN server `supervpn.mobileconfig`:
                 &lt;string&gt;<font color="red"><b>obama</b></font>&lt;/string&gt;
                 &lt;key&gt;AuthPassword&lt;/key&gt;
                 &lt;string&gt;<font color="red"><b>SuperPassword123</b></font>&lt;/string&gt;
+                <font color="#D1D0CE">&lt;!-- This is the hostname or IP address of VPN server.
+                 Chosing IP address can avoid issues with client DNS resolvers and speed up connection process. --&gt;</font>
+                &lt;key&gt;RemoteAddress&lt;/key&gt;
+                &lt;string&gt;<font color="red"><b>43.12.22.134</b></font>&lt;/string&gt;
+                <font color="#D1D0CE">&lt;!-- leftid in ipsec.conf --&gt;</font>
+                &lt;key&gt;RemoteIdentifier&lt;/key&gt;
+                &lt;string&gt;<font color="red"><b>tunnel.zhovner.com</b></font>&lt;/string&gt;
 
                 &lt;key&gt;AuthenticationMethod&lt;/key&gt;
                 &lt;string&gt;Certificate&lt;/string&gt;
@@ -419,13 +426,6 @@ Example profile of our VPN server `supervpn.mobileconfig`:
                     &lt;key&gt;LifeTimeInMinutes&lt;/key&gt;
                     &lt;integer&gt;1440&lt;/integer&gt;
                 &lt;/dict&gt;
-                <font color="#D1D0CE">&lt;!-- This is the hostname or IP address of VPN server.
-                 Chosing IP address can avoid issues with client DNS resolvers and speed up connection process. --&gt;</font>
-                &lt;key&gt;RemoteAddress&lt;/key&gt;
-                &lt;string&gt;143.12.22.134&lt;/string&gt;
-                <font color="#D1D0CE">&lt;!-- leftid in ipsec.conf --&gt;</font>
-                &lt;key&gt;RemoteIdentifier&lt;/key&gt;
-                &lt;string&gt;<font color="red"><b>tunnel.zhovner.com</b></font>&lt;/string&gt;
                 <font color="#D1D0CE">&lt;!--
                 Always On OnDemand Rule
                 Cen be disabled in connection preferences by "On Demand" checkbox
