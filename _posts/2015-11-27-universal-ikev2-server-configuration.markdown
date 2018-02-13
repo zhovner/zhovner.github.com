@@ -290,18 +290,18 @@ The easiest way to get working profile is to edit 4 variables in this template: 
 
                 <!-- Username and password from ipsec.secrets -->
                 <key>AuthName</key>
-                <string>obama</b></font></string>
+                <string>obama</string>
                 <key>AuthPassword</key>
-                <string>SuperPassword123</b></font></string>
+                <string>SuperPassword123</string>
 
                 <!-- Hostname or IP address of VPN server.
                  Chosing IP address instead of DNS name can avoid issues with client DNS resolvers and speed up connection process. -->
                 <key>RemoteAddress</key>
-                <string>43.12.22.134</b></font></string>
+                <string>43.12.22.134</string>
 
                 <!-- leftid in ipsec.conf -->
                 <key>RemoteIdentifier</key>
-                <string>tunnel.zhovner.com</b></font></string>
+                <string>tunnel.zhovner.com</string>
 
                 <key>AuthenticationMethod</key>
                 <string>Certificate</string>
