@@ -288,35 +288,27 @@ The easiest way to get working profile is to edit 4 variables in this template: 
             <key>IKEv2</key>
             <dict>
 
-<font color="#D1D0CE">&lt;!-- Username and password from ipsec.secrets --&gt;</font>
+                <!-- Username and password from ipsec.secrets -->
                 <key>AuthName</key>
-                <string>
-
-<font color="red"><b>obama</b></font></string>
+                <string>obama</b></font></string>
                 <key>AuthPassword</key>
-                <string>
+                <string>SuperPassword123</b></font></string>
 
-<font color="red"><b>SuperPassword123</b></font></string>
-
-<font color="#D1D0CE">&lt;!-- Hostname or IP address of VPN server.
-                 Chosing IP address instead of DNS name can avoid issues with client DNS resolvers and speed up connection process. --&gt;</font>
+                <!-- Hostname or IP address of VPN server.
+                 Chosing IP address instead of DNS name can avoid issues with client DNS resolvers and speed up connection process. -->
                 <key>RemoteAddress</key>
-                <string>
+                <string>43.12.22.134</b></font></string>
 
-<font color="red"><b>43.12.22.134</b></font></string>
-
-<font color="#D1D0CE">&lt;!-- leftid in ipsec.conf --&gt;</font>
+                <!-- leftid in ipsec.conf -->
                 <key>RemoteIdentifier</key>
-                <string>
-
-<font color="red"><b>tunnel.zhovner.com</b></font></string>
+                <string>tunnel.zhovner.com</b></font></string>
 
                 <key>AuthenticationMethod</key>
                 <string>Certificate</string>
                 <key>ChildSecurityAssociationParameters</key>
                 <dict>
 
-<font color="#D1D0CE">&lt;!-- in ipsec.conf this proposal is: ike=aes256-sha256-modp2048 --&gt;</font>
+                <!-- in ipsec.conf this proposal is: ike=aes256-sha256-modp2048 -->
                     <key>DiffieHellmanGroup</key>
                     <integer>14</integer>
                     <key>EncryptionAlgorithm</key>
@@ -328,12 +320,12 @@ The easiest way to get working profile is to edit 4 variables in this template: 
                 </dict>
                 <key>DeadPeerDetectionRate</key>
 
-<font color="#D1D0CE">&lt;!--
+                <!--
                     None (Disable)
                     Low (keepalive sent every 30 minutes)
                     Medium (keepalive sent every 10 minutes)
                     High (keepalive sent every 1 minute)
-                --&gt;</font>
+                -->
                 <string>High</string>
                 <key>ExtendedAuthEnabled</key>
                 <true/>
@@ -349,13 +341,13 @@ The easiest way to get working profile is to edit 4 variables in this template: 
                     <integer>1440</integer>
                 </dict>
 
-<font color="#D1D0CE">&lt;!--
+                <!--
                 Always On OnDemand Rule
                 Cen be disabled in connection preferences by "On Demand" checkbox
                 http://www.v2ex.com/t/137653
                 https://developer.apple.com/library/mac/featuredarticles/iPhoneConfigurationProfileRef/Introduction/Introduction.html
                 https://github.com/iphoting/ovpnmcgen.rb
-                --&gt;</font>
+                -->
                 <key>OnDemandEnabled</key>
                     <integer>1</integer>
                     <key>OnDemandRules</key>
@@ -384,7 +376,7 @@ The easiest way to get working profile is to edit 4 variables in this template: 
             <key>PayloadVersion</key>
             <integer>1</integer>
 
-<font color="#D1D0CE">&lt;!-- VPN connection name in Network Preferences --&gt;</font>
+            <!-- VPN connection name in Network Preferences -->
             <key>UserDefinedName</key>
             <string>London VPN</string>
             <key>VPNType</key>
@@ -392,15 +384,15 @@ The easiest way to get working profile is to edit 4 variables in this template: 
         </dict>
     </array>
 
-<font color="#D1D0CE">&lt;!-- Set the name to whatever you like, it is used in the profile list on the device --&gt;</font>
+    <!-- Set the name to whatever you like, it is used in the profile list on the device -->
     <key>PayloadDisplayName</key>
     <string>My Super IKEv2 VPN</string>
 
-<font color="#D1D0CE">&lt;!-- A reverse-DNS style identifier (com.example.myprofile, for example) that identifies the profile. This string is used to determine whether a new profile should replace an existing one or should be added. --&gt;</font>
+    <!-- A reverse-DNS style identifier (com.example.myprofile, for example) that identifies the profile. This string is used to determine whether a new profile should replace an existing one or should be added. -->
     <key>PayloadIdentifier</key>
     <string>com.zhovner.tunnel</string>
 
-<font color="#D1D0CE">&lt;!-- A globally unique identifier, use uuidgen on Linux/Mac OS X to generate it --&gt;</font>
+    <!-- A globally unique identifier, use uuidgen on Linux/Mac OS X to generate it -->
     <key>PayloadUUID</key>
     <string>F3FAD91C-019C-4A79-87A1-CF334C583339</string>
     <key>PayloadType</key>
