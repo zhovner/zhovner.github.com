@@ -63,7 +63,7 @@ For me it will be: `diskutil mount disk0s1`
 On macOS since El Capitan enabled by default SIP (System Integrity Protection) prohibits to change boot options.  
 To check SIP state run `csrutil status`. In normal situation it should be enabled.  
   
-If SIP is enabled you can run bless <b>only</b> from Recovery console, otherwise it returns error.  
+If SIP is enabled you can run `bless` only from Recovery console, otherwise it returns error.  
 To boot in Recovery mode press <b>CMD+R</b> while boot and go to **_Utilities —> Terminal_** from top menu.  
 In recovery console follow steps 2 and 4 every time you need to boot OneFileLinux.  
 
