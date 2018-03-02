@@ -11,7 +11,7 @@ title: One File Linux
 <div style="text-align:center;font-size: 200%;">
 <a href="https://github.com/zhovner/OneFileLinux/releases/download/v0.3.1/OneFileLinux.efi">Download 25MB</a>
 </div>
-<div style="text-align:center;font-size: 200%;">
+<div style="text-align:center;">
 Sources: <a href="https://github.com/zhovner/OneFileLinux/">github.com/zhovner/OneFileLinux</a>
 </div>
 
@@ -25,4 +25,4 @@ Sources: <a href="https://github.com/zhovner/OneFileLinux/">github.com/zhovner/O
 
 ### Why?
 
-This can be useful when you need Linux on bare metal and can't use USB flash. In comparison with Live USB flash, this method is much faster, because you don't need to 
+This can be useful when you need Linux on bare metal and can't use USB flash. In comparison with Live USB flash, one file Linux setups permanently in EFI partition and can boot any time later. 
