@@ -82,5 +82,35 @@ Every time when you need it again, follow steps 2 and 4 from recovery console.
 ---
 
 ## Run on PC
+There are few ways how to run OneFileLinux on PC motherboard. Some motherboards have builtin UEFI Shell that can run any efi binary from console.  
+I will describe setup process for my old ThinkPad X220 that haven't UEFI shell. 
+
+#### 1. Copy OneFileLinux.efi to EFI partition 
+  
+If you use Windows 10 installed in EFI mode, you have EFI system partition 100 MB in size.  
+You need to find out how to mount by itself. You can do this with OneFileLinux.efi runned from USB flash or any other linux distro.
+
+
+#### 2. Add NVRAM boot option
+
+I can't find out how to do this in Windows, so you probably need Linux for this.  
+Replace `/dev/sda` to you disk path and `--part 2` to your EFI partition number.  
+  
+`efibootmgr --disk /dev/sda --part 2 --create --label "One File Linux" --loader /OneFileLinux.efi`
+
+#### 3. Choose One File Linux from boot menu
+
+On my ThinkPad X220 I press F12 while power on to open boot menu. Hotkey depends on your motherboard.  
+  
+<img alt="ThinkPad X220 boot menu" width="600" src="/img/thinkpad-x220-boot-menu.png" />
+
+---
+
+## Run from USB flash
+The only benefit from running OneFileLinux from USB flash, is that no additional software required to create bootable flash drive.  
+Just format flash drive as FAT32 in GPT scheme and copy OneFileLinux.efi to default path `\EFI\BOOT\BOOTx64.EFI`
+
+Windows 
+
 
 
