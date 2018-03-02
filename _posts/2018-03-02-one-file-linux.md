@@ -58,13 +58,21 @@ For me it will be: `diskutil mount disk0s1`
 On macOS since El Capitan enabled by default SIP (System Integrity Protection) prohibits to change boot options.  
 To check SIP state run `csrutil status`. In normal situation it should be enabled.  
   
-If SIP is enabled you can run bless <b>ONLY</b> from Recovery console.  
-To boot in Recovery mode press <b>CMD+R</b> while boot and go to _Utilities —> Terminal_ from top menu.
-In recovery console follow steps 2 and 4 every time you need to boot OneFileLinux.
+If SIP is enabled you can run bless <b>only</b> from Recovery console, otherwise it returns error.  
+To boot in Recovery mode press <b>CMD+R</b> while boot and go to **_Utilities —> Terminal_** from top menu.  
+In recovery console follow steps 2 and 4 every time you need to boot OneFileLinux.  
 
 `bless --mount /Volumes/EFI --setBoot --nextonly --file /Volumes/EFI/OneFileLinux.efi`
   
   
 This command sets NVRAM option to boot OneFileLinux.efi only once. Next reboot will return default boot order. 
+
+### 5. Reboot 
+
+Reboot to run OneFileLinux. Once you've done, type `reboot` command to got back in macOS. 
+
+---
+
+## Run on PC
 
 
