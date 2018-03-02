@@ -30,6 +30,7 @@ Sources: <a href="https://github.com/zhovner/OneFileLinux/">github.com/zhovner/O
 This can be useful when you need Linux on bare metal and can't use USB flash. In comparison with Live USB flash, one file Linux setups permanently in EFI partition and can boot any time later.  
 My personal goal is to use laptop's internal PCIe WiFi card for cracking WiFi with <b>aircrack-ng</b> and <b>reaver</b> software, since PCIe devices can't be forwarded into virtual machine. 
 
+---
   
 ## Run on Macbook
 
@@ -39,11 +40,12 @@ My personal goal is to use laptop's internal PCIe WiFi card for cracking WiFi wi
 
 `diskutil mount diskN` 
 
-Where diskN is your EFI disk number. To find your EFI disk number use `diskutil list` command.  
-![macOS diskutil list EFI partition](/img/diskutil-list-efi.png)
-For me it will be 
+Where diskN is your EFI disk number.  
+To find your EFI disk number use `diskutil list` command.  
+  
+<img width="200" alt="macOS diskutil list EFI partition" src="/img/diskutil-list-efi.png" />
 
-`diskutil mount disk0s1`
+For me it will be: `diskutil mount disk0s1`
 
 
 #### 3. Copy OneFileLinux.efi to EFI partition
@@ -51,7 +53,7 @@ For me it will be
 `cp ~/Downloads/OneFileLinux.efi /Volumes/EFI/`
 
 
-### 4. Set boot option in NVRAM
+#### 4. Set boot option in NVRAM
 
 On macOS since El Capitan enabled by default SIP (System Integrity Protection) prohibits to change boot options.  
 To check SIP state run `csrutil status`. In normal situation it should be enabled.  
