@@ -76,7 +76,7 @@ This command sets NVRAM option to boot OneFileLinux.efi only once. Next reboot w
   
 ### 5. Reboot 
 
-Reboot to run OneFileLinux. Once you've done, type `reboot` in Linux console and go back to macOS. 
+Reboot to run OneFileLinux. Once you've done, type `reboot` in Linux console and go back to macOS.   
 Every time when you need it again, follow steps 2 and 4 from recovery console.
 
 ---
