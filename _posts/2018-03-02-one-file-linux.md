@@ -2,8 +2,9 @@
 layout: post
 category: geek
 tags:
-excerpt:
-title: One File Linux
+image: one-file-linux.png
+title: "One File Linux"
+description: "Live linux distro combined in one ~20MB file. Runs on any UEFI computer (PC or Mac) without installation. Just copy one file to EFI system partition and boot. "
 ---
 
 ![One File Linux logo](/img/one-file-linux.png) Live linux distro combined in one ~20MB file. Runs on any UEFI computer (PC or Mac) without installation. Just copy one file to EFI system partition and boot. 
