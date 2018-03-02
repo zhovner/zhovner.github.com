@@ -14,7 +14,8 @@ title: One File Linux
 <div style="text-align:center;">
 Sources: <a href="https://github.com/zhovner/OneFileLinux/">github.com/zhovner/OneFileLinux</a>
 </div>
-
+  
+  
 ### Main advantages
 
 * **No installation required** — no need to create additional paritions. Just copy one file to EFI system partition and add new boot entry to NVRAM.
