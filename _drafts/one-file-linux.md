@@ -6,8 +6,8 @@ excerpt:
 title: One File Linux
 ---
 
-### Live Linux distro combined in one EFI file
+![One File Linux logo](/img/one-file-linux.png) Live linux distro combined in one EFI file
 
-![One File Linux logo](/img/one-file-linux.png)
-
-Download 27 MB
+<div class="margin: 0 auto;"> 
+<p><font size=10>Download</font></p>
+</div>
