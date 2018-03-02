@@ -126,6 +126,7 @@ Windows does not allow to format flash drive in GPT scheme from GUI, so you need
 
 Then format drive from `diskmgmt.msc` in FAT32.
 
+---
 
 ## Build your own 
 
@@ -135,10 +136,10 @@ It based on Alpine Linux and vanilla kernel.
 1. Clone repositry  
 `git clone https://github.com/zhovner/OneFileLinux`
 
-2. Make changes in root filesystem and kernel
+2. Make changes in root filesystem and kernel  
 `chroot alpine-minirootfs /bin/ash`
 
-3. Build 
+3. Build  
 `./build.sh`
 
 
