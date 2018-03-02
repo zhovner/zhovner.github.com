@@ -42,7 +42,7 @@ My personal goal is to use laptop's internal PCIe WiFi card for cracking WiFi wi
 
 `diskutil mount diskN` 
 
-Where diskN is your EFI disk number.  
+where diskN is your EFI disk number.  
 To find your EFI disk number use `diskutil list` command.  
   
 <img width="500" alt="macOS diskutil list EFI partition" src="/img/diskutil-list-efi.png" />
