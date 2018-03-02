@@ -35,6 +35,8 @@ My personal goal is to use laptop's internal PCIe WiFi card for cracking WiFi wi
 ## Run on Macbook
 
 #### 1. Download OneFileLinux.efi from link above.  
+  
+  
 
 #### 2. Mount EFI system partition 
 
@@ -43,16 +45,19 @@ My personal goal is to use laptop's internal PCIe WiFi card for cracking WiFi wi
 Where diskN is your EFI disk number.  
 To find your EFI disk number use `diskutil list` command.  
   
-<img width="200" alt="macOS diskutil list EFI partition" src="/img/diskutil-list-efi.png" />
+<img width="500" alt="macOS diskutil list EFI partition" src="/img/diskutil-list-efi.png" />
 
 For me it will be: `diskutil mount disk0s1`
 
-
+  
+  
+  
 #### 3. Copy OneFileLinux.efi to EFI partition
   
 `cp ~/Downloads/OneFileLinux.efi /Volumes/EFI/`
 
-
+  
+  
 #### 4. Set boot option in NVRAM
 
 On macOS since El Capitan enabled by default SIP (System Integrity Protection) prohibits to change boot options.  
@@ -66,10 +71,13 @@ In recovery console follow steps 2 and 4 every time you need to boot OneFileLinu
   
   
 This command sets NVRAM option to boot OneFileLinux.efi only once. Next reboot will return default boot order. 
-
+  
+  
+  
 ### 5. Reboot 
 
-Reboot to run OneFileLinux. Once you've done, type `reboot` command to got back in macOS. 
+Reboot to run OneFileLinux. Once you've done, type `reboot` in Linux console and go back to macOS. 
+Every time when you need it again, follow steps 2 and 4 from recovery console.
 
 ---
 
