@@ -10,4 +10,4 @@ title: One File Linux
 
 ![One File Linux logo](/img/one-file-linux.png)
 
-Download
+Download 27 MB
