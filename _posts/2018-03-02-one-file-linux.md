@@ -23,7 +23,14 @@ Sources: <a href="https://github.com/zhovner/OneFileLinux/">github.com/zhovner/O
 * **No Boot Manager required (GRUB, rEFInd)** — boots directly by UEFI firmware, no additional software needed.
 * **Doesn't change the boot sequence** — can boot only once, next reboot will return default settings.
 * **Compatible with disk encryption** — works with macOS FileVault and dm-crypt. Because EFI system parition is not encrypted.
+  
 
 ### Why?
 
-This can be useful when you need Linux on bare metal and can't use USB flash. In comparison with Live USB flash, one file Linux setups permanently in EFI partition and can boot any time later. 
+This can be useful when you need Linux on bare metal and can't use USB flash. In comparison with Live USB flash, one file Linux setups permanently in EFI partition and can boot any time later.  
+My personal goal is to use laptop's internal PCIe WiFi card for cracking WiFi with <b>aircrack-ng</b> and <b>reaver</b> software, since PCIe devices can't be forwarded into virtual machine. 
+
+  
+## Run on Macbook
+
+#### 1. Download OneFileLinux.efi from link above.  
