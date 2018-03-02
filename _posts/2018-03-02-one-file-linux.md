@@ -88,7 +88,7 @@ I will describe setup process for my old ThinkPad X220 that doesn't have UEFI sh
 #### 1. Copy OneFileLinux.efi to EFI partition 
   
 If you use Windows 10 installed in EFI mode, you have EFI system partition 100 MB in size.  
-You need to find out how to mount by itself. You can do this with OneFileLinux.efi runned from USB flash or any other linux distro.
+You need to find out how to mount by itself. You can do this with OneFileLinux.efi run from USB flash or any other linux distro.
 
 
 #### 2. Add NVRAM boot option
@@ -107,7 +107,7 @@ On my ThinkPad X220 I press F12 while power on to open boot menu. Hotkey depends
 ---
 
 ## Run from USB flash
-The only benefit from running OneFileLinux from USB flash, is that no additional software required to create bootable flash drive.  
+The only benefit from running OneFileLinux from USB flash, is that no additional software is required to create bootable flash drive.  
 Just format flash drive as FAT32 in GPT scheme  
 and copy OneFileLinux.efi to default path `\EFI\BOOT\BOOTx64.EFI`  
 
