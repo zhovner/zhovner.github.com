@@ -108,8 +108,9 @@ On my ThinkPad X220 I press F12 while power on to open boot menu. Hotkey depends
 
 ## Run from USB flash
 The only benefit from running OneFileLinux from USB flash, is that no additional software is required to create bootable flash drive.  
-Just format flash drive as FAT32 in GPT scheme  
-and copy OneFileLinux.efi to default path `\EFI\BOOT\BOOTx64.EFI`  
+Just format flash drive as FAT32 in GPT scheme and copy OneFileLinux.efi to default path:
+  
+`\EFI\BOOT\BOOTx64.EFI`  
 
 
 #### Format in GPT scheme in Windows  
