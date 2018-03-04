@@ -75,14 +75,15 @@ This command sets NVRAM option to boot OneFileLinux.efi only once. Next reboot w
   
   
   
-### 5. Reboot 
+#### 5. Reboot 
 
 Reboot to run OneFileLinux. Once you've done, type `reboot` in Linux console and go back to macOS.   
 Every time when you need it again, follow steps 2 and 4 from recovery console.
 
----
+
 
 ## Run on PC
+---
 There are few ways how to run OneFileLinux on PC motherboard. Some motherboards have builtin UEFI Shell that can run any efi binary from console.  
 I will describe setup process for my old ThinkPad X220 that doesn't have UEFI shell. 
 
@@ -127,9 +128,8 @@ Windows does not allow to format flash drive in GPT scheme from GUI, so you need
 
 Then format drive from `diskmgmt.msc` in FAT32.
 
----
-
 ## Build your own 
+---
 
 You can build your own version of One File Linux.  
 It based on Alpine Linux and vanilla kernel.  
