@@ -106,9 +106,9 @@ On my ThinkPad X220 I press F12 while power on to open boot menu. Hotkey depends
   
 <img alt="ThinkPad X220 boot menu" width="600" src="/img/thinkpad-x220-boot-menu.png" />
 
----
 
 ## Run from USB flash
+---
 The only benefit from running OneFileLinux from USB flash, is that no additional software is required to create bootable flash drive.  
 Just format flash drive as FAT32 in GPT scheme and copy OneFileLinux.efi to default path:
   
