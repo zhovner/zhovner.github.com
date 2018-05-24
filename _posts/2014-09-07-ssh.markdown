@@ -48,3 +48,78 @@ title: SSH
 
 `ssh -L [локальный_адрес:]локальный_порт:[удаленный_адрес]:удаленный_порт remote-host`
 
+## AutoSSH
+Для автоматического удаленного доступа к устройствам за NAT  
+На сервере создается юзер `switch` без шелла, клиенты добавляются по ключам. У каждого клиента свой уникальный порт, который он форвардит.  
+
+### Сервер для autossh
+
+Создать юзера:  
+`useradd --create-home switch`  
+  
+Заменить шелл на `nologin`:  
+```
+switch:x:1001:1001::/home/switch:/bin/nologin
+```
+
+Разрешить авторизацию в `/etc/shadow`:  
+```
+Заменить это
+switch:!:...........
+
+На это 
+switch:*:...........
+```
+
+Создать ключи:  
+```
+mkdir /home/switch/.ssh
+ssh-keygen -t rsa -b 2048 -C "switch@autossh" -f /home/switch/.ssh/id_rsa
+cat /home/switch/.ssh/id_rsa.pub > /home/switch/.ssh/authorized_keys
+```
+
+### Клиент autossh 
+
+Скопировать ключ:  
+```
+cp id_rsa /home/REMOTE_DEVICE/.ssh/switch-autossh.key
+chmod go-rwx /home/REMOTE_DEVICE/.ssh/switch-autossh.key
+```
+
+Подключиться первый раз чтобы создался `known_hosts`:  
+```
+ssh -N -i  ~/.ssh/switch-autossh.key switch@remote_server_ip 
+```
+
+Настроить демон autossh:  
+```
+# /etc/systemd/system/autossh.service
+# --------------------------------
+
+[Unit]
+Description=Keeps a tunnel to zhovner.switch open
+After=ssh.service
+
+[Service]
+Environment=AUTOSSH_GATETIME=0
+
+# -p [PORT]
+# -l [user]
+# -M 0 --> no monitoring
+# -N Just open the connection and do nothing (not interactive)
+# -R remote forwarding <remote ip>:<remote port>:<local ip>:<local port>
+# -R can be more than one
+ExecStart=/usr/bin/autossh -M 0 -q -N  -o "ServerAliveInterval 30" -o "ServerAliveCountMax 3" -p 222  -R 123.123.123.123:9122:127.0.0.1:22 -i /root/.ssh/switch-autossh.key switch@123.123.123.123
+
+# Wait 30 seconds before start. Dirty hack to maximum portability because of After=network.target mess.
+ExecStartPre=/bin/sleep 30
+
+ExecStop=killall -s KILL autossh
+
+RestartSec=5
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+
