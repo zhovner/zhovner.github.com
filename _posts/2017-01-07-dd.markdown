@@ -20,7 +20,7 @@ title: dd
 
 Показывать прогресс  
 `sudo dd if=/blabla.iso | pv | sudo dd of=/dev/disk`  
-Если указать `pv` объем, то виден будет прогресс в процентах: `pv -s 2G` 
+Если указать `pv` объем, то виден будет прогресс в процентах: `pv -s 2G`  
 На macOS `brew install pv`  
 
 
