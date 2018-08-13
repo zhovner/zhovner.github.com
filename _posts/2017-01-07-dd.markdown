@@ -18,4 +18,9 @@ title: dd
 Смещения в hex (работает только в bash)  
 `dd if=source_file of=output_file ibs=1 skip=$((0x123142)) count=$((0x1231))`  
 
+Показывать прогресс  
+`sudo dd if=/Users/a/Downloads/archlinux-2018.08.01-x86_64.iso | pv | sudo dd of=/dev/rdisk5`  
+Если указать `pv` объем, то виден будет прогресс в процентах: `pv -s 2G` 
+На macOS `brew install pv`  
+
 
