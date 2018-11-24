@@ -530,10 +530,8 @@ category: tools
             }
             else
             {
-             var str = new StringUtil().getNumberAsHexStr(crcValue);
-             var spl = str.match(/../g);
                 document.getElementById('resultLabel').innerHTML =
-                    '<span style="color:green">' + spl[0] + spl[2] + spl[1] + '</span> ';
+                    '<span style="color:green">' + new StringUtil().getNumberAsHexStr(crcValue) + '</span> ';
             }
         }
 
