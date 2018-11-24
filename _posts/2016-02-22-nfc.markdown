@@ -284,7 +284,8 @@ category: tools
             this.getCharacterByteArrayFromByteString = function (str)
             {
                 var bytes = [];
-                var splitStr = str.split(" ");
+                var bytePos = 0;
+                var splitStr = str.split(/\s+/);
                 for (var i = 0; i < splitStr.length; i++)
                 {
                     var byteStr = splitStr[i];
@@ -306,7 +307,8 @@ category: tools
                     {
                         if (b < 256)
                         {
-                            bytes[i] = b;
+                            bytes[bytePos] = b;
+                            bytePos++;
                         }
                         else
                         {
@@ -455,7 +457,7 @@ category: tools
             }
             else if (document.getElementById('radiobuttoninputdatabytes').checked)
             {
-                if (inputText.indexOf(' ') == -1 && inputText.length > 4)
+                if (inputText.indexOf(' ') == -1 && inputText.length > 2 && inputText[1] != 'x')
                 {
                     /* Hex workshop support which copes bytes without spaces */
                     var newText = "";
