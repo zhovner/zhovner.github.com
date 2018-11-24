@@ -76,13 +76,13 @@ category: tools
             new CrcModel(32, "CRC32_JAMCRC", 0x04C11DB7, 0xFFFFFFFF, 0x00000000, true, true),
             new CrcModel(32, "CRC32_XFER", 0x000000AF, 0x00000000, 0x00000000, false, false)
         ];
-
-
+             
+               
         /* two constructors supported:
             - new Crc(width, polynomial, initialVal, finalXorVal, inputReflected, resultReflected)
             - new Crc(width, crcModel)
         */
-        var Crc = function (width, polynomial, initialVal, finalXorVal, inputReflected, resultReflected) {
+        var Crc = function (width, polynomial, initialVal, finalXorVal, inputReflected, resultReflected) {            
             /* private variables */
             // crc model variables
             var width;
@@ -526,7 +526,7 @@ category: tools
             {
                 /* special handling for printing 32bit required, otherwise interpreted as signed and actual string value is a negative number */
                 document.getElementById('resultLabel').innerHTML =
-                    '<span style="color:green">' + new StringUtil().getNumberAsHexStr32(crcValue) + '</span> ';
+                    '<span style="color:green">' + new StringUtil().getNumberAsHexStr32FixedWidth(crcValue) + '</span> ';
             }
             else
             {
