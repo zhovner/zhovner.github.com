@@ -6,7 +6,6 @@ excerpt:
 title: Universal IKEv2 Server Configuration
 ---
 
-
 ![IKEv2 vs Other VPN](/img/ikev2_vs_othervpn.png) IKEv2 is a modern protocol developed by Microsoft and Cisco which was chosen as a default VPN type in OS X 10.11 (El Capitan) and Windows since 7. It supports strong encryption, auto reconnection on network change ([MOBIKE](https://tools.ietf.org/html/rfc4555)), easy configuration and more.
 
 This manual describes minimal IKEv2 server configuration for the most simple client setup based on username/password authentication.
@@ -249,7 +248,7 @@ For DigitalOcean and others providers you will need setup NDP proxy. Related thr
 
 ---
 
-## Client configuration<!--base32-40-base32-->
+## Client configuration<!--base32-c9gq6t9k68pk8c1dc9gq6t9k68-base32-->
 
 ### macOS &gt;10.11 and iOS 9 autconfiguration profile
 
@@ -461,7 +460,7 @@ conn my-super-vpn
 
     # left - local  side
     left=%any
-    eap\_identity=x220
+    eap_identity=x220
     leftsourceip=%any,%any6
     leftauth=eap-mschapv2
 
