@@ -6,8 +6,9 @@ excerpt:
 title: ffmpeg
 ---
 
-### convert any video to mp4 (h264, AAC) and adopt it for playing in browser  
+### convert any video to mp4 (h264, AAC)
 
+and adopt it for playing in browser   
 `ffmpeg -i input.avi -movflags faststart output.mp4`
 
 Option `-movflags faststart` moovs atom at the front of the file to allow video play in streaming mode  
