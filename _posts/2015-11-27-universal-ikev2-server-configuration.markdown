@@ -151,7 +151,7 @@ conn %default
     leftsubnet=0.0.0.0/0,::/0
 
     # right - remote (client) side
-    eap\_identity=%identity
+    eap_identity=%identity
     # ipv4 and ipv6 subnets that assigns to clients. If you don't have ipv6 then remove it
     rightsourceip=10.1.1.0/24,2a00:1450:400c:c05::/112
     rightdns=8.8.8.8,2001:4860:4860::8888
