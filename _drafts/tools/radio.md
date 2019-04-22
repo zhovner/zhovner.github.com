@@ -6,6 +6,7 @@ excerpt:
 title:
 ---
 
-&nbsp;
+### Ссылки
 
-asdasdasd
+https://www.elttam.com.au/blog/intro-sdr-and-rf-analysis/  
+https://blog.attify.com/radio-waves-hacking/  
