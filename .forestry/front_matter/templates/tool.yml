@@ -8,5 +8,3 @@ fields:
 - type: text
   name: category
   label: category
-pages:
-- _posts/Foresty.md
